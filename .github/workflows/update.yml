@@ -1,0 +1,40 @@
+name: Update Health News
+on:
+  schedule:
+    # 08:00 Thailand (UTC+7) = 01:00 UTC
+    - cron: '0 1 * * *'
+  workflow_dispatch:  # Manual trigger button
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run news fetcher
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python fetch_news.py
+
+      - name: Commit and push data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          if git diff --cached --quiet; then
+            echo "No changes to data.json"
+          else
+            git commit -m "🔄 Update health news $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
