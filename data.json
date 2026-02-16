@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "version": "1B-v2.1",
+    "generated_at_iso": "2026-02-16T01:00:00Z",
+    "generated_at_local": "16 ก.พ. 2026 08:00 น.",
+    "schedule_local": "ทุกวัน: 8:00 น.",
+    "calls_used": 20,
+    "calls_budget": 20,
+    "partial": false,
+    "notes": "Sample data — will be replaced on first automated run."
+  },
+  "executive_summary": {
+    "trends": [
+      "Mediterranean Diet ลดความเสี่ยงโรคหลอดเลือดสมอง 18% ในผู้หญิง",
+      "การออกกำลังกายมีประสิทธิภาพเทียบเท่ายาในการรักษาโรคซึมเศร้า",
+      "Gene editing รักษาโรคไตที่ถ่ายทอดทางพันธุกรรมสำเร็จ",
+      "2026 Wellness Shift: Personalized biology แทน universal protocols",
+      "FDA ชี้แจง AI wearable บางประเภทอาจไม่ต้องขึ้นทะเบียนเป็นอุปกรณ์การแพทย์"
+    ],
+    "strategic": [
+      "🔴 ด่วน: องค์กรควรทบทวนนโยบายสุขภาพพนักงาน — การออกกำลังกายมีผลเท่ายา",
+      "ตลาด personalized wellness กำลังเติบโต — โอกาสสำหรับ health tech startups",
+      "Gene therapy เข้าสู่ระยะ preclinical — ติดตามผลกระทบต่ออุตสาหกรรมประกันสุขภาพ",
+      "AI wearables ที่ไม่ใช่ diagnostic อาจไม่ต้องขึ้นทะเบียน — โอกาสทางธุรกิจ"
+    ],
+    "local": [
+      "ประเทศไทยเตรียมเป็นศูนย์กลาง wellness tourism ของ ASEAN",
+      "มหิดล-จุฬา ร่วมวิจัย precision medicine สำหรับคนไทย",
+      "กระทรวงสาธารณสุข อัปเดตนโยบาย digital health 2026"
+    ]
+  },
+  "items": [
+    {
+      "id": "sample001",
+      "title": "Mediterranean Diet Linked to 18% Lower Stroke Risk in Women",
+      "summary": "A 20-year study of 105,614 women found that those who closely followed a Mediterranean diet had an 18% lower risk of any stroke.",
+      "source": "Neurology Open Access",
+      "url": null,
+      "published_at": null,
+      "region": "GLOBAL",
+      "badge_color": "#fbbf24",
+      "strategic_implication": "องค์กรควรพิจารณานำ Mediterranean diet เป็นทางเลือกในโปรแกรมสุขภาพพนักงาน",
+      "query_tag": "GLOBAL_1",
+      "fetched_from_query": "sample"
+    },
+    {
+      "id": "sample002",
+      "title": "Aerobic Exercise Rivals Medication for Depression and Anxiety",
+      "summary": "A landmark review of 79,000 participants found all forms of exercise are as effective as medication for depression and anxiety.",
+      "source": "British Journal of Sports Medicine",
+      "url": null,
+      "published_at": null,
+      "region": "RESEARCH",
+      "badge_color": "#8b5cf6",
+      "strategic_implication": "ทีม HR ควรลงทุนในโปรแกรมออกกำลังกายในที่ทำงาน — ลดต้นทุนสุขภาพจิตระยะยาว",
+      "query_tag": "RESEARCH_1",
+      "fetched_from_query": "sample"
+    },
+    {
+      "id": "sample003",
+      "title": "Mayo Clinic Uses Gene Editing to Reverse Inherited Kidney Disease",
+      "summary": "Mayo Clinic researchers used gene editing to successfully reverse an inherited kidney disease in a preclinical study.",
+      "source": "Mayo Clinic",
+      "url": null,
+      "published_at": null,
+      "region": "GLOBAL",
+      "badge_color": "#fbbf24",
+      "strategic_implication": "Gene therapy กำลังเข้าสู่ระยะ preclinical — ธุรกิจประกันสุขภาพต้องเตรียมรับมือ",
+      "query_tag": "GLOBAL_3",
+      "fetched_from_query": "sample"
+    },
+    {
+      "id": "sample004",
+      "title": "ตลาด AI ไทย จะใหญ่ขึ้นเป็น 500 ล้านดอลลาร์ ใน 2026",
+      "summary": "ตลาด AI ในประเทศไทยเติบโตอย่างรวดเร็ว คาดว่าจะถึง 500 ล้านดอลลาร์ภายในสิ้นปี 2026",
+      "source": "Bangkok Post",
+      "url": null,
+      "published_at": null,
+      "region": "THAILAND",
+      "badge_color": "#f472b6",
+      "strategic_implication": "ตลาดเติบโต คุณต้องสร้างทีม AI ให้พอ เพื่อแข่งขันได้",
+      "query_tag": "THAILAND_1",
+      "fetched_from_query": "sample"
+    },
+    {
+      "id": "sample005",
+      "title": "2026 Wellness Shift: Personalized Biology Over Universal Protocols",
+      "summary": "The Global Wellness Summit identifies a major pivot toward individualized wellness based on personal biology, hormones, and life stage.",
+      "source": "Global Wellness Summit",
+      "url": null,
+      "published_at": null,
+      "region": "GLOBAL",
+      "badge_color": "#fbbf24",
+      "strategic_implication": "ธุรกิจ wellness ต้องปรับจาก one-size-fits-all เป็น personalized approach",
+      "query_tag": "GLOBAL_5",
+      "fetched_from_query": "sample"
+    },
+    {
+      "id": "sample006",
+      "title": "FDA Clarifies AI Wearable Regulation: Wellness Features May Be Exempt",
+      "summary": "The FDA released guidance clarifying that lower-risk wellness AI features in wearables may fall outside medical device regulation.",
+      "source": "FDA",
+      "url": null,
+      "published_at": null,
+      "region": "RESEARCH",
+      "badge_color": "#8b5cf6",
+      "strategic_implication": "โอกาสสร้างผลิตภัณฑ์ wellness wearable ที่ไม่ต้องขึ้นทะเบียน FDA — ลดต้นทุนและเวลา",
+      "query_tag": "RESEARCH_4",
+      "fetched_from_query": "sample"
+    }
+  ],
+  "errors": []
+}

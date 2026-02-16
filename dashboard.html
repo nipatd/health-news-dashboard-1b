@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Health & Wellness News | สุขภาพและความเป็นอยู่ที่ดี</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════ ANIMATIONS ═══════ */
+        @keyframes breathe { 0%,100%{transform:scale(1);opacity:.6} 50%{transform:scale(1.05);opacity:1} }
+        @keyframes dnaHelix { 0%{background-position:0% 0%} 100%{background-position:100% 100%} }
+        @keyframes pulseRing { 0%{transform:scale(.95);opacity:0} 50%{opacity:1} 100%{transform:scale(1.4);opacity:0} }
+        @keyframes fadeSlideUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes cardReveal { from{opacity:0;transform:translateY(24px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+        @keyframes shimmerFlow { 0%{background-position:-300% 0} 100%{background-position:300% 0} }
+        @keyframes heartbeat { 0%,100%{transform:scale(1)} 14%{transform:scale(1.15)} 28%{transform:scale(1)} 42%{transform:scale(1.08)} 56%{transform:scale(1)} }
+        @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+        @keyframes floatOrb { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(30px,-20px) scale(1.1)} 50%{transform:translate(-10px,-40px) scale(.95)} 75%{transform:translate(-30px,-10px) scale(1.05)} }
+
+        /* ═══════ RESET & BASE ═══════ */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        body{min-height:100vh;background:#080c0a;font-family:'Outfit',sans-serif;color:#dce8e0;overflow-x:hidden}
+        body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(16,185,129,.07) 0%,transparent 40%),radial-gradient(circle at 85% 80%,rgba(139,92,246,.05) 0%,transparent 40%),radial-gradient(circle at 50% 50%,rgba(6,182,212,.04) 0%,transparent 50%);pointer-events:none;z-index:0}
+        body::after{content:'';position:fixed;inset:0;opacity:.025;background-image:repeating-linear-gradient(60deg,transparent,transparent 40px,rgba(16,185,129,.4) 40px,rgba(16,185,129,.4) 41px),repeating-linear-gradient(-60deg,transparent,transparent 40px,rgba(6,182,212,.3) 40px,rgba(6,182,212,.3) 41px);animation:dnaHelix 30s linear infinite;background-size:200% 200%;pointer-events:none;z-index:0}
+        ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#080c0a}::-webkit-scrollbar-thumb{background:#1a3a2a;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#10b981}
+
+        .container{position:relative;z-index:1;max-width:1320px;margin:0 auto}
+
+        /* ═══════ ORBS ═══════ */
+        .orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+        .orb-1{width:400px;height:400px;background:rgba(16,185,129,.08);top:-100px;left:-100px;animation:floatOrb 20s ease-in-out infinite}
+        .orb-2{width:300px;height:300px;background:rgba(139,92,246,.06);bottom:-50px;right:-50px;animation:floatOrb 25s ease-in-out infinite reverse}
+        .orb-3{width:250px;height:250px;background:rgba(6,182,212,.05);top:50%;left:60%;animation:floatOrb 18s ease-in-out infinite 5s}
+
+        /* ═══════ TOP BAR ═══════ */
+        .top-bar{height:4px;background:linear-gradient(90deg,#10b981,#06b6d4,#8b5cf6,#f59e0b,#ef4444,#ec4899,#10b981);background-size:300% 100%;animation:shimmerFlow 8s linear infinite}
+
+        /* ═══════ TIMESTAMP BAR ═══════ */
+        .timestamp-bar{text-align:center;padding:14px 20px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#8ba89a;letter-spacing:1px}
+        .timestamp-bar .time-value{color:#06b6d4;font-weight:600}
+        .timestamp-bar .schedule{margin-left:24px;color:#fbbf24}
+
+        /* ═══════ HEADER / HERO ═══════ */
+        header{padding:0 36px}
+        .hero{position:relative;border:1px solid rgba(16,185,129,.15);border-radius:20px;padding:52px 48px 44px;background:linear-gradient(160deg,rgba(16,185,129,.06) 0%,rgba(8,12,10,.95) 35%,rgba(6,182,212,.04) 70%,rgba(139,92,246,.03) 100%);overflow:hidden;animation:fadeSlideUp .8s ease-out}
+        .hero-cell{position:absolute;border-radius:50%;border:1px solid rgba(16,185,129,.08);animation:breathe 6s ease-in-out infinite}
+        .hero-cell-1{width:200px;height:200px;top:-60px;right:-40px}
+        .hero-cell-2{width:140px;height:140px;top:20px;right:80px;animation-delay:2s;border-color:rgba(6,182,212,.08)}
+        .hero-cell-3{width:90px;height:90px;bottom:-20px;right:200px;animation-delay:4s;border-color:rgba(139,92,246,.08)}
+        .hero-badge{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+        .hero-pulse{position:relative;width:10px;height:10px}
+        .hero-pulse-dot{width:10px;height:10px;background:#10b981;border-radius:50%;position:absolute}
+        .hero-pulse-ring{position:absolute;inset:-4px;border:2px solid #10b981;border-radius:50%;animation:pulseRing 2s ease-out infinite}
+        .hero-live-text{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:#10b981;letter-spacing:2px;text-transform:uppercase}
+        .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(32px,5.5vw,58px);font-weight:800;line-height:1.1;margin-bottom:16px;letter-spacing:-.5px}
+        .hero-title .line1{display:block;color:#f0faf4}
+        .hero-title .line2{display:block;background:linear-gradient(135deg,#10b981 0%,#06b6d4 40%,#8b5cf6 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+        .hero-tagline{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#6b8f7b}
+
+        /* ═══════ EXECUTIVE SUMMARY ═══════ */
+        .exec-summary{padding:0 36px;margin-top:28px;animation:fadeSlideUp .9s ease-out}
+        .exec-summary-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#10b981;margin-bottom:18px}
+        .exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .exec-col{background:linear-gradient(160deg,rgba(14,24,18,.95),rgba(8,12,10,.98));border:1px solid rgba(16,185,129,.12);border-radius:14px;padding:22px 20px}
+        .exec-col-title{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;margin-bottom:14px;letter-spacing:.5px}
+        .exec-col:nth-child(1) .exec-col-title{color:#06b6d4}
+        .exec-col:nth-child(2) .exec-col-title{color:#f59e0b}
+        .exec-col:nth-child(3) .exec-col-title{color:#f472b6}
+        .exec-item{font-size:13px;line-height:1.6;color:#b0c8ba;padding:4px 0 4px 14px;position:relative;border-bottom:1px solid rgba(16,185,129,.06)}
+        .exec-item:last-child{border-bottom:none}
+        .exec-item::before{content:'▸';position:absolute;left:0;color:#10b981;font-size:11px}
+        .exec-item.urgent::before{content:'🔴';font-size:10px}
+
+        /* ═══════ METHODOLOGY ═══════ */
+        .methodology{padding:0 36px;margin-top:24px;animation:fadeSlideUp 1s ease-out}
+        .methodology-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#8b5cf6;font-style:italic;margin-bottom:14px}
+        .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+        .method-box{background:rgba(14,24,18,.8);border:1px solid rgba(139,92,246,.1);border-radius:12px;padding:18px 16px}
+        .method-icon{font-size:20px;margin-bottom:8px}
+        .method-label{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:#06b6d4;margin-bottom:6px}
+        .method-text{font-size:12px;line-height:1.5;color:#8ba89a}
+
+        /* ═══════ FILTER BAR ═══════ */
+        .filter-bar{padding:20px 36px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;animation:fadeSlideUp 1.1s ease-out}
+        .filter-btn{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:8px 20px;border-radius:24px;border:1px solid rgba(16,185,129,.2);background:rgba(14,24,18,.6);color:#8ba89a;cursor:pointer;transition:all .3s;letter-spacing:.5px}
+        .filter-btn:hover{border-color:rgba(16,185,129,.5);color:#dce8e0}
+        .filter-btn.active{background:rgba(16,185,129,.15);border-color:#10b981;color:#10b981;box-shadow:0 0 16px rgba(16,185,129,.15)}
+        .filter-btn .count{font-size:11px;opacity:.7;margin-left:4px}
+        .filter-spacer{flex:1}
+        .calls-badge{font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b8f7b;padding:6px 14px;border:1px solid rgba(16,185,129,.1);border-radius:20px;background:rgba(14,24,18,.6)}
+
+        /* ═══════ PARTIAL BANNER ═══════ */
+        .partial-banner{margin:0 36px 16px;padding:12px 20px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#fbbf24;text-align:center;display:none}
+        .partial-banner.show{display:block}
+
+        /* ═══════ CARDS GRID ═══════ */
+        .cards-grid{padding:0 36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .card{background:linear-gradient(160deg,#0e1812,#080c0a);border:1px solid rgba(16,185,129,.08);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:all .35s;animation:cardReveal .6s ease-out both}
+        .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10b981,#06b6d4,#8b5cf6);opacity:0;transition:opacity .35s}
+        .card:hover{transform:translateY(-5px);border-color:rgba(16,185,129,.2);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+        .card:hover::before{opacity:1}
+        .card-badge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:6px;margin-bottom:14px}
+        .card-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.35;color:#eaf5ef;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+        .card-summary{font-size:13px;line-height:1.6;color:#8ba89a;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .card-strategy{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+        .card-strategy-label{font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;color:#8b5cf6;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+        .card-strategy-text{font-size:12px;line-height:1.5;color:#b0a8c8}
+        .card-source{font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b8f7b}
+        .card-source a{color:#10b981;text-decoration:none;border-bottom:1px dotted rgba(16,185,129,.3)}
+        .card-source a:hover{border-bottom-style:solid}
+
+        /* ═══════ LOADING STATE ═══════ */
+        .loading{text-align:center;padding:80px 20px;display:none}
+        .loading.show{display:block}
+        .loading-heart{font-size:48px;animation:heartbeat 1.5s infinite}
+        .loading-text{font-family:'JetBrains Mono',monospace;font-size:13px;color:#6b8f7b;margin-top:16px}
+
+        /* ═══════ ERROR STATE ═══════ */
+        .error-state{text-align:center;padding:60px 20px;display:none;color:#ef4444}
+        .error-state.show{display:block}
+
+        /* ═══════ FOOTER ═══════ */
+        footer{padding:48px 36px 32px;text-align:center;border-top:1px solid rgba(16,185,129,.06);margin-top:48px}
+        .footer-curated{font-family:'JetBrains Mono',monospace;font-size:11px;color:#4a6b5a;margin-bottom:6px}
+        .footer-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;background:linear-gradient(135deg,#c9a84c,#f5d280);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .footer-hashtag{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8b5cf6;margin-top:4px;letter-spacing:1px}
+        .footer-sources{font-family:'JetBrains Mono',monospace;font-size:10px;color:#3a5a4a;margin-top:16px;line-height:1.8}
+        .footer-disclaimer{font-size:10px;color:#3a5a4a;margin-top:12px;font-style:italic}
+        .footer-powered{font-family:'JetBrains Mono',monospace;font-size:10px;color:#2a4a3a;margin-top:8px}
+
+        /* ═══════ RESPONSIVE ═══════ */
+        @media(max-width:1024px){
+            .cards-grid,.exec-grid{grid-template-columns:repeat(2,1fr)}
+            .method-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:640px){
+            .cards-grid,.exec-grid,.method-grid{grid-template-columns:1fr}
+            header,.exec-summary,.methodology,.filter-bar,.cards-grid,footer{padding-left:16px;padding-right:16px}
+            .hero{padding:32px 24px 28px}
+            .partial-banner{margin-left:16px;margin-right:16px}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Decorative orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- Top accent bar -->
+<div class="top-bar"></div>
+
+<div class="container">
+
+    <!-- Timestamp bar -->
+    <div class="timestamp-bar">
+        อัปเดต: <span class="time-value" id="lastUpdated">กำลังโหลด...</span>
+        <span class="schedule" id="scheduleDisplay"></span>
+    </div>
+
+    <!-- Hero -->
+    <header>
+        <div class="hero">
+            <div class="hero-cell hero-cell-1"></div>
+            <div class="hero-cell hero-cell-2"></div>
+            <div class="hero-cell hero-cell-3"></div>
+            <div class="hero-badge">
+                <div class="hero-pulse">
+                    <div class="hero-pulse-dot"></div>
+                    <div class="hero-pulse-ring"></div>
+                </div>
+                <span class="hero-live-text">Auto-Updated Daily</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="line1">Global</span>
+                <span class="line2">Health & Wellness</span>
+            </h1>
+            <p class="hero-tagline">Mind · Body · Longevity · Beauty · Holistic Living</p>
+        </div>
+    </header>
+
+    <!-- Executive Summary -->
+    <section class="exec-summary" id="execSummary" style="display:none">
+        <h2 class="exec-summary-title">มุมมองรวม</h2>
+        <div class="exec-grid">
+            <div class="exec-col">
+                <div class="exec-col-title">เทรนด์ที่เห็น</div>
+                <div id="execTrends"></div>
+            </div>
+            <div class="exec-col">
+                <div class="exec-col-title">ความหมายเชิงกลยุทธ์</div>
+                <div id="execStrategic"></div>
+            </div>
+            <div class="exec-col">
+                <div class="exec-col-title">มุมมองท้องถิ่น</div>
+                <div id="execLocal"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="methodology">
+        <h3 class="methodology-title">วิธีการคัดสรร &amp; นโยบายการอัปเดต</h3>
+        <div class="method-grid">
+            <div class="method-box">
+                <div class="method-icon">🤖</div>
+                <div class="method-label">อัปเดตอย่างไร</div>
+                <div class="method-text">ทุกวันเช้า 8 นาฬิกา ส่งข้อมูล 20 รายการที่คัดสรรมาแล้ว อัปเดตอัตโนมัติผ่าน GitHub Actions</div>
+            </div>
+            <div class="method-box">
+                <div class="method-icon">🎯</div>
+                <div class="method-label">เลือกจากไหน</div>
+                <div class="method-text">คัดเลือกจาก 50+ แหล่งข่าว ทั่วโลก และในไทย เนื้อหาที่เกี่ยวกับสุขภาพและผลกระทบเชิงกลยุทธ์</div>
+            </div>
+            <div class="method-box">
+                <div class="method-icon">🌐</div>
+                <div class="method-label">เนื้อหาครอบคลุมอะไร</div>
+                <div class="method-text">ข่าวสุขภาพ ทั่วโลก + เอเชียตะวันออกเฉียงใต้ + ประเทศไทย รวมผลวิจัย นโยบาย และเทรนด์</div>
+            </div>
+            <div class="method-box">
+                <div class="method-icon">💡</div>
+                <div class="method-label">อะไรต่างจากข่าวธรรมดา</div>
+                <div class="method-text">เราไม่แค่บอกข่าว แต่บอกด้วยว่า "มันหมายความว่าอะไรสำหรับองค์กรของคุณ" และ "ทีมของคุณต้องทำอะไร เตรียมตัว"</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">ทั้งหมด <span class="count" id="countAll"></span></button>
+        <button class="filter-btn" data-filter="GLOBAL" onclick="setFilter('GLOBAL')">โลก <span class="count" id="countGlobal"></span></button>
+        <button class="filter-btn" data-filter="ASIA_PACIFIC" onclick="setFilter('ASIA_PACIFIC')">เอเชีย <span class="count" id="countAsia"></span></button>
+        <button class="filter-btn" data-filter="THAILAND" onclick="setFilter('THAILAND')">ไทย <span class="count" id="countThailand"></span></button>
+        <button class="filter-btn" data-filter="RESEARCH" onclick="setFilter('RESEARCH')">วิจัย <span class="count" id="countResearch"></span></button>
+        <div class="filter-spacer"></div>
+        <div class="calls-badge" id="callsBadge">— / 20</div>
+    </div>
+
+    <!-- Partial banner -->
+    <div class="partial-banner" id="partialBanner"></div>
+
+    <!-- Loading -->
+    <div class="loading show" id="loadingState">
+        <div class="loading-heart">🫀</div>
+        <div class="loading-text">กำลังโหลดข้อมูล...</div>
+    </div>
+
+    <!-- Error -->
+    <div class="error-state" id="errorState">
+        <p>❌ ไม่สามารถโหลดข้อมูลได้</p>
+        <p style="font-size:13px;margin-top:8px;color:#8ba89a">กรุณาลองรีเฟรชหน้าเว็บ</p>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards-grid" id="cardsGrid" style="display:none"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-curated">Curated by</div>
+        <div class="footer-name">Dr.Dangjaithawin Anantachai</div>
+        <div class="footer-hashtag">#GlobalHealthIntelligence</div>
+        <div class="footer-sources">
+            Harvard · WHO · Mayo Clinic · NIH · Johns Hopkins · CDC · Lancet · Nature · Stanford · Cleveland Clinic · NEJM · FDA · Bangkok Post · Thai PBS · Chulalongkorn · Mahidol
+        </div>
+        <div class="footer-disclaimer">
+            ข้อมูลนี้คัดสรรอัตโนมัติจากข่าวสุขภาพสาธารณะ กรุณาปรึกษาแพทย์ผู้เชี่ยวชาญก่อนตัดสินใจทางการแพทย์
+        </div>
+        <div class="footer-powered">Powered by Claude AI · Automated via GitHub Actions · Solution 1B v2.1</div>
+    </footer>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   STATIC DASHBOARD — Solution 1B
+   GUARDRAIL A2 ENFORCED: This file is static-only.
+      It fetches ONLY local data.json. No external API calls.
+   ═══════════════════════════════════════════════════════════════ */
+
+const REGION_LABELS = {
+    GLOBAL: 'GLOBAL',
+    ASIA_PACIFIC: 'ASIA PACIFIC',
+    THAILAND: 'THAILAND',
+    RESEARCH: 'RESEARCH'
+};
+
+const REGION_COLORS = {
+    GLOBAL: { bg: 'rgba(251,191,36,.15)', border: '#fbbf24', text: '#fbbf24' },
+    ASIA_PACIFIC: { bg: 'rgba(6,182,212,.15)', border: '#06b6d4', text: '#06b6d4' },
+    THAILAND: { bg: 'rgba(244,114,182,.15)', border: '#f472b6', text: '#f472b6' },
+    RESEARCH: { bg: 'rgba(139,92,246,.15)', border: '#8b5cf6', text: '#8b5cf6' }
+};
+
+let allItems = [];
+let currentFilter = 'all';
+
+async function loadData() {
+    const loading = document.getElementById('loadingState');
+    const errorEl = document.getElementById('errorState');
+    const grid = document.getElementById('cardsGrid');
+
+    try {
+        const resp = await fetch('./data.json');
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+
+        // ── Meta / Timestamps ──
+        document.getElementById('lastUpdated').textContent = data.meta.generated_at_local || 'N/A';
+        document.getElementById('scheduleDisplay').textContent = data.meta.schedule_local || '';
+        document.getElementById('callsBadge').textContent = `${data.meta.calls_used}/${data.meta.calls_budget}`;
+
+        // ── Partial banner ──
+        if (data.meta.partial) {
+            const banner = document.getElementById('partialBanner');
+            banner.textContent = `${data.meta.calls_used}/${data.meta.calls_budget} แหล่งข้อมูลอัปเดต — ข้อมูลบางส่วน`;
+            banner.classList.add('show');
+        }
+
+        // ── Executive Summary ──
+        if (data.executive_summary) {
+            renderExecSummary(data.executive_summary);
+            document.getElementById('execSummary').style.display = '';
+        }
+
+        // ── Items ──
+        allItems = data.items || [];
+        updateCounts();
+        renderCards();
+
+        loading.classList.remove('show');
+        grid.style.display = '';
+
+    } catch (e) {
+        console.error('Failed to load data:', e);
+        loading.classList.remove('show');
+        errorEl.classList.add('show');
+    }
+}
+
+function renderExecSummary(es) {
+    const trendsEl = document.getElementById('execTrends');
+    const stratEl = document.getElementById('execStrategic');
+    const localEl = document.getElementById('execLocal');
+
+    trendsEl.innerHTML = (es.trends || []).map(t =>
+        `<div class="exec-item">${escHtml(t)}</div>`
+    ).join('');
+
+    stratEl.innerHTML = (es.strategic || []).map(s => {
+        const isUrgent = s.startsWith('🔴');
+        const text = isUrgent ? s.slice(2).trim() : s;
+        return `<div class="exec-item ${isUrgent ? 'urgent' : ''}">${escHtml(text)}</div>`;
+    }).join('');
+
+    localEl.innerHTML = (es.local || []).map(l =>
+        `<div class="exec-item">${escHtml(l)}</div>`
+    ).join('');
+}
+
+function updateCounts() {
+    const counts = { all: allItems.length, GLOBAL: 0, ASIA_PACIFIC: 0, THAILAND: 0, RESEARCH: 0 };
+    allItems.forEach(item => { if (counts[item.region] !== undefined) counts[item.region]++; });
+    document.getElementById('countAll').textContent = `(${counts.all})`;
+    document.getElementById('countGlobal').textContent = `(${counts.GLOBAL})`;
+    document.getElementById('countAsia').textContent = `(${counts.ASIA_PACIFIC})`;
+    document.getElementById('countThailand').textContent = `(${counts.THAILAND})`;
+    document.getElementById('countResearch').textContent = `(${counts.RESEARCH})`;
+}
+
+function setFilter(filter) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+    });
+    renderCards();
+}
+
+function renderCards() {
+    const grid = document.getElementById('cardsGrid');
+    const filtered = currentFilter === 'all'
+        ? allItems
+        : allItems.filter(i => i.region === currentFilter);
+
+    grid.innerHTML = filtered.map((item, idx) => {
+        const rc = REGION_COLORS[item.region] || REGION_COLORS.GLOBAL;
+        const label = REGION_LABELS[item.region] || item.region;
+        const delay = idx * 0.055;
+
+        return `
+        <div class="card" style="animation-delay:${delay}s">
+            <span class="card-badge" style="background:${rc.bg};color:${rc.text};border:1px solid ${rc.border}">${label}</span>
+            <h3 class="card-title">${escHtml(item.title)}</h3>
+            <p class="card-summary">${escHtml(item.summary)}</p>
+            ${item.strategic_implication ? `
+            <div class="card-strategy">
+                <div class="card-strategy-label">ความหมายเชิงกลยุทธ์</div>
+                <div class="card-strategy-text">${escHtml(item.strategic_implication)}</div>
+            </div>` : ''}
+            <div class="card-source">
+                ${item.url
+                    ? `<a href="${escHtml(item.url)}" target="_blank" rel="noopener">${escHtml(item.source)} →</a>`
+                    : escHtml(item.source)}
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function escHtml(str) {
+    if (!str) return '';
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+}
+
+// ── Init ──
+loadData();
+</script>
+</body>
+</html>
