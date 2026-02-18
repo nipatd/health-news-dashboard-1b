@@ -28,11 +28,13 @@ jobs:
         with:
           python-version: "3.11"
 
-      # Optional: only installs if you add requirements.txt later
       - name: Install dependencies (if requirements.txt exists)
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "No requirements.txt found, skipping install."
+          fi
 
       - name: Run news fetcher
         env:
@@ -42,14 +44,12 @@ jobs:
 
       - name: Commit and push data.json (rebase-safe)
         run: |
-          set -e
-
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add data.json
 
-          # If nothing changed, stop cleanly
+          # If nothing changed, don't fail the workflow
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
@@ -57,7 +57,6 @@ jobs:
 
           git commit -m "Update health news $(date -u +'%Y-%m-%d %H:%M UTC')"
 
-          # Prevent 'fetch first' push rejection
+          # Rebase onto the latest main before pushing
           git pull --rebase origin main
-
           git push origin main
