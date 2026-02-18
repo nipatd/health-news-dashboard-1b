@@ -14,7 +14,6 @@ Guardrails enforced:
 import json
 import os
 import re
-import hashlib
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -60,68 +59,54 @@ REPUTABLE = {
     for s in [
         "Harvard", "WHO", "Mayo Clinic", "NIH", "Johns Hopkins", "CDC",
         "Lancet", "Nature", "Cleveland Clinic", "Stanford",
-        "Psychology Today", "Sleep Foundation", "Healthline", "WebMD",
-        "Well+Good", "Mindbodygreen", "Bangkok Post", "Thai PBS",
-        "Chulalongkorn", "Mahidol", "NEJM", "BMJ", "FDA",
-        "Global Wellness Summit",
     ]
 }
 
 
-# ─── Helpers ─────────────────────────────────────────────────────
-def classify_region(text: str, default_demographic: str) -> str:
-    """Classify article region using regex; fall back to query demographic."""
-    if RE_THAILAND.search(text):
-        return "THAILAND"
-    if RE_ASIA.search(text):
-        return "ASIA_PACIFIC"
-    if RE_RESEARCH.search(text):
-        return "RESEARCH"
-    return default_demographic
-
-
-def make_id(title: str) -> str:
-    return hashlib.md5(title.lower().strip().encode()).hexdigest()[:12]
-
-
 def dedup_key(title: str) -> str:
-    return title.lower().strip()[:50]
+    t = re.sub(r"\s+", " ", title.strip().lower())
+    t = re.sub(r"[^a-z0-9 ]+", "", t)
+    return t[:180]
 
 
-def is_reputable(source: str) -> bool:
-    src = source.lower()
-    return any(r in src for r in REPUTABLE)
+def classify_region(text: str, demographic: str) -> str:
+    t = (text or "").lower()
+    if demographic.lower() == "local":
+        return "local"
+    if RE_THAILAND.search(t):
+        return "local"
+    if RE_ASIA.search(t):
+        return "regional"
+    return "global"
 
 
-def synthesize_executive_summary(items: list) -> dict:
-    """
-    Generate executive summary CLIENT-SIDE (no extra API call).
-    B1 compliant: uses only already-fetched data.
-    """
+def build_exec_summary(items: list) -> dict:
     trends = []
     strategic = []
     local = []
 
-    thailand_items = [i for i in items if i.get("region") == "THAILAND"]
-    asia_items = [i for i in items if i.get("region") == "ASIA_PACIFIC"]
-    research_items = [i for i in items if i.get("region") == "RESEARCH"]
-    global_items = [i for i in items if i.get("region") == "GLOBAL"]
+    for it in items:
+        if it.get("strategic_implication"):
+            strategic.append(it["strategic_implication"])
+        if it.get("summary"):
+            trends.append(it["summary"])
+        if it.get("region") == "local":
+            local.append(it.get("title", ""))
 
-    # Trends: top 5 article titles as trend indicators
-    for item in items[:5]:
-        trends.append(item.get("title", "")[:80])
+    # de-dup and limit
+    def uniq(xs):
+        out = []
+        seen = set()
+        for x in xs:
+            k = dedup_key(x)
+            if k in seen or not x:
+                continue
+            seen.add(k)
+            out.append(x)
+        return out
 
-    # Strategic implications: collect from items, mark first as urgent
-    implications = [
-        i.get("strategic_implication", "") for i in items if i.get("strategic_implication")
-    ]
-    for idx, imp in enumerate(implications[:5]):
-        prefix = "🔴 " if idx == 0 else ""
-        strategic.append(f"{prefix}{imp}")
-
-    # Local perspective: Thailand + Asia items
-    for item in (thailand_items + asia_items)[:4]:
-        local.append(f"{item.get('title', '')[:60]} — {item.get('source', '')}")
+    trends = uniq(trends)[:3]
+    strategic = uniq(strategic)[:3]
 
     if not local:
         local.append("ยังไม่มีข่าวท้องถิ่นในรอบนี้")
@@ -137,8 +122,9 @@ def synthesize_executive_summary(items: list) -> dict:
 def fetch_single_query(api_key: str, query_text: str) -> dict:
     """Make one API call. Returns parsed response or raises."""
     import urllib.request
+    import urllib.error
 
-    payload = json.dumps({
+    payload_obj = {
         "model": MODEL,
         "max_tokens": MAX_TOKENS,
         "system": SYSTEM_PROMPT,
@@ -146,13 +132,14 @@ def fetch_single_query(api_key: str, query_text: str) -> dict:
             {
                 "role": "user",
                 "content": (
-                    f"Find 2 most recent and important health/wellness news "
+                    "Find 2 most recent and important health/wellness news "
                     f"from this search. JSON array only:\n{query_text}"
                 ),
             }
         ],
         "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-    }).encode("utf-8")
+    }
+    payload = json.dumps(payload_obj).encode("utf-8")
 
     req = urllib.request.Request(
         API_URL,
@@ -162,10 +149,42 @@ def fetch_single_query(api_key: str, query_text: str) -> dict:
             "x-api-key": api_key,
             "anthropic-version": "2023-06-01",
         },
+        method="POST",
     )
 
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        data = json.loads(resp.read().decode())
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            data = json.loads(resp.read().decode("utf-8", errors="replace"))
+    except urllib.error.HTTPError as e:
+        # FORENSIC: Print upstream body (usually JSON explaining the invalid field)
+        body = ""
+        try:
+            body = e.read().decode("utf-8", errors="replace")
+        except Exception:
+            body = "<unable to read error body>"
+
+        print("=== ANTHROPIC HTTP ERROR (FORENSIC) ===", file=sys.stderr)
+        print(f"Status: {e.code} {getattr(e, 'reason', '')}", file=sys.stderr)
+        print("Response body:", file=sys.stderr)
+        print(body, file=sys.stderr)
+        print("=== END ERROR BODY ===", file=sys.stderr)
+
+        # Optional: show minimal request metadata WITHOUT secrets
+        print("Request meta (sanitized):", file=sys.stderr)
+        print(json.dumps({
+            "url": API_URL,
+            "model": MODEL,
+            "anthropic_version": "2023-06-01",
+            "has_tools": bool(payload_obj.get("tools")),
+            "tools": payload_obj.get("tools"),
+            "max_tokens": MAX_TOKENS
+        }, ensure_ascii=False), file=sys.stderr)
+
+        raise
+    except Exception as e:
+        # Non-HTTP errors (timeout, DNS, etc.)
+        print(f"=== REQUEST ERROR (FORENSIC) === {repr(e)}", file=sys.stderr)
+        raise
 
     # Extract text blocks
     text = "\n".join(
@@ -186,7 +205,7 @@ def main():
 
     # Load queries
     queries_path = Path(__file__).parent / "queries.json"
-    with open(queries_path) as f:
+    with open(queries_path, encoding="utf-8") as f:
         queries = json.load(f)
 
     # ── GUARDRAIL B1: Enforce exactly 20 ──
@@ -211,12 +230,10 @@ def main():
         badge_color = q["badge_color"]
         query_text = q["query_text"]
 
-        # ── GUARDRAIL C3: Stop on 5 consecutive failures ──
         if consecutive_failures >= CONSECUTIVE_FAIL_LIMIT:
             print(f"  ⛔ STOP: {CONSECUTIVE_FAIL_LIMIT} consecutive failures. Halting.")
             break
 
-        # ── GUARDRAIL B1: Never exceed budget ──
         if calls_used >= CALL_BUDGET:
             print(f"  ⛔ BUDGET REACHED: {calls_used}/{CALL_BUDGET}")
             break
@@ -245,107 +262,57 @@ def main():
                 region = classify_region(combined_text, demographic)
 
                 all_items.append({
-                    "id": make_id(title),
-                    "title": title,
-                    "summary": item.get("summary", ""),
-                    "source": item.get("source", ""),
-                    "url": item.get("url"),
-                    "published_at": None,
-                    "region": region,
-                    "badge_color": badge_color,
-                    "strategic_implication": item.get("strategic_implication", ""),
                     "query_tag": tag,
-                    "fetched_from_query": query_text,
+                    "badge_color": badge_color,
+                    "region": region,
+                    "title": title,
+                    "summary": (item.get("summary") or "").strip(),
+                    "source": (item.get("source") or "").strip(),
+                    "url": item.get("url"),
+                    "strategic_implication": (item.get("strategic_implication") or "").strip(),
                 })
 
-            print(f"    ✓ Got {len(results)} items")
-
         except Exception as e:
-            calls_used += 1
             consecutive_failures += 1
-            error_type = "timeout" if "timeout" in str(e).lower() else "other"
+            msg = str(e)
             errors.append({
                 "query_tag": tag,
-                "error_type": error_type,
-                "message": str(e)[:200],
-                "attempts": 1,
+                "error_type": "other",
+                "message": msg if msg else repr(e),
+                "attempts": 1
             })
-            print(f"    ✗ FAILED ({consecutive_failures} consecutive): {str(e)[:80]}")
+            print(f"  ❌ {tag}: {msg}")
 
-            # ── GUARDRAIL C2: 1 retry within budget ──
-            if calls_used < CALL_BUDGET and consecutive_failures < CONSECUTIVE_FAIL_LIMIT:
-                print(f"    ↻ Retrying {tag}...")
-                try:
-                    results = fetch_single_query(api_key, query_text)
-                    calls_used += 1
-                    consecutive_failures = 0
-                    errors[-1]["attempts"] = 2
+    # Sort: reputable sources first, then by title (stable)
+    def reputable_rank(item):
+        src = (item.get("source") or "").lower()
+        return 0 if src in REPUTABLE else 1
 
-                    if isinstance(results, list):
-                        for item in results:
-                            title = item.get("title", "").strip()
-                            if not title:
-                                continue
-                            dk = dedup_key(title)
-                            if dk in seen_keys:
-                                continue
-                            seen_keys.add(dk)
-                            combined_text = f"{title} {item.get('summary', '')} {item.get('source', '')}"
-                            region = classify_region(combined_text, demographic)
-                            all_items.append({
-                                "id": make_id(title),
-                                "title": title,
-                                "summary": item.get("summary", ""),
-                                "source": item.get("source", ""),
-                                "url": item.get("url"),
-                                "published_at": None,
-                                "region": region,
-                                "badge_color": badge_color,
-                                "strategic_implication": item.get("strategic_implication", ""),
-                                "query_tag": tag,
-                                "fetched_from_query": query_text,
-                            })
-                    print(f"    ✓ Retry succeeded")
-                except Exception as e2:
-                    calls_used += 1
-                    consecutive_failures += 1
-                    errors[-1]["message"] += f" | Retry: {str(e2)[:100]}"
-                    print(f"    ✗ Retry also failed")
+    all_items.sort(key=lambda x: (reputable_rank(x), x.get("title", "").lower()))
 
-    # ── Sort: reputable sources first ──
-    all_items.sort(key=lambda x: (0 if is_reputable(x.get("source", "")) else 1))
-
-    # ── Executive Summary: synthesized from results (B1: 0 extra calls) ──
-    exec_summary = synthesize_executive_summary(all_items)
-
-    is_partial = calls_used < CALL_BUDGET or len(errors) > 0
-
-    # ── Build output ──
-    output = {
+    # Build output
+    out = {
         "meta": {
             "version": "1B-v2.1",
             "generated_at_iso": now_utc.isoformat(),
-            "generated_at_local": now_th.strftime("%d ก.พ. %Y %H:%M น."),
+            "generated_at_local": now_th.strftime("%d %b. %Y %H:%M น."),
             "schedule_local": "ทุกวัน: 8:00 น.",
             "calls_used": calls_used,
             "calls_budget": CALL_BUDGET,
-            "partial": is_partial,
-            "notes": f"{len(all_items)} articles from {calls_used} calls. {len(errors)} errors."
-                     + (" PARTIAL: stopped early." if consecutive_failures >= CONSECUTIVE_FAIL_LIMIT else ""),
+            "partial": True if errors or calls_used < CALL_BUDGET else False,
+            "notes": f"{len(all_items)} articles from {calls_used} calls. {len(errors)} errors. "
+                     f"{'PARTIAL: stopped early.' if errors or calls_used < CALL_BUDGET else 'OK.'}",
         },
-        "executive_summary": exec_summary,
+        "executive_summary": build_exec_summary(all_items),
         "items": all_items,
         "errors": errors,
     }
 
-    # ── Write data.json ──
-    output_path = Path(__file__).parent / "data.json"
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+    out_path = Path(__file__).parent / "data.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, indent=2)
 
-    print(f"\n✅ Done. {len(all_items)} articles, {calls_used}/{CALL_BUDGET} calls, {len(errors)} errors.")
-    print(f"   Partial: {is_partial}")
-    print(f"   Output: {output_path}")
+    print(f"Done. Wrote {out_path} ({len(all_items)} items, {len(errors)} errors).")
 
 
 if __name__ == "__main__":
