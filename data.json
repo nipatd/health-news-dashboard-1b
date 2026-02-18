@@ -1,13 +1,13 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-18T13:02:03.221862+00:00",
-    "generated_at_local": "18 ก.พ. 2026 20:02 น.",
+    "generated_at_iso": "2026-02-18T13:34:36.996911+00:00",
+    "generated_at_local": "18 Feb. 2026 20:34 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
-    "calls_used": 5,
+    "calls_used": 0,
     "calls_budget": 20,
     "partial": true,
-    "notes": "0 articles from 5 calls. 3 errors. PARTIAL: stopped early."
+    "notes": "0 articles from 0 calls. 5 errors. PARTIAL: stopped early."
   },
   "executive_summary": {
     "trends": [
@@ -25,17 +25,29 @@
     {
       "query_tag": "GLOBAL_1",
       "error_type": "other",
-      "message": "HTTP Error 400: Bad Request | Retry: HTTP Error 400: Bad Request",
+      "message": "HTTP Error 400: Bad Request",
       "attempts": 1
     },
     {
       "query_tag": "GLOBAL_2",
       "error_type": "other",
-      "message": "HTTP Error 400: Bad Request | Retry: HTTP Error 400: Bad Request",
+      "message": "HTTP Error 400: Bad Request",
       "attempts": 1
     },
     {
       "query_tag": "GLOBAL_3",
+      "error_type": "other",
+      "message": "HTTP Error 400: Bad Request",
+      "attempts": 1
+    },
+    {
+      "query_tag": "GLOBAL_4",
+      "error_type": "other",
+      "message": "HTTP Error 400: Bad Request",
+      "attempts": 1
+    },
+    {
+      "query_tag": "GLOBAL_5",
       "error_type": "other",
       "message": "HTTP Error 400: Bad Request",
       "attempts": 1
