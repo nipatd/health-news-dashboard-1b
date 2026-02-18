@@ -3,20 +3,6 @@
   { "query_tag": "GLOBAL_2", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "WHO World Health Organization latest health advisory 2026" },
   { "query_tag": "GLOBAL_3", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "Mayo Clinic latest medical research breakthrough 2026" },
   { "query_tag": "GLOBAL_4", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "CDC Centers Disease Control health alert update 2026" },
-  { "query_tag": "GLOBAL_5", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "global health wellness trends nutrition fitness longevity 2026" },
-  { "query_tag": "GLOBAL_6", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "longevity anti-aging research science breakthrough 2026" },
-  { "query_tag": "ASIA_PACIFIC_1", "demographic": "ASIA_PACIFIC", "badge_color": "#06b6d4", "query_text": "Asia Pacific health policy healthcare innovation 2026" },
-  { "query_tag": "ASIA_PACIFIC_2", "demographic": "ASIA_PACIFIC", "badge_color": "#06b6d4", "query_text": "Japan Korea Singapore health research medical technology 2026" },
-  { "query_tag": "ASIA_PACIFIC_3", "demographic": "ASIA_PACIFIC", "badge_color": "#06b6d4", "query_text": "ASEAN health cooperation disease prevention public health 2026" },
-  { "query_tag": "ASIA_PACIFIC_4", "demographic": "ASIA_PACIFIC", "badge_color": "#06b6d4", "query_text": "Asia Pacific wellness industry mental health trends 2026" },
-  { "query_tag": "THAILAND_1", "demographic": "THAILAND", "badge_color": "#f472b6", "query_text": "Thailand health news medical research public health 2026" },
-  { "query_tag": "THAILAND_2", "demographic": "THAILAND", "badge_color": "#f472b6", "query_text": "Thai medical research Chulalongkorn Mahidol Siriraj hospital study 2026" },
-  { "query_tag": "THAILAND_3", "demographic": "THAILAND", "badge_color": "#f472b6", "query_text": "Bangkok health wellness trends Thai traditional medicine 2026" },
-  { "query_tag": "THAILAND_4", "demographic": "THAILAND", "badge_color": "#f472b6", "query_text": "Thailand Ministry Public Health MOPH policy healthcare update 2026" },
-  { "query_tag": "RESEARCH_1", "demographic": "RESEARCH", "badge_color": "#8b5cf6", "query_text": "Nature Medicine latest published study medical breakthrough 2026" },
-  { "query_tag": "RESEARCH_2", "demographic": "RESEARCH", "badge_color": "#8b5cf6", "query_text": "The Lancet new research findings clinical trial results 2026" },
-  { "query_tag": "RESEARCH_3", "demographic": "RESEARCH", "badge_color": "#8b5cf6", "query_text": "NIH National Institutes Health funded research study 2026" },
-  { "query_tag": "RESEARCH_4", "demographic": "RESEARCH", "badge_color": "#8b5cf6", "query_text": "Johns Hopkins medical research health study published 2026" },
-  { "query_tag": "RESEARCH_5", "demographic": "RESEARCH", "badge_color": "#8b5cf6", "query_text": "Stanford Medicine research health innovation clinical study 2026" },
-  { "query_tag": "RESEARCH_6", "demographic": "RESEARCH", "badge_color": "#8b5cf6", "query_text": "peer-reviewed health wellness study meta-analysis randomized trial 2026" }
+  { "query_tag": "GLOBAL_5", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "global health wellness trends nutrition fitness longevity 2026" }
+  
 ]
