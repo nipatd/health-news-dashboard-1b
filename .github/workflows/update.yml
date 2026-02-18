@@ -14,11 +14,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  fetch-news:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo (full history)
+      - name: Checkout repository (full history)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -28,19 +28,22 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies (if any)
+      # Optional: only installs if you add requirements.txt later
+      - name: Install dependencies (if requirements.txt exists)
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Generate data.json
+      - name: Run news fetcher
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python fetch_news.py
 
-      - name: Commit & push data.json (rebase-safe)
+      - name: Commit and push data.json (rebase-safe)
         run: |
+          set -e
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -52,9 +55,9 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update data.json"
+          git commit -m "Update health news $(date -u +'%Y-%m-%d %H:%M UTC')"
 
-          # Integrate remote changes to avoid non-fast-forward push rejection
+          # Prevent 'fetch first' push rejection
           git pull --rebase origin main
 
           git push origin main
