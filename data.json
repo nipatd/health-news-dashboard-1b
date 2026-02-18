@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-17T05:39:27.733247+00:00",
-    "generated_at_local": "17 ก.พ. 2026 12:39 น.",
+    "generated_at_iso": "2026-02-18T05:41:58.489131+00:00",
+    "generated_at_local": "18 ก.พ. 2026 12:41 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
     "calls_used": 5,
     "calls_budget": 20,
@@ -25,19 +25,19 @@
     {
       "query_tag": "GLOBAL_1",
       "error_type": "other",
-      "message": "HTTP Error 401: Unauthorized | Retry: HTTP Error 401: Unauthorized",
+      "message": "HTTP Error 400: Bad Request | Retry: HTTP Error 400: Bad Request",
       "attempts": 1
     },
     {
       "query_tag": "GLOBAL_2",
       "error_type": "other",
-      "message": "HTTP Error 401: Unauthorized | Retry: HTTP Error 401: Unauthorized",
+      "message": "HTTP Error 400: Bad Request | Retry: HTTP Error 400: Bad Request",
       "attempts": 1
     },
     {
       "query_tag": "GLOBAL_3",
       "error_type": "other",
-      "message": "HTTP Error 401: Unauthorized",
+      "message": "HTTP Error 400: Bad Request",
       "attempts": 1
     }
   ]
