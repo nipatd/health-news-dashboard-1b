@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-19T14:08:43.907973+00:00",
-    "generated_at_local": "19 Feb. 2026 21:08 น.",
+    "generated_at_iso": "2026-02-19T23:25:33.466588+00:00",
+    "generated_at_local": "20 Feb. 2026 06:25 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
     "calls_used": 3,
     "calls_budget": 5,
@@ -11,14 +11,14 @@
   },
   "executive_summary": {
     "trends": [
-      "A new study in The American Journal of Medicine shows Harvard medical students significantly improved nutrition knowledge and counseling confidence after completing a required online nutrition course.",
-      "Harvard Medical School scientists have achieved a breakthrough by using cryo-electron microscopy and optical tweezers to visualize how antiviral drugs bind to herpes simplex virus at nearly atomic detail.",
-      "Mayo Clinic enhanced its Platform_Orchestrate with standardized cancer data framework (OMOP Oncology) to give researchers faster access to real-world cancer data for therapy development."
+      "A new AI model called popEVE can predict how likely each variant in a patient's genome is to cause disease.",
+      "Cryo-EM images of drugs bound to herpes simplex virus at nearly atomic detail show binding behavior in real time, providing key insights into how a new class of antiviral drugs works.",
+      "Mayo Clinic enhanced its Platform_Orchestrate with new capabilities that provide researchers faster access to standardized, real-world cancer data using OMOP Oncology framework."
     ],
     "strategic": [
-      "Organizations should invest in comprehensive nutrition education for healthcare providers as evidence shows scalable online courses can address the critical gap in medical training and improve patient care outcomes.",
-      "Healthcare organizations should prepare for enhanced drug development capabilities as this real-time imaging technology could accelerate the creation of more effective antiviral treatments and personalized medicine approaches.",
-      "Healthcare organizations should invest in data standardization and platform technologies to enable faster research collaboration and accelerate their innovation pipeline capabilities."
+      "Organizations should prepare for personalized medicine integration as genomic AI tools will enable more precise risk assessments and targeted employee health programs.",
+      "Teams should anticipate more effective antiviral treatments entering the market, potentially reducing workplace illness impacts and informing employee health benefit strategies.",
+      "Healthcare organizations must invest in standardized data platforms and AI-powered research infrastructure to remain competitive in accelerating therapeutic development timelines."
     ],
     "local": [
       "ยังไม่มีข่าวท้องถิ่นในรอบนี้"
@@ -29,61 +29,61 @@
       "query_tag": "GLOBAL_1",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "Gaples Institute Course Strengthens Nutrition Knowledge Among Harvard Medical School Students",
-      "summary": "A new study in The American Journal of Medicine shows Harvard medical students significantly improved nutrition knowledge and counseling confidence after completing a required online nutrition course.",
-      "source": "PR Newswire",
-      "url": "https://www.prnewswire.com/news-releases/new-study-gaples-institute-course-strengthens-nutrition-knowledge-and-counseling-confidence-among-harvard-medical-school-students-302689889.html",
-      "strategic_implication": "Organizations should invest in comprehensive nutrition education for healthcare providers as evidence shows scalable online courses can address the critical gap in medical training and improve patient care outcomes."
+      "title": "Harvard Medical School AI Model for Disease Risk Prediction",
+      "summary": "A new AI model called popEVE can predict how likely each variant in a patient's genome is to cause disease.",
+      "source": "Newswise",
+      "url": "https://www.newswise.com/institutions/newsroom/Harvard-Medical-School-149",
+      "strategic_implication": "Organizations should prepare for personalized medicine integration as genomic AI tools will enable more precise risk assessments and targeted employee health programs."
     },
     {
       "query_tag": "GLOBAL_1",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "Harvard Researchers Develop Imaging Technology to Track Herpesvirus-Drug Interactions in Real Time",
-      "summary": "Harvard Medical School scientists have achieved a breakthrough by using cryo-electron microscopy and optical tweezers to visualize how antiviral drugs bind to herpes simplex virus at nearly atomic detail.",
+      "title": "Herpesvirus Drug Interaction Revealed Through Real-Time Imaging",
+      "summary": "Cryo-EM images of drugs bound to herpes simplex virus at nearly atomic detail show binding behavior in real time, providing key insights into how a new class of antiviral drugs works.",
       "source": "Harvard Medical School",
       "url": "https://hms.harvard.edu/news",
-      "strategic_implication": "Healthcare organizations should prepare for enhanced drug development capabilities as this real-time imaging technology could accelerate the creation of more effective antiviral treatments and personalized medicine approaches."
+      "strategic_implication": "Teams should anticipate more effective antiviral treatments entering the market, potentially reducing workplace illness impacts and informing employee health benefit strategies."
     },
     {
       "query_tag": "GLOBAL_3",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "Mayo Clinic Platform_Orchestrate expands capabilities to accelerate cancer research",
-      "summary": "Mayo Clinic enhanced its Platform_Orchestrate with standardized cancer data framework (OMOP Oncology) to give researchers faster access to real-world cancer data for therapy development.",
+      "title": "Mayo Clinic Platform_Orchestrate Expands Cancer Research Capabilities",
+      "summary": "Mayo Clinic enhanced its Platform_Orchestrate with new capabilities that provide researchers faster access to standardized, real-world cancer data using OMOP Oncology framework.",
       "source": "Mayo Clinic News Network",
       "url": "https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-platform_orchestrate-expands-capabilities-to-accelerate-cancer-research-and-advance-cancer-care/",
-      "strategic_implication": "Healthcare organizations should invest in data standardization and platform technologies to enable faster research collaboration and accelerate their innovation pipeline capabilities."
+      "strategic_implication": "Healthcare organizations must invest in standardized data platforms and AI-powered research infrastructure to remain competitive in accelerating therapeutic development timelines."
     },
     {
       "query_tag": "GLOBAL_3",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "Merck and Mayo Clinic team up on AI-driven drug discovery",
-      "summary": "Merck and Mayo Clinic announced a partnership allowing the pharmaceutical giant to access Mayo's genomic and clinical data for AI-powered drug discovery and development.",
+      "title": "Merck and Mayo Clinic Announce AI-Driven Drug Discovery Partnership",
+      "summary": "Merck and Mayo Clinic announced a groundbreaking collaboration that leverages Mayo's extensive clinical data and AI technology to accelerate drug discovery and development.",
       "source": "Healthcare Brew",
       "url": "https://www.healthcare-brew.com/stories/2026/02/18/merck-mayo-clinic-drug-discovery",
-      "strategic_implication": "Organizations should prepare for accelerated pharmaceutical innovation cycles and explore strategic partnerships that leverage their unique data assets for AI-driven research collaborations."
+      "strategic_implication": "Organizations should prepare for accelerated AI-driven pharmaceutical development and consider partnerships that leverage real-world clinical data for competitive advantage."
     },
     {
       "query_tag": "GLOBAL_2",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "WHO launches 2026 global appeal for health emergencies",
-      "summary": "WHO seeks nearly $1 billion to respond to 36 emergencies worldwide, including 14 Grade 3 emergencies requiring the highest organizational response level.",
+      "title": "WHO launches 2026 appeal for $1 billion to help people in health emergencies",
+      "summary": "WHO seeks nearly $1 billion to respond to 36 global emergencies affecting millions in humanitarian crises, including 14 Grade 3 emergencies requiring highest-level response.",
       "source": "World Health Organization",
       "url": "https://www.who.int/news/item/03-02-2026-who-launches-2026-appeal-to-help-millions-of-people-in-health-emergencies-and-crisis-settings",
-      "strategic_implication": "Organizations should prepare for increased global health instability affecting supply chains, workforce mobility, and business continuity as humanitarian crises expand to 36 emergency zones."
+      "strategic_implication": "Organizations should prepare for potential supply chain disruptions and increased healthcare costs as global health emergencies strain resources and funding gaps affect humanitarian response capacity."
     },
     {
       "query_tag": "GLOBAL_2",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "WHO releases updated HIV clinical management recommendations",
-      "summary": "WHO released new guidance on antiretroviral therapy, vertical HIV transmission management, and tuberculosis prevention for people living with HIV.",
+      "title": "WHO releases updated recommendations on HIV clinical management",
+      "summary": "WHO published new HIV treatment guidelines confirming dolutegravir-based regimens as preferred therapy and introducing changes for patients with treatment failure.",
       "source": "World Health Organization",
       "url": "https://www.who.int/news/item/07-01-2026-who-releases-updated-recommendations-on-hiv-clinical-management",
-      "strategic_implication": "Organizations need to update employee health policies and insurance coverage to align with new HIV treatment protocols and ensure workplace non-discrimination programs reflect latest medical advances."
+      "strategic_implication": "Organizations need to update HIV treatment protocols and train healthcare staff on new antiretroviral therapy guidelines to ensure compliance with WHO standards and improve patient outcomes."
     }
   ],
   "errors": [
