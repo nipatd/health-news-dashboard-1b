@@ -155,6 +155,18 @@ def fetch_single_query(api_key: str, query_text: str) -> dict:
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             data = json.loads(resp.read().decode("utf-8", errors="replace"))
+                        # --- TOKEN USAGE INSTRUMENTATION ---
+            usage = data.get("usage", {})
+            input_tokens = usage.get("input_tokens", 0)
+            output_tokens = usage.get("output_tokens", 0)
+
+            print(
+                f"[TOKEN_USAGE] "
+                f"input_tokens={input_tokens} "
+                f"output_tokens={output_tokens}",
+                file=sys.stderr
+            )
+            # ------------------------------------
     except urllib.error.HTTPError as e:
         # FORENSIC: Print upstream body (usually JSON explaining the invalid field)
         body = ""
