@@ -4,7 +4,7 @@ fetch_news.py — Health & Wellness News Generator (Solution 1B)
 v2.1 HARDENED compliant
 
 Guardrails enforced:
-  B1: EXACTLY 20 search calls (hard cap)
+  B1: EXACTLY 5 search calls (hard cap)
   B4: Sequential execution (concurrency = 1, satisfies ≤5 cap)
   C:  1 retry per failure within cap; 5 consecutive failures → stop
   D:  meta.calls_used / calls_budget in output
@@ -22,7 +22,7 @@ from pathlib import Path
 API_URL = "https://api.anthropic.com/v1/messages"
 MODEL = "claude-sonnet-4-20250514"
 MAX_TOKENS = 1024
-CALL_BUDGET = 20
+CALL_BUDGET = 5
 CONSECUTIVE_FAIL_LIMIT = 5
 THAILAND_TZ = timezone(timedelta(hours=7))
 
@@ -208,7 +208,7 @@ def main():
     with open(queries_path, encoding="utf-8") as f:
         queries = json.load(f)
 
-    # ── GUARDRAIL B1: Enforce exactly 20 ──
+    # ── GUARDRAIL B1: Enforce exactly 5 ──
     assert len(queries) == CALL_BUDGET, (
         f"GUARDRAIL VIOLATION: queries.json has {len(queries)} entries, expected {CALL_BUDGET}"
     )
