@@ -296,7 +296,13 @@ def fetch_single_query(api_key: str, query_text: str) -> list:
         is_400 = getattr(e, "code", None) == 400
 
         structured_not_supported = (
-            ("output_config" in haystack and ("unknown" in haystack or "not allowed" in haystack or "unsupported" in haystack))
+            ("does not support output format" in haystack)
+            or ("does not support output_format" in haystack)
+            or ("output format" in haystack and "not support" in haystack)
+            or (
+                "output_config" in haystack and
+                ("unknown" in haystack or "not allowed" in haystack or "unsupported" in haystack)
+            )
             or ("unknown field" in haystack and "output_config" in haystack)
             or ("json_schema" in haystack and ("not supported" in haystack or "unsupported" in haystack))
             or ("output_config.format" in haystack and ("not supported" in haystack or "unsupported" in haystack))
