@@ -1,57 +1,131 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-20T22:55:47.211089+00:00",
-    "generated_at_local": "21 Feb. 2026 05:55 น.",
+    "generated_at_iso": "2026-02-20T23:16:16.639618+00:00",
+    "generated_at_local": "21 Feb. 2026 06:16 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
-    "calls_used": 0,
+    "calls_used": 5,
     "calls_attempted": 5,
     "calls_budget": 5,
-    "partial": true,
-    "notes": "0 articles from 0 successful calls / 5 attempts (budget 5). 5 errors. PARTIAL: stopped early."
+    "partial": false,
+    "notes": "10 articles from 5 successful calls / 5 attempts (budget 5). 0 errors. OK."
   },
   "executive_summary": {
     "trends": [
-      "ยังไม่มีข้อมูลเทรนด์"
+      "CDC issued a health alert regarding New World screwworm cases in northern Mexico near the Texas border, with over 1,190 human cases and seven deaths reported across Central America and Mexico as of January 20, 2026.",
+      "Harvard Medical School researchers used advanced imaging techniques to reveal the structure and real-time interaction of herpesvirus with antiviral drugs at nearly atomic detail.",
+      "The CDC announced major changes to the US childhood immunization schedule, reducing recommended vaccinations from 18 to 10 diseases following Trump administration directive to align with international standards like Denmark's schedule."
     ],
     "strategic": [
-      "ยังไม่มีข้อมูลเชิงกลยุทธ์"
+      "Organizations with operations or employees in border regions should prepare enhanced health monitoring protocols and consider travel restrictions to affected areas to prevent workplace exposure.",
+      "Organizations should prepare for accelerated antiviral drug development processes and invest in advanced imaging technologies for pharmaceutical research and development.",
+      "Organizations with family-focused benefits and childcare facilities should prepare for potential policy confusion and employee concerns while reviewing their health coverage policies to ensure continued vaccine access."
     ],
     "local": [
       "ยังไม่มีข่าวท้องถิ่นในรอบนี้"
     ]
   },
-  "items": [],
-  "errors": [
+  "items": [
+    {
+      "query_tag": "GLOBAL_4",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "CDC Issues Health Alert for New World Screwworm Outbreak",
+      "summary": "CDC issued a health alert regarding New World screwworm cases in northern Mexico near the Texas border, with over 1,190 human cases and seven deaths reported across Central America and Mexico as of January 20, 2026.",
+      "source": "CDC",
+      "url": "https://www.cdc.gov/han/php/notices/han00526.html",
+      "strategic_implication": "Organizations with operations or employees in border regions should prepare enhanced health monitoring protocols and consider travel restrictions to affected areas to prevent workplace exposure."
+    },
     {
       "query_tag": "GLOBAL_1",
-      "error_type": "other",
-      "message": "HTTP Error 400: Bad Request",
-      "attempts": 1
-    },
-    {
-      "query_tag": "GLOBAL_2",
-      "error_type": "other",
-      "message": "HTTP Error 400: Bad Request",
-      "attempts": 1
-    },
-    {
-      "query_tag": "GLOBAL_3",
-      "error_type": "other",
-      "message": "HTTP Error 400: Bad Request",
-      "attempts": 1
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "AI-Powered Herpesvirus Drug Interaction Analysis Breakthrough",
+      "summary": "Harvard Medical School researchers used advanced imaging techniques to reveal the structure and real-time interaction of herpesvirus with antiviral drugs at nearly atomic detail.",
+      "source": "Harvard Medical School News",
+      "url": "https://hms.harvard.edu/news",
+      "strategic_implication": "Organizations should prepare for accelerated antiviral drug development processes and invest in advanced imaging technologies for pharmaceutical research and development."
     },
     {
       "query_tag": "GLOBAL_4",
-      "error_type": "other",
-      "message": "HTTP Error 400: Bad Request",
-      "attempts": 1
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "CDC Significantly Reduces Childhood Vaccine Recommendations",
+      "summary": "The CDC announced major changes to the US childhood immunization schedule, reducing recommended vaccinations from 18 to 10 diseases following Trump administration directive to align with international standards like Denmark's schedule.",
+      "source": "Vaccine Advisor",
+      "url": "https://www.vaccineadvisor.com/news/new-cdc-guidance-cuts-the-number-of-recommended-vaccines-for-kids/",
+      "strategic_implication": "Organizations with family-focused benefits and childcare facilities should prepare for potential policy confusion and employee concerns while reviewing their health coverage policies to ensure continued vaccine access."
+    },
+    {
+      "query_tag": "GLOBAL_1",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "Chronic Inflammation Discovery Opens New Treatment Pathways",
+      "summary": "Evidence of chronic inflammation mechanisms has been identified as a potential new avenue for medical treatment by Harvard researchers.",
+      "source": "Harvard Medical School News",
+      "url": "https://hms.harvard.edu/news",
+      "strategic_implication": "Healthcare organizations should anticipate new anti-inflammatory treatment protocols and prepare for shifts in chronic disease management strategies that address underlying inflammation."
     },
     {
       "query_tag": "GLOBAL_5",
-      "error_type": "other",
-      "message": "HTTP Error 400: Bad Request",
-      "attempts": 1
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "GLP-1 Medications Expand Beyond Weight Loss",
+      "summary": "GLP-1 medications are being increasingly used for managing chronic conditions beyond obesity and diabetes, including heart health, kidney disease, and even addiction treatment.",
+      "source": "U.S. News",
+      "url": "https://health.usnews.com/wellness/articles/top-health-and-nutrition-trends-for-2026",
+      "strategic_implication": "Healthcare organizations and employers should prepare for expanded GLP-1 applications by evaluating insurance coverage policies and workplace wellness programs to accommodate broader therapeutic uses."
+    },
+    {
+      "query_tag": "GLOBAL_3",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "Mayo Clinic Develops AI-Powered EHR System for Personalized Prostate Cancer Education",
+      "summary": "Mayo Clinic researchers have developed and evaluated MedEduChat, an electronic health record system that works with a large language model to provide accurate, patient-specific prostate cancer education.",
+      "source": "Mayo Clinic News Network",
+      "url": "https://newsnetwork.mayoclinic.org/category/medical-innovation/",
+      "strategic_implication": "Companies should anticipate the integration of AI-powered patient education tools in healthcare systems, requiring updates to health literacy programs and employee health support resources."
+    },
+    {
+      "query_tag": "GLOBAL_3",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "Merck and Mayo Clinic Launch AI-Driven Drug Discovery Partnership",
+      "summary": "MSD (Merck) and Mayo Clinic have launched a research collaboration to integrate AI, advanced analytics, and multimodal clinical data into drug discovery and precision medicine.",
+      "source": "Healthcare Brew",
+      "url": "https://www.healthcare-brew.com/stories/2026/02/18/merck-mayo-clinic-drug-discovery",
+      "strategic_implication": "Organizations should prepare for accelerated pharmaceutical innovation cycles and consider how AI-driven precision medicine partnerships could reshape employee healthcare benefits and treatment options."
+    },
+    {
+      "query_tag": "GLOBAL_2",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "Next-generation influenza vaccines could save millions of lives",
+      "summary": "WHO assessment reveals that next-generation influenza vaccines providing broader and longer-lasting protection could significantly reduce the global burden of seasonal influenza.",
+      "source": "World Health Organization",
+      "url": "https://www.who.int/news/item/18-02-2026-next-generation-influenza-vaccines-could-save-millions-of-lives--finds-who",
+      "strategic_implication": "Companies should evaluate current flu vaccination strategies and consider planning for enhanced employee protection programs as improved vaccines become available."
+    },
+    {
+      "query_tag": "GLOBAL_2",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "WHO launches 2026 appeal to help millions in health emergencies",
+      "summary": "WHO launched its 2026 global appeal seeking nearly $1 billion to respond to 36 emergencies worldwide, including 14 Grade 3 emergencies requiring the highest organizational response.",
+      "source": "World Health Organization",
+      "url": "https://www.who.int/news/item/03-02-2026-who-launches-2026-appeal-to-help-millions-of-people-in-health-emergencies-and-crisis-settings",
+      "strategic_implication": "Organizations should prepare for increased global health instability and potential supply chain disruptions affecting workforce health programs in crisis regions."
+    },
+    {
+      "query_tag": "GLOBAL_5",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "Women's Sports Revolution Reaches Tipping Point",
+      "summary": "Women's sports are experiencing unprecedented growth with new leagues, record viewership, and female athletes gaining recognition as marketing powerhouses and entrepreneurs.",
+      "source": "Global Wellness Summit",
+      "url": "https://globalwellnessinstitute.org/press-room/press-releases/global-wellness-summit-releases-10-wellness-trends-for-2026/",
+      "strategic_implication": "Organizations should capitalize on the female sports economy boom by investing in partnerships with women's leagues and female athlete endorsements as traditional gender barriers dissolve in competitive athletics."
     }
-  ]
+  ],
+  "errors": []
 }
