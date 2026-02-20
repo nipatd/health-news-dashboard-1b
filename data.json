@@ -1,92 +1,45 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-19T23:25:33.466588+00:00",
-    "generated_at_local": "20 Feb. 2026 06:25 น.",
+    "generated_at_iso": "2026-02-20T05:21:09.703571+00:00",
+    "generated_at_local": "20 Feb. 2026 12:21 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
-    "calls_used": 3,
+    "calls_used": 0,
     "calls_budget": 5,
     "partial": true,
-    "notes": "6 articles from 3 calls. 2 errors. PARTIAL: stopped early."
+    "notes": "0 articles from 0 calls. 5 errors. PARTIAL: stopped early."
   },
   "executive_summary": {
     "trends": [
-      "A new AI model called popEVE can predict how likely each variant in a patient's genome is to cause disease.",
-      "Cryo-EM images of drugs bound to herpes simplex virus at nearly atomic detail show binding behavior in real time, providing key insights into how a new class of antiviral drugs works.",
-      "Mayo Clinic enhanced its Platform_Orchestrate with new capabilities that provide researchers faster access to standardized, real-world cancer data using OMOP Oncology framework."
+      "ยังไม่มีข้อมูลเทรนด์"
     ],
     "strategic": [
-      "Organizations should prepare for personalized medicine integration as genomic AI tools will enable more precise risk assessments and targeted employee health programs.",
-      "Teams should anticipate more effective antiviral treatments entering the market, potentially reducing workplace illness impacts and informing employee health benefit strategies.",
-      "Healthcare organizations must invest in standardized data platforms and AI-powered research infrastructure to remain competitive in accelerating therapeutic development timelines."
+      "ยังไม่มีข้อมูลเชิงกลยุทธ์"
     ],
     "local": [
       "ยังไม่มีข่าวท้องถิ่นในรอบนี้"
     ]
   },
-  "items": [
-    {
-      "query_tag": "GLOBAL_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Harvard Medical School AI Model for Disease Risk Prediction",
-      "summary": "A new AI model called popEVE can predict how likely each variant in a patient's genome is to cause disease.",
-      "source": "Newswise",
-      "url": "https://www.newswise.com/institutions/newsroom/Harvard-Medical-School-149",
-      "strategic_implication": "Organizations should prepare for personalized medicine integration as genomic AI tools will enable more precise risk assessments and targeted employee health programs."
-    },
-    {
-      "query_tag": "GLOBAL_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Herpesvirus Drug Interaction Revealed Through Real-Time Imaging",
-      "summary": "Cryo-EM images of drugs bound to herpes simplex virus at nearly atomic detail show binding behavior in real time, providing key insights into how a new class of antiviral drugs works.",
-      "source": "Harvard Medical School",
-      "url": "https://hms.harvard.edu/news",
-      "strategic_implication": "Teams should anticipate more effective antiviral treatments entering the market, potentially reducing workplace illness impacts and informing employee health benefit strategies."
-    },
-    {
-      "query_tag": "GLOBAL_3",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Mayo Clinic Platform_Orchestrate Expands Cancer Research Capabilities",
-      "summary": "Mayo Clinic enhanced its Platform_Orchestrate with new capabilities that provide researchers faster access to standardized, real-world cancer data using OMOP Oncology framework.",
-      "source": "Mayo Clinic News Network",
-      "url": "https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-platform_orchestrate-expands-capabilities-to-accelerate-cancer-research-and-advance-cancer-care/",
-      "strategic_implication": "Healthcare organizations must invest in standardized data platforms and AI-powered research infrastructure to remain competitive in accelerating therapeutic development timelines."
-    },
-    {
-      "query_tag": "GLOBAL_3",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Merck and Mayo Clinic Announce AI-Driven Drug Discovery Partnership",
-      "summary": "Merck and Mayo Clinic announced a groundbreaking collaboration that leverages Mayo's extensive clinical data and AI technology to accelerate drug discovery and development.",
-      "source": "Healthcare Brew",
-      "url": "https://www.healthcare-brew.com/stories/2026/02/18/merck-mayo-clinic-drug-discovery",
-      "strategic_implication": "Organizations should prepare for accelerated AI-driven pharmaceutical development and consider partnerships that leverage real-world clinical data for competitive advantage."
-    },
-    {
-      "query_tag": "GLOBAL_2",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "WHO launches 2026 appeal for $1 billion to help people in health emergencies",
-      "summary": "WHO seeks nearly $1 billion to respond to 36 global emergencies affecting millions in humanitarian crises, including 14 Grade 3 emergencies requiring highest-level response.",
-      "source": "World Health Organization",
-      "url": "https://www.who.int/news/item/03-02-2026-who-launches-2026-appeal-to-help-millions-of-people-in-health-emergencies-and-crisis-settings",
-      "strategic_implication": "Organizations should prepare for potential supply chain disruptions and increased healthcare costs as global health emergencies strain resources and funding gaps affect humanitarian response capacity."
-    },
-    {
-      "query_tag": "GLOBAL_2",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "WHO releases updated recommendations on HIV clinical management",
-      "summary": "WHO published new HIV treatment guidelines confirming dolutegravir-based regimens as preferred therapy and introducing changes for patients with treatment failure.",
-      "source": "World Health Organization",
-      "url": "https://www.who.int/news/item/07-01-2026-who-releases-updated-recommendations-on-hiv-clinical-management",
-      "strategic_implication": "Organizations need to update HIV treatment protocols and train healthcare staff on new antiretroviral therapy guidelines to ensure compliance with WHO standards and improve patient outcomes."
-    }
-  ],
+  "items": [],
   "errors": [
+    {
+      "query_tag": "GLOBAL_1",
+      "error_type": "other",
+      "message": "Expecting value: line 1 column 1 (char 0)",
+      "attempts": 1
+    },
+    {
+      "query_tag": "GLOBAL_2",
+      "error_type": "other",
+      "message": "HTTP Error 429: Too Many Requests",
+      "attempts": 1
+    },
+    {
+      "query_tag": "GLOBAL_3",
+      "error_type": "other",
+      "message": "HTTP Error 429: Too Many Requests",
+      "attempts": 1
+    },
     {
       "query_tag": "GLOBAL_4",
       "error_type": "other",
