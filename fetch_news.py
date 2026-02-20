@@ -15,14 +15,16 @@ import json
 import os
 import re
 import sys
+import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # ─── Configuration ───────────────────────────────────────────────
 API_URL = "https://api.anthropic.com/v1/messages"
 MODEL = "claude-sonnet-4-20250514"
-MAX_TOKENS = 1024
+MAX_TOKENS = 512
 CALL_BUDGET = 5
+SLEEP_BETWEEN_CALLS_SECONDS = 65
 CONSECUTIVE_FAIL_LIMIT = 5
 THAILAND_TZ = timezone(timedelta(hours=7))
 
@@ -155,7 +157,7 @@ def fetch_single_query(api_key: str, query_text: str) -> dict:
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             data = json.loads(resp.read().decode("utf-8", errors="replace"))
-                        # --- TOKEN USAGE INSTRUMENTATION ---
+            # --- TOKEN USAGE INSTRUMENTATION ---
             usage = data.get("usage", {})
             input_tokens = usage.get("input_tokens", 0)
             output_tokens = usage.get("output_tokens", 0)
@@ -251,7 +253,10 @@ def main():
             break
 
         print(f"  [{calls_used + 1}/{CALL_BUDGET}] {tag}: {query_text[:60]}...")
-
+        # pacing: avoid 30k input tokens/min rate limit
+        if calls_used > 0:
+            time.sleep(SLEEP_BETWEEN_CALLS_SECONDS)
+          
         try:
             results = fetch_single_query(api_key, query_text)
             calls_used += 1
