@@ -160,125 +160,161 @@ def is_transient_error(e: Exception) -> bool:
 
 # ─── API Call ────────────────────────────────────────────────────
 def fetch_single_query(api_key: str, query_text: str) -> list:
-    """Make one API call. Returns parsed list or raises."""
+    """Make one API call with structured output; retry once without it if unsupported."""
     import urllib.request
     import urllib.error
 
-    payload_obj = {
-        "model": MODEL,
-        "max_tokens": MAX_TOKENS,
-        "system": SYSTEM_PROMPT,
-        "messages": [
-            {
-                "role": "user",
-                "content": (
-                    "Find 2 most recent and important health/wellness news "
-                    f"from this search. JSON array only:\n{query_text}"
-                ),
+    def _make_request(include_structured: bool) -> list:
+        payload_obj = {
+            "model": MODEL,
+            "max_tokens": MAX_TOKENS,
+            "system": SYSTEM_PROMPT,
+            "messages": [
+                {
+                    "role": "user",
+                    "content": (
+                        "Find 2 most recent and important health/wellness news "
+                        f"from this search. JSON array only:\n{query_text}"
+                    ),
+                }
+            ],
+            "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+        }
+
+        if include_structured:
+            payload_obj["output_config"] = {
+                "format": {
+                    "type": "json_schema",
+                    "schema": OUTPUT_SCHEMA,
+                }
             }
-        ],
-        "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-        # Structured Outputs (if supported by the model/API):
-        "output_config": {
-            "format": {
-                "type": "json_schema",
-                "schema": OUTPUT_SCHEMA,
-            }
-        },
-    }
-    payload = json.dumps(payload_obj).encode("utf-8")
 
-    req = urllib.request.Request(
-        API_URL,
-        data=payload,
-        headers={
-            "Content-Type": "application/json",
-            "x-api-key": api_key,
-            "anthropic-version": "2023-06-01",
-        },
-        method="POST",
-    )
+        payload = json.dumps(payload_obj).encode("utf-8")
 
-    data = None
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            data = json.loads(resp.read().decode("utf-8", errors="replace"))
+        req = urllib.request.Request(
+            API_URL,
+            data=payload,
+            headers={
+                "Content-Type": "application/json",
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01",
+            },
+            method="POST",
+        )
 
-            # --- TOKEN USAGE INSTRUMENTATION ---
-            usage = data.get("usage", {})
-            input_tokens = usage.get("input_tokens", 0)
-            output_tokens = usage.get("output_tokens", 0)
+        data = None
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                data = json.loads(resp.read().decode("utf-8", errors="replace"))
+
+                # --- TOKEN USAGE INSTRUMENTATION ---
+                usage = data.get("usage", {})
+                input_tokens = usage.get("input_tokens", 0)
+                output_tokens = usage.get("output_tokens", 0)
+
+                print(
+                    f"[TOKEN_USAGE] "
+                    f"input_tokens={input_tokens} "
+                    f"output_tokens={output_tokens}",
+                    file=sys.stderr,
+                )
+                # ------------------------------------
+        except urllib.error.HTTPError as e:
+            body = ""
+            try:
+                body = e.read().decode("utf-8", errors="replace")
+            except Exception:
+                body = "<unable to read error body>"
+
+            print("=== ANTHROPIC HTTP ERROR (FORENSIC) ===", file=sys.stderr)
+            print(f"Status: {e.code} {getattr(e, 'reason', '')}", file=sys.stderr)
+            print("Response body:", file=sys.stderr)
+            print(body, file=sys.stderr)
+            print("=== END ERROR BODY ===", file=sys.stderr)
+
+            print("Request meta (sanitized):", file=sys.stderr)
             print(
-                f"[TOKEN_USAGE] input_tokens={input_tokens} output_tokens={output_tokens}",
+                json.dumps(
+                    {
+                        "url": API_URL,
+                        "model": MODEL,
+                        "anthropic_version": "2023-06-01",
+                        "has_tools": bool(payload_obj.get("tools")),
+                        "has_output_config": include_structured,
+                        "max_tokens": MAX_TOKENS,
+                    },
+                    ensure_ascii=False,
+                ),
                 file=sys.stderr,
             )
-            # ------------------------------------
+            raise
+
+        except Exception as e:
+            print(f"=== REQUEST ERROR (FORENSIC) === {repr(e)}", file=sys.stderr)
+            raise
+
+        if data is None:
+            raise RuntimeError("No response data parsed from Anthropic API")
+
+        stop_reason = data.get("stop_reason")
+        if stop_reason in ("max_tokens", "refusal"):
+            raise RuntimeError(f"Anthropic stop_reason={stop_reason}")
+
+        content = data.get("content", [])
+        text0 = ""
+
+        if content and isinstance(content, list):
+            first = content[0] if len(content) > 0 else {}
+            if isinstance(first, dict):
+                text0 = first.get("text", "") or ""
+
+        if not text0.strip():
+            text0 = "\n".join(
+                b.get("text", "")
+                for b in content
+                if isinstance(b, dict) and b.get("type") == "text"
+            )
+
+        if not text0.strip():
+            raise RuntimeError("Empty text content from Anthropic response")
+
+        parsed = json.loads(text0.strip())
+        if not isinstance(parsed, list):
+            raise RuntimeError("Model output JSON is not a list")
+        return parsed
+
+    # First attempt with structured output
+    try:
+        return _make_request(include_structured=True)
+
     except urllib.error.HTTPError as e:
-        # FORENSIC: Print upstream body (usually JSON explaining the invalid field)
+        # Retry ONLY when 400 indicates structured output is unsupported
         body = ""
         try:
-            body = e.read().decode("utf-8", errors="replace")
+            body = e.read().decode("utf-8", errors="replace")  # may be empty if already read
         except Exception:
-            body = "<unable to read error body>"
+            body = ""
 
-        print("=== ANTHROPIC HTTP ERROR (FORENSIC) ===", file=sys.stderr)
-        print(f"Status: {e.code} {getattr(e, 'reason', '')}", file=sys.stderr)
-        print("Response body:", file=sys.stderr)
-        print(body, file=sys.stderr)
-        print("=== END ERROR BODY ===", file=sys.stderr)
+        unsupported_markers = [
+            "output_config",
+            "json_schema",
+            "format",
+            "unknown field",
+            "not allowed",
+            "invalid_request_error",
+        ]
 
-        # Optional: show minimal request metadata WITHOUT secrets
-        print("Request meta (sanitized):", file=sys.stderr)
-        print(
-            json.dumps(
-                {
-                    "url": API_URL,
-                    "model": MODEL,
-                    "anthropic_version": "2023-06-01",
-                    "has_tools": bool(payload_obj.get("tools")),
-                    "tools": payload_obj.get("tools"),
-                    "max_tokens": MAX_TOKENS,
-                    "has_output_config": bool(payload_obj.get("output_config")),
-                },
-                ensure_ascii=False,
-            ),
-            file=sys.stderr,
-        )
+        # Use both exception string and body as best-effort signals
+        haystack = (str(e) + "\n" + body).lower()
+
+        if getattr(e, "code", None) == 400 and any(m in haystack for m in unsupported_markers):
+            print(
+                "Structured output unsupported — retrying without output_config",
+                file=sys.stderr,
+            )
+            return _make_request(include_structured=False)
+
         raise
-    except Exception as e:
-        # Non-HTTP errors (timeout, DNS, etc.)
-        print(f"=== REQUEST ERROR (FORENSIC) === {repr(e)}", file=sys.stderr)
-        raise
-
-    if data is None:
-        raise RuntimeError("No response data parsed from Anthropic API")
-
-    # Fail-fast on known non-parse / incomplete cases
-    stop_reason = data.get("stop_reason")
-    if stop_reason in ("max_tokens", "refusal"):
-        raise RuntimeError(f"Anthropic stop_reason={stop_reason}")
-
-    # Structured outputs returns valid JSON in response.content[0].text
-    content = data.get("content", [])
-    text0 = ""
-    if content and isinstance(content, list):
-        first = content[0] if len(content) > 0 else {}
-        if isinstance(first, dict):
-            text0 = first.get("text", "") or ""
-    if not text0.strip():
-        # fallback: join all text blocks (defensive)
-        text0 = "\n".join(
-            b.get("text", "")
-            for b in content
-            if isinstance(b, dict) and b.get("type") == "text"
-        )
-
-    parsed = json.loads(text0.strip())
-    if not isinstance(parsed, list):
-        raise RuntimeError("Model output JSON is not a list")
-    return parsed
-
-
 # ─── Main Generator ──────────────────────────────────────────────
 def main():
     api_key = os.environ.get("ANTHROPIC_API_KEY")
