@@ -1,13 +1,14 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-20T05:21:09.703571+00:00",
-    "generated_at_local": "20 Feb. 2026 12:21 น.",
+    "generated_at_iso": "2026-02-20T07:11:40.798268+00:00",
+    "generated_at_local": "20 Feb. 2026 14:11 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
     "calls_used": 0,
+    "calls_attempted": 5,
     "calls_budget": 5,
     "partial": true,
-    "notes": "0 articles from 0 calls. 5 errors. PARTIAL: stopped early."
+    "notes": "0 articles from 0 successful calls / 5 attempts (budget 5). 5 errors. PARTIAL: stopped early."
   },
   "executive_summary": {
     "trends": [
@@ -25,31 +26,31 @@
     {
       "query_tag": "GLOBAL_1",
       "error_type": "other",
-      "message": "Expecting value: line 1 column 1 (char 0)",
+      "message": "HTTP Error 400: Bad Request",
       "attempts": 1
     },
     {
       "query_tag": "GLOBAL_2",
       "error_type": "other",
-      "message": "HTTP Error 429: Too Many Requests",
+      "message": "HTTP Error 400: Bad Request",
       "attempts": 1
     },
     {
       "query_tag": "GLOBAL_3",
       "error_type": "other",
-      "message": "HTTP Error 429: Too Many Requests",
+      "message": "HTTP Error 400: Bad Request",
       "attempts": 1
     },
     {
       "query_tag": "GLOBAL_4",
       "error_type": "other",
-      "message": "HTTP Error 429: Too Many Requests",
+      "message": "HTTP Error 400: Bad Request",
       "attempts": 1
     },
     {
       "query_tag": "GLOBAL_5",
       "error_type": "other",
-      "message": "HTTP Error 429: Too Many Requests",
+      "message": "HTTP Error 400: Bad Request",
       "attempts": 1
     }
   ]
