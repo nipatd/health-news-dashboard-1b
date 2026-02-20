@@ -1,25 +1,25 @@
 [
-  { "query_tag": "GLOBAL_1", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "Harvard Health Publishing latest health wellness research news 2026" },
-  { "query_tag": "GLOBAL_2", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "WHO World Health Organization latest health advisory 2026" },
-  { "query_tag": "GLOBAL_3", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "Mayo Clinic latest medical research breakthrough 2026" },
-  { "query_tag": "GLOBAL_4", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "CDC health alert update 2026 site:cdc.gov HAN" },
-  { "query_tag": "GLOBAL_5", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "NIH news releases latest medical research 2026 site:nih.gov" },
-
-  { "query_tag": "RESEARCH_1", "demographic": "GLOBAL", "badge_color": "#60a5fa", "query_text": "New England Journal of Medicine latest randomized trial 2026 site:nejm.org" },
-  { "query_tag": "RESEARCH_2", "demographic": "GLOBAL", "badge_color": "#60a5fa", "query_text": "The Lancet latest clinical trial public health 2026 site:thelancet.com" },
-  { "query_tag": "RESEARCH_3", "demographic": "GLOBAL", "badge_color": "#60a5fa", "query_text": "JAMA latest research public health 2026 site:jamanetwork.com" },
-  { "query_tag": "RESEARCH_4", "demographic": "GLOBAL", "badge_color": "#60a5fa", "query_text": "Nature Medicine latest research 2026 site:nature.com/nm" },
-  { "query_tag": "RESEARCH_5", "demographic": "GLOBAL", "badge_color": "#60a5fa", "query_text": "BMJ latest research 2026 site:bmj.com" },
-
-  { "query_tag": "APAC_1", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "WHO Western Pacific Region latest health update 2026 site:who.int western pacific" },
-  { "query_tag": "APAC_2", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "WHO South-East Asia Region latest health update 2026 site:who.int south-east asia" },
-  { "query_tag": "APAC_3", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "Singapore Ministry of Health latest health advisory 2026 site:moh.gov.sg" },
-  { "query_tag": "APAC_4", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "Australia Department of Health aged care public health update 2026 site:health.gov.au" },
-  { "query_tag": "APAC_5", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "Japan Ministry of Health Labour and Welfare public health update 2026 site:mhlw.go.jp" },
-
   { "query_tag": "TH_1", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "กระทรวงสาธารณสุข ข่าวประกาศล่าสุด 2569 site:moph.go.th" },
   { "query_tag": "TH_2", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "กรมควบคุมโรค แจ้งเตือนโรค ข่าวล่าสุด 2569 site:ddc.moph.go.th" },
-  { "query_tag": "TH_3", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "อย. สำนักงานคณะกรรมการอาหารและยา เตือนภัยสุขภาพ ผลิตภัณฑ์ผิดกฎหมาย 2569 site:fda.moph.go.th" },
-  { "query_tag": "TH_4", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "ศิริราช ข่าวสุขภาพ งานวิจัย แพทย์ 2569 site:sirirajhospital.com" },
-  { "query_tag": "TH_5", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "จุฬาลงกรณ์มหาวิทยาลัย ข่าวงานวิจัยสุขภาพ 2569 site:chula.ac.th" }
+  { "query_tag": "TH_3", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "กรมอนามัย ข่าวสุขภาพ โภชนาการ ผู้สูงอายุ 2569 site:anamai.moph.go.th" },
+  { "query_tag": "TH_4", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "สำนักงานหลักประกันสุขภาพแห่งชาติ สปสช ข่าวประกาศ 2569 site:nhso.go.th" },
+  { "query_tag": "TH_5", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "อย. สำนักงานคณะกรรมการอาหารและยา เตือนภัยสุขภาพ ผลิตภัณฑ์ผิดกฎหมาย 2569 site:fda.moph.go.th" },
+  { "query_tag": "TH_6", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "สถาบันวัคซีนแห่งชาติ ข่าววัคซีน 2569 site:thvaccines.com" },
+  { "query_tag": "TH_7", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "ศิริราช ข่าวสุขภาพ งานวิจัย การแพทย์ 2569 site:sirirajhospital.com" },
+  { "query_tag": "TH_8", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "รามาธิบดี ข่าวสุขภาพ งานวิจัย การแพทย์ 2569 site:ramathibodi.mahidol.ac.th" },
+  { "query_tag": "TH_9", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "จุฬาลงกรณ์มหาวิทยาลัย ข่าวงานวิจัยสุขภาพ 2569 site:chula.ac.th" },
+  { "query_tag": "TH_10", "demographic": "LOCAL", "badge_color": "#f472b6", "query_text": "มหิดล ข่าวงานวิจัยสุขภาพ การแพทย์ 2569 site:mahidol.ac.th" },
+
+  { "query_tag": "APAC_1", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "WHO South-East Asia Region ข่าวสุขภาพล่าสุด 2026 site:who.int south-east asia" },
+  { "query_tag": "APAC_2", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "WHO Western Pacific Region latest health update 2026 site:who.int western pacific" },
+  { "query_tag": "APAC_3", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "สิงคโปร์ กระทรวงสาธารณสุข ประกาศสุขภาพล่าสุด 2026 site:moh.gov.sg" },
+  { "query_tag": "APAC_4", "demographic": "REGIONAL", "badge_color": "#34d399", "query_text": "ออสเตรเลีย กระทรวงสาธารณสุข ประกาศเตือนสุขภาพล่าสุด 2026 site:health.gov.au" },
+
+  { "query_tag": "GLOBAL_1", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "WHO World Health Organization latest health advisory 2026 site:who.int/news" },
+  { "query_tag": "GLOBAL_2", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "CDC health alert update 2026 site:cdc.gov HAN" },
+  { "query_tag": "GLOBAL_3", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "NIH news releases latest medical research 2026 site:nih.gov" },
+
+  { "query_tag": "RESEARCH_1", "demographic": "GLOBAL", "badge_color": "#60a5fa", "query_text": "งานวิจัยล่าสุด โรคไม่ติดต่อ NCD เบาหวาน ความดัน 2026 site:nejm.org OR site:jamanetwork.com" },
+  { "query_tag": "RESEARCH_2", "demographic": "GLOBAL", "badge_color": "#60a5fa", "query_text": "clinical trial ล่าสุด วัคซีน ไข้หวัดใหญ่ 2026 site:thelancet.com OR site:bmj.com" },
+  { "query_tag": "RESEARCH_3", "demographic": "GLOBAL", "badge_color": "#60a5fa", "query_text": "Nature Medicine latest research 2026 site:nature.com/nm" }
 ]
