@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
 fetch_news.py — Health & Wellness News Generator (Solution 1B)
-v2.1 HARDENED compliant
+v2.1 HARDENED compliant (as implemented)
 
 Guardrails enforced:
-  B1: EXACTLY 5 search calls (hard cap)
-  B4: Sequential execution (concurrency = 1, satisfies ≤5 cap)
-  C:  1 retry per failure within cap; 5 consecutive failures → stop
-  D:  meta.calls_used / calls_budget in output
+  B1: ≤ 5 search ATTEMPTS (hard cap)
+  B4: Sequential execution (concurrency = 1)
+  C:  1 retry per transient failure within attempt cap; 5 consecutive failed attempts → stop
+  D:  meta.calls_used / meta.calls_attempted / calls_budget in output
   E:  API key from environment only
 """
 
@@ -16,6 +16,7 @@ import os
 import re
 import sys
 import time
+import urllib.error
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -23,8 +24,11 @@ from pathlib import Path
 API_URL = "https://api.anthropic.com/v1/messages"
 MODEL = "claude-sonnet-4-20250514"
 MAX_TOKENS = 512
+
 CALL_BUDGET = 5
 SLEEP_BETWEEN_CALLS_SECONDS = 65
+RETRY_BACKOFF_SECONDS = 15
+
 CONSECUTIVE_FAIL_LIMIT = 5
 THAILAND_TZ = timezone(timedelta(hours=7))
 
@@ -38,6 +42,25 @@ SYSTEM_PROMPT = (
     "and what teams should prepare for). "
     "No markdown fences, no explanation. JSON only."
 )
+
+# Structured Outputs schema: guarantee valid JSON, exactly 2 items (if API supports output_config)
+OUTPUT_SCHEMA = {
+    "type": "array",
+    "minItems": 2,
+    "maxItems": 2,
+    "items": {
+        "type": "object",
+        "properties": {
+            "title": {"type": "string"},
+            "summary": {"type": "string"},
+            "source": {"type": "string"},
+            "url": {"type": ["string", "null"]},
+            "strategic_implication": {"type": "string"},
+        },
+        "required": ["title", "summary", "source", "url", "strategic_implication"],
+        "additionalProperties": False,
+    },
+}
 
 # Regex classification patterns (from v2.1 master)
 RE_THAILAND = re.compile(
@@ -120,9 +143,24 @@ def build_exec_summary(items: list) -> dict:
     }
 
 
+def is_transient_error(e: Exception) -> bool:
+    # Retry only transient failures: 429, 5xx, timeouts/network
+    if isinstance(e, urllib.error.HTTPError):
+        try:
+            code = int(getattr(e, "code", 0) or 0)
+        except Exception:
+            code = 0
+        return code == 429 or (500 <= code <= 599)
+    if isinstance(e, urllib.error.URLError):
+        return True
+    if isinstance(e, TimeoutError):
+        return True
+    return False
+
+
 # ─── API Call ────────────────────────────────────────────────────
-def fetch_single_query(api_key: str, query_text: str) -> dict:
-    """Make one API call. Returns parsed response or raises."""
+def fetch_single_query(api_key: str, query_text: str) -> list:
+    """Make one API call. Returns parsed list or raises."""
     import urllib.request
     import urllib.error
 
@@ -140,6 +178,13 @@ def fetch_single_query(api_key: str, query_text: str) -> dict:
             }
         ],
         "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+        # Structured Outputs (if supported by the model/API):
+        "output_config": {
+            "format": {
+                "type": "json_schema",
+                "schema": OUTPUT_SCHEMA,
+            }
+        },
     }
     payload = json.dumps(payload_obj).encode("utf-8")
 
@@ -154,19 +199,18 @@ def fetch_single_query(api_key: str, query_text: str) -> dict:
         method="POST",
     )
 
+    data = None
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             data = json.loads(resp.read().decode("utf-8", errors="replace"))
+
             # --- TOKEN USAGE INSTRUMENTATION ---
             usage = data.get("usage", {})
             input_tokens = usage.get("input_tokens", 0)
             output_tokens = usage.get("output_tokens", 0)
-
             print(
-                f"[TOKEN_USAGE] "
-                f"input_tokens={input_tokens} "
-                f"output_tokens={output_tokens}",
-                file=sys.stderr
+                f"[TOKEN_USAGE] input_tokens={input_tokens} output_tokens={output_tokens}",
+                file=sys.stderr,
             )
             # ------------------------------------
     except urllib.error.HTTPError as e:
@@ -185,29 +229,54 @@ def fetch_single_query(api_key: str, query_text: str) -> dict:
 
         # Optional: show minimal request metadata WITHOUT secrets
         print("Request meta (sanitized):", file=sys.stderr)
-        print(json.dumps({
-            "url": API_URL,
-            "model": MODEL,
-            "anthropic_version": "2023-06-01",
-            "has_tools": bool(payload_obj.get("tools")),
-            "tools": payload_obj.get("tools"),
-            "max_tokens": MAX_TOKENS
-        }, ensure_ascii=False), file=sys.stderr)
-
+        print(
+            json.dumps(
+                {
+                    "url": API_URL,
+                    "model": MODEL,
+                    "anthropic_version": "2023-06-01",
+                    "has_tools": bool(payload_obj.get("tools")),
+                    "tools": payload_obj.get("tools"),
+                    "max_tokens": MAX_TOKENS,
+                    "has_output_config": bool(payload_obj.get("output_config")),
+                },
+                ensure_ascii=False,
+            ),
+            file=sys.stderr,
+        )
         raise
     except Exception as e:
         # Non-HTTP errors (timeout, DNS, etc.)
         print(f"=== REQUEST ERROR (FORENSIC) === {repr(e)}", file=sys.stderr)
         raise
 
-    # Extract text blocks
-    text = "\n".join(
-        b.get("text", "") for b in data.get("content", []) if b.get("type") == "text"
-    )
+    if data is None:
+        raise RuntimeError("No response data parsed from Anthropic API")
 
-    # Parse JSON (strip markdown fences if present)
-    clean = re.sub(r"```json|```", "", text).strip()
-    return json.loads(clean)
+    # Fail-fast on known non-parse / incomplete cases
+    stop_reason = data.get("stop_reason")
+    if stop_reason in ("max_tokens", "refusal"):
+        raise RuntimeError(f"Anthropic stop_reason={stop_reason}")
+
+    # Structured outputs returns valid JSON in response.content[0].text
+    content = data.get("content", [])
+    text0 = ""
+    if content and isinstance(content, list):
+        first = content[0] if len(content) > 0 else {}
+        if isinstance(first, dict):
+            text0 = first.get("text", "") or ""
+    if not text0.strip():
+        # fallback: join all text blocks (defensive)
+        text0 = "\n".join(
+            b.get("text", "")
+            for b in content
+            if isinstance(b, dict) and b.get("type") == "text"
+        )
+
+    parsed = json.loads(text0.strip())
+    if not isinstance(parsed, list):
+        raise RuntimeError("Model output JSON is not a list")
+    return parsed
 
 
 # ─── Main Generator ──────────────────────────────────────────────
@@ -222,7 +291,7 @@ def main():
     with open(queries_path, encoding="utf-8") as f:
         queries = json.load(f)
 
-    # ── GUARDRAIL B1: Enforce exactly 5 ──
+    # ── Guardrail: queries count must match budget ──
     assert len(queries) == CALL_BUDGET, (
         f"GUARDRAIL VIOLATION: queries.json has {len(queries)} entries, expected {CALL_BUDGET}"
     )
@@ -233,10 +302,11 @@ def main():
     all_items = []
     errors = []
     calls_used = 0
+    calls_attempted = 0
     consecutive_failures = 0
     seen_keys = set()
 
-    print(f"[{now_th.strftime('%Y-%m-%d %H:%M')} TH] Starting {CALL_BUDGET}-call fetch...")
+    print(f"[{now_th.strftime('%Y-%m-%d %H:%M')} TH] Starting {CALL_BUDGET}-attempt fetch...")
 
     for q in queries:
         tag = q["query_tag"]
@@ -245,40 +315,83 @@ def main():
         query_text = q["query_text"]
 
         if consecutive_failures >= CONSECUTIVE_FAIL_LIMIT:
-            print(f"  ⛔ STOP: {CONSECUTIVE_FAIL_LIMIT} consecutive failures. Halting.")
+            print(f"  ⛔ STOP: {CONSECUTIVE_FAIL_LIMIT} consecutive failed attempts. Halting.")
             break
 
-        if calls_used >= CALL_BUDGET:
-            print(f"  ⛔ BUDGET REACHED: {calls_used}/{CALL_BUDGET}")
-            break
+        # Guardrail C: up to 2 attempts per query (1 retry) within global attempt cap
+        results = None
+        attempts_for_this_query = 0
+        last_error = None
 
-        print(f"  [{calls_used + 1}/{CALL_BUDGET}] {tag}: {query_text[:60]}...")
-        # pacing: avoid 30k input tokens/min rate limit
-        if calls_used > 0:
-            time.sleep(SLEEP_BETWEEN_CALLS_SECONDS)
-          
-        try:
-            results = fetch_single_query(api_key, query_text)
-            calls_used += 1
-            consecutive_failures = 0
+        while attempts_for_this_query < 2:
+            if consecutive_failures >= CONSECUTIVE_FAIL_LIMIT:
+                print(f"  ⛔ STOP: {CONSECUTIVE_FAIL_LIMIT} consecutive failed attempts. Halting.")
+                break
 
-            if not isinstance(results, list):
-                results = [results] if isinstance(results, dict) else []
+            if calls_attempted >= CALL_BUDGET:
+                print(f"  ⛔ BUDGET REACHED (attempts): {calls_attempted}/{CALL_BUDGET}")
+                break
 
-            for item in results:
-                title = item.get("title", "").strip()
-                if not title:
+            print(f"  [{calls_attempted + 1}/{CALL_BUDGET}] {tag}: {query_text[:60]}...")
+
+            # pacing: pace ATTEMPTS (skip first attempt)
+            if calls_attempted > 0:
+                time.sleep(SLEEP_BETWEEN_CALLS_SECONDS)
+
+            calls_attempted += 1
+            attempts_for_this_query += 1
+
+            try:
+                results = fetch_single_query(api_key, query_text)
+                calls_used += 1
+                consecutive_failures = 0
+                last_error = None
+                break
+            except Exception as e:
+                last_error = e
+                consecutive_failures += 1
+
+                transient = is_transient_error(e)
+                if attempts_for_this_query < 2 and transient and calls_attempted < CALL_BUDGET:
+                    print(f"  ⚠ {tag}: transient failure, retrying once after {RETRY_BACKOFF_SECONDS}s")
+                    time.sleep(RETRY_BACKOFF_SECONDS)
                     continue
+                break
 
-                dk = dedup_key(title)
-                if dk in seen_keys:
-                    continue
-                seen_keys.add(dk)
+        if results is None:
+            msg = str(last_error) if last_error else "Unknown error"
+            errors.append(
+                {
+                    "query_tag": tag,
+                    "error_type": "other",
+                    "message": msg if msg else repr(last_error),
+                    "attempts": attempts_for_this_query,
+                }
+            )
+            print(f"  ❌ {tag}: {msg}")
+            continue
 
-                combined_text = f"{title} {item.get('summary', '')} {item.get('source', '')}"
-                region = classify_region(combined_text, demographic)
+        # Normalize to list (defensive)
+        if not isinstance(results, list):
+            results = [results] if isinstance(results, dict) else []
 
-                all_items.append({
+        for item in results:
+            if not isinstance(item, dict):
+                continue
+            title = (item.get("title") or "").strip()
+            if not title:
+                continue
+
+            dk = dedup_key(title)
+            if dk in seen_keys:
+                continue
+            seen_keys.add(dk)
+
+            combined_text = f"{title} {item.get('summary', '')} {item.get('source', '')}"
+            region = classify_region(combined_text, demographic)
+
+            all_items.append(
+                {
                     "query_tag": tag,
                     "badge_color": badge_color,
                     "region": region,
@@ -287,18 +400,8 @@ def main():
                     "source": (item.get("source") or "").strip(),
                     "url": item.get("url"),
                     "strategic_implication": (item.get("strategic_implication") or "").strip(),
-                })
-
-        except Exception as e:
-            consecutive_failures += 1
-            msg = str(e)
-            errors.append({
-                "query_tag": tag,
-                "error_type": "other",
-                "message": msg if msg else repr(e),
-                "attempts": 1
-            })
-            print(f"  ❌ {tag}: {msg}")
+                }
+            )
 
     # Sort: reputable sources first, then by title (stable)
     def reputable_rank(item):
@@ -307,7 +410,6 @@ def main():
 
     all_items.sort(key=lambda x: (reputable_rank(x), x.get("title", "").lower()))
 
-    # Build output
     out = {
         "meta": {
             "version": "1B-v2.1",
@@ -315,10 +417,14 @@ def main():
             "generated_at_local": now_th.strftime("%d %b. %Y %H:%M น."),
             "schedule_local": "ทุกวัน: 8:00 น.",
             "calls_used": calls_used,
+            "calls_attempted": calls_attempted,
             "calls_budget": CALL_BUDGET,
             "partial": True if errors or calls_used < CALL_BUDGET else False,
-            "notes": f"{len(all_items)} articles from {calls_used} calls. {len(errors)} errors. "
-                     f"{'PARTIAL: stopped early.' if errors or calls_used < CALL_BUDGET else 'OK.'}",
+            "notes": (
+                f"{len(all_items)} articles from {calls_used} successful calls / "
+                f"{calls_attempted} attempts (budget {CALL_BUDGET}). {len(errors)} errors. "
+                f"{'PARTIAL: stopped early.' if errors or calls_used < CALL_BUDGET else 'OK.'}"
+            ),
         },
         "executive_summary": build_exec_summary(all_items),
         "items": all_items,
