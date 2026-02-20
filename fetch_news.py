@@ -46,8 +46,6 @@ SYSTEM_PROMPT = (
 # Structured Outputs schema: guarantee valid JSON, exactly 2 items (if API supports output_config)
 OUTPUT_SCHEMA = {
     "type": "array",
-    "minItems": 2,
-    "maxItems": 2,
     "items": {
         "type": "object",
         "properties": {
@@ -247,8 +245,9 @@ def fetch_single_query(api_key: str, query_text: str) -> list:
                 ),
                 file=sys.stderr,
             )
+            e._forensic_body = body  # attach for outer retry logic
             raise
-
+          
         except Exception as e:
             print(f"=== REQUEST ERROR (FORENSIC) === {repr(e)}", file=sys.stderr)
             raise
@@ -281,6 +280,8 @@ def fetch_single_query(api_key: str, query_text: str) -> list:
         parsed = json.loads(text0.strip())
         if not isinstance(parsed, list):
             raise RuntimeError("Model output JSON is not a list")
+        if len(parsed) != 2:
+            raise RuntimeError(f"Expected 2 items, got {len(parsed)}")
         return parsed
 
     # First attempt with structured output
@@ -289,25 +290,19 @@ def fetch_single_query(api_key: str, query_text: str) -> list:
 
     except urllib.error.HTTPError as e:
         # Retry ONLY when 400 indicates structured output is unsupported
-        body = ""
-        try:
-            body = e.read().decode("utf-8", errors="replace")  # may be empty if already read
-        except Exception:
-            body = ""
-
-        unsupported_markers = [
-            "output_config",
-            "json_schema",
-            "format",
-            "unknown field",
-            "not allowed",
-            "invalid_request_error",
-        ]
-
-        # Use both exception string and body as best-effort signals
+        body = getattr(e, "_forensic_body", "") or ""
         haystack = (str(e) + "\n" + body).lower()
 
-        if getattr(e, "code", None) == 400 and any(m in haystack for m in unsupported_markers):
+        is_400 = getattr(e, "code", None) == 400
+
+        structured_not_supported = (
+            ("output_config" in haystack and ("unknown" in haystack or "not allowed" in haystack or "unsupported" in haystack))
+            or ("unknown field" in haystack and "output_config" in haystack)
+            or ("json_schema" in haystack and ("not supported" in haystack or "unsupported" in haystack))
+            or ("output_config.format" in haystack and ("not supported" in haystack or "unsupported" in haystack))
+        )
+
+        if is_400 and structured_not_supported:
             print(
                 "Structured output unsupported — retrying without output_config",
                 file=sys.stderr,
@@ -315,6 +310,7 @@ def fetch_single_query(api_key: str, query_text: str) -> list:
             return _make_request(include_structured=False)
 
         raise
+
 # ─── Main Generator ──────────────────────────────────────────────
 def main():
     api_key = os.environ.get("ANTHROPIC_API_KEY")
