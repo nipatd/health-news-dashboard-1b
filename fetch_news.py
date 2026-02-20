@@ -32,6 +32,9 @@ RETRY_BACKOFF_SECONDS = 15
 CONSECUTIVE_FAIL_LIMIT = 5
 THAILAND_TZ = timezone(timedelta(hours=7))
 
+# Run-level flag: once set True, all subsequent calls skip output_config
+STRUCTURED_OUTPUT_DISABLED = False
+
 SYSTEM_PROMPT = (
     "You are a strategic health & wellness intelligence curator for a business team. "
     "Given search results, extract exactly 2 news items. "
@@ -159,10 +162,12 @@ def is_transient_error(e: Exception) -> bool:
 # ─── API Call ────────────────────────────────────────────────────
 def fetch_single_query(api_key: str, query_text: str) -> list:
     """Make one API call with structured output; retry once without it if unsupported."""
+    global STRUCTURED_OUTPUT_DISABLED
     import urllib.request
     import urllib.error
 
     def _make_request(include_structured: bool) -> list:
+        print(f"[REQUEST_CONFIG] sending_output_config={include_structured}", file=sys.stderr)
         payload_obj = {
             "model": MODEL,
             "max_tokens": MAX_TOKENS,
@@ -284,9 +289,9 @@ def fetch_single_query(api_key: str, query_text: str) -> list:
             raise RuntimeError(f"Expected 2 items, got {len(parsed)}")
         return parsed
 
-    # First attempt with structured output
+    # First attempt: skip structured output if already disabled for this run
     try:
-        return _make_request(include_structured=True)
+        return _make_request(include_structured=not STRUCTURED_OUTPUT_DISABLED)
 
     except urllib.error.HTTPError as e:
         # Retry ONLY when 400 indicates structured output is unsupported
@@ -296,21 +301,16 @@ def fetch_single_query(api_key: str, query_text: str) -> list:
         is_400 = getattr(e, "code", None) == 400
 
         structured_not_supported = (
-            ("does not support output format" in haystack)
-            or ("does not support output_format" in haystack)
-            or ("output format" in haystack and "not support" in haystack)
-            or (
-                "output_config" in haystack and
-                ("unknown" in haystack or "not allowed" in haystack or "unsupported" in haystack)
-            )
+            ("output_config" in haystack and ("unknown" in haystack or "not allowed" in haystack or "unsupported" in haystack))
             or ("unknown field" in haystack and "output_config" in haystack)
             or ("json_schema" in haystack and ("not supported" in haystack or "unsupported" in haystack))
             or ("output_config.format" in haystack and ("not supported" in haystack or "unsupported" in haystack))
         )
 
         if is_400 and structured_not_supported:
+            STRUCTURED_OUTPUT_DISABLED = True
             print(
-                "Structured output unsupported — retrying without output_config",
+                "Structured output unsupported — retrying without output_config (flag set for run)",
                 file=sys.stderr,
             )
             return _make_request(include_structured=False)
