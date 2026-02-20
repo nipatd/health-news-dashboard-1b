@@ -1,131 +1,57 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-20T15:25:28.035372+00:00",
-    "generated_at_local": "20 Feb. 2026 22:25 น.",
+    "generated_at_iso": "2026-02-20T22:55:47.211089+00:00",
+    "generated_at_local": "21 Feb. 2026 05:55 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
-    "calls_used": 5,
+    "calls_used": 0,
     "calls_attempted": 5,
     "calls_budget": 5,
-    "partial": false,
-    "notes": "10 articles from 5 successful calls / 5 attempts (budget 5). 0 errors. OK."
+    "partial": true,
+    "notes": "0 articles from 0 successful calls / 5 attempts (budget 5). 5 errors. PARTIAL: stopped early."
   },
   "executive_summary": {
     "trends": [
-      "The CDC issued a Health Advisory about New World Screwworm cases in Mexico's Tamaulipas state bordering Texas, with over 1,190 human cases and seven deaths reported across Central America and Mexico as of January 20, 2026.",
-      "The CDC significantly reduced the number of recommended childhood vaccines from 18 to 10 diseases, aligning with international standards like Denmark's immunization practices following a White House directive.",
-      "New imaging technology allows scientists to observe the structure and interaction between herpesvirus and antiviral drugs in real-time for the first time."
+      "ยังไม่มีข้อมูลเทรนด์"
     ],
     "strategic": [
-      "Companies with operations or supply chains in Mexico and Central America should implement enhanced health screening protocols and consider business continuity planning for potential agricultural and livestock disruptions.",
-      "Organizations should prepare for potential changes in employee health coverage requirements and workplace immunization policies while monitoring public health impacts on workforce availability.",
-      "Organizations should prepare for accelerated drug development timelines and improved precision medicine approaches as real-time drug interaction monitoring becomes standard practice."
+      "ยังไม่มีข้อมูลเชิงกลยุทธ์"
     ],
     "local": [
       "ยังไม่มีข่าวท้องถิ่นในรอบนี้"
     ]
   },
-  "items": [
-    {
-      "query_tag": "GLOBAL_4",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "New World Screwworm Outbreak Reaches Mexican Border with Texas",
-      "summary": "The CDC issued a Health Advisory about New World Screwworm cases in Mexico's Tamaulipas state bordering Texas, with over 1,190 human cases and seven deaths reported across Central America and Mexico as of January 20, 2026.",
-      "source": "CDC",
-      "url": "https://www.cdc.gov/han/php/notices/han00526.html",
-      "strategic_implication": "Companies with operations or supply chains in Mexico and Central America should implement enhanced health screening protocols and consider business continuity planning for potential agricultural and livestock disruptions."
-    },
-    {
-      "query_tag": "GLOBAL_4",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "CDC Revises Childhood Vaccine Schedule Following Presidential Directive",
-      "summary": "The CDC significantly reduced the number of recommended childhood vaccines from 18 to 10 diseases, aligning with international standards like Denmark's immunization practices following a White House directive.",
-      "source": "Vaccine Advisor",
-      "url": "https://www.vaccineadvisor.com/news/new-cdc-guidance-cuts-the-number-of-recommended-vaccines-for-kids/",
-      "strategic_implication": "Organizations should prepare for potential changes in employee health coverage requirements and workplace immunization policies while monitoring public health impacts on workforce availability."
-    },
+  "items": [],
+  "errors": [
     {
       "query_tag": "GLOBAL_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Harvard Medical School Researchers Reveal Real-Time Herpesvirus-Drug Interactions Through Advanced Imaging",
-      "summary": "New imaging technology allows scientists to observe the structure and interaction between herpesvirus and antiviral drugs in real-time for the first time.",
-      "source": "Harvard Medical School",
-      "url": "https://hms.harvard.edu/news",
-      "strategic_implication": "Organizations should prepare for accelerated drug development timelines and improved precision medicine approaches as real-time drug interaction monitoring becomes standard practice."
-    },
-    {
-      "query_tag": "GLOBAL_5",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Longevity Market Shifts From Male-Dominated to Women-Centered Healthspan Focus",
-      "summary": "The booming longevity sector is pivoting to address women's unique aging patterns, with new diagnostics and interventions targeted for every female life stage.",
-      "source": "Global Wellness Summit",
-      "url": "https://www.globalwellnesssummit.com/trendium/four-wellness-themes-for-2026/",
-      "strategic_implication": "Companies must develop gender-specific longevity products and services, particularly targeting female physiology and hormonal changes throughout different life stages."
-    },
-    {
-      "query_tag": "GLOBAL_3",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Mayo Clinic Discovers Key Mechanism Behind Lung Cancer Immunotherapy Resistance",
-      "summary": "Mayo Clinic researchers identified how lung tumors manipulate regulatory T cells via P2RX7 receptors to evade immune system destruction, revealing new therapeutic targets for immunotherapy enhancement.",
-      "source": "BioEngineer",
-      "url": "https://bioengineer.org/mayo-clinic-study-uncovers-mechanism-driving-immunotherapy-resistance-in-lung-cancer/",
-      "strategic_implication": "Healthcare organizations should anticipate new immunotherapy combination treatments and prepare for shifts in cancer care protocols that could significantly improve patient outcomes and market dynamics."
-    },
-    {
-      "query_tag": "GLOBAL_3",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Merck and Mayo Clinic Launch AI-Driven Drug Discovery Partnership",
-      "summary": "Merck and Mayo Clinic announced a strategic collaboration using AI and clinical data analytics for drug discovery and development, marking Mayo's first partnership of this scale with a pharmaceutical company.",
-      "source": "Healthcare Brew",
-      "url": "https://www.healthcare-brew.com/stories/2026/02/18/merck-mayo-clinic-drug-discovery",
-      "strategic_implication": "Organizations should prepare for accelerated pharmaceutical R&D timelines and new data partnership models that could transform how healthcare companies collaborate and compete."
+      "error_type": "other",
+      "message": "HTTP Error 400: Bad Request",
+      "attempts": 1
     },
     {
       "query_tag": "GLOBAL_2",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Next-generation influenza vaccines could save millions of lives, finds WHO",
-      "summary": "WHO assessment reveals that next-generation influenza vaccines offering broader and longer-lasting protection could significantly reduce global influenza burden, with 46 vaccines currently in clinical development.",
-      "source": "World Health Organization",
-      "url": "https://www.who.int/news/item/18-02-2026-next-generation-influenza-vaccines-could-save-millions-of-lives--finds-who",
-      "strategic_implication": "Organizations should prepare for enhanced pandemic preparedness capabilities and potential changes in employee vaccination programs as next-generation vaccines become available by 2026-2027."
+      "error_type": "other",
+      "message": "HTTP Error 400: Bad Request",
+      "attempts": 1
     },
     {
-      "query_tag": "GLOBAL_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "NIH Study Delivers Most Comprehensive Biological Analysis of Chronic Fatigue Syndrome to Date",
-      "summary": "Researchers conducted the most diverse and extensive biological measurements of chronic fatigue syndrome patients ever performed, revealing new insights into the condition's underlying mechanisms.",
-      "source": "Harvard Health Publishing",
-      "url": "https://www.health.harvard.edu/topics/medical-research/all",
-      "strategic_implication": "Workplace wellness programs must adapt to better support employees with chronic fatigue conditions as new diagnostic and treatment protocols emerge from this groundbreaking research."
+      "query_tag": "GLOBAL_3",
+      "error_type": "other",
+      "message": "HTTP Error 400: Bad Request",
+      "attempts": 1
+    },
+    {
+      "query_tag": "GLOBAL_4",
+      "error_type": "other",
+      "message": "HTTP Error 400: Bad Request",
+      "attempts": 1
     },
     {
       "query_tag": "GLOBAL_5",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Wellness Disaster Preparedness Becomes Essential as 'Ready Is the New Well'",
-      "summary": "Wellness industry pivots to include disaster readiness as a core health pillar, with gyms becoming emergency shelters and wellness retreats teaching survival skills.",
-      "source": "Global Wellness Summit",
-      "url": "https://globalwellnessinstitute.org/press-room/press-releases/global-wellness-summit-releases-10-wellness-trends-for-2026/",
-      "strategic_implication": "Organizations must integrate emergency preparedness into wellness programs and facilities, creating dual-purpose spaces that serve both fitness and crisis management needs."
-    },
-    {
-      "query_tag": "GLOBAL_2",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "WHO launches 2026 appeal to help millions of people in health emergencies and crisis settings",
-      "summary": "WHO seeks nearly $1 billion to respond to 36 global emergencies in 2026, including 14 Grade 3 emergencies requiring the highest organizational response level across conflict zones and humanitarian crises.",
-      "source": "World Health Organization",
-      "url": "https://www.who.int/news/item/03-02-2026-who-launches-2026-appeal-to-help-millions-of-people-in-health-emergencies-and-crisis-settings",
-      "strategic_implication": "Companies with global operations should anticipate increased health security risks and potential disruptions in regions affected by humanitarian crises, requiring enhanced business continuity planning."
+      "error_type": "other",
+      "message": "HTTP Error 400: Bad Request",
+      "attempts": 1
     }
-  ],
-  "errors": []
+  ]
 }
