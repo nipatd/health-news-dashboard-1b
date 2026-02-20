@@ -25,7 +25,7 @@ API_URL = "https://api.anthropic.com/v1/messages"
 MODEL = "claude-sonnet-4-20250514"
 MAX_TOKENS = 512
 
-CALL_BUDGET = 5
+CALL_BUDGET = 20
 SLEEP_BETWEEN_CALLS_SECONDS = 65
 RETRY_BACKOFF_SECONDS = 15
 
