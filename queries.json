@@ -11,9 +11,8 @@
   // Wellness (4) — mix reputable + proposal-friendly (Thai)
   { "query_tag": "TH_U_TOP_1", "demographic": "LOCAL", "badge_color": "#a78bfa", "query_text": "จุฬาลงกรณ์มหาวิทยาลัย ข่าวงานวิจัยสุขภาพ เวชศาสตร์ โภชนาการ 2569 site:chula.ac.th" },
   { "query_tag": "TH_HOSP_TOP_1", "demographic": "LOCAL", "badge_color": "#a78bfa", "query_text": "ศิริราช ข่าวสุขภาพ งานวิจัย การแพทย์ 2569 site:sirirajhospital.com" },
-  { "query_tag": "TH_WELLNESS_BEAUTY_TREND_1", "demographic": "LOCAL", "badge_color": "#22c55e", "query_text": "เทรนด์ความงาม สกินแคร์ เวลเนส 2569 งานวิจัย ส่วนผสม active SPF retinol" },
-  { "query_tag": "TH_WELLNESS_SLEEP_MENTAL_1", "demographic": "LOCAL", "badge_color": "#22c55e", "query_text": "สุขภาพจิต ความเครียด การนอนหลับ burnout workplace wellness 2569" },
-
+  { "query_tag": "TH_CLINIC_TOP_1", "demographic": "LOCAL", "badge_color": "#a78bfa", "query_text": "Bumrungrad สมิติเวช MedPark ข่าวสุขภาพ บริการการแพทย์ เทคโนโลยีการรักษา 2569 site:bumrungrad.com OR site:samitivejhospitals.com OR site:medparkhospital.com" }
+  { "query_tag": "TH_DERM_BEAUTY_HOSP_1", "demographic": "LOCAL", "badge_color": "#a78bfa", "query_text": "คลินิกผิวหนัง เวชศาสตร์ความงาม เลเซอร์ โรคผิวหนัง แนวทางการรักษา 2569 site:sirirajhospital.com OR site:ramathibodi.mahidol.ac.th OR site:chulalongkornhospital.go.th" }
   // ── ENGLISH (8) ─────────────────────────────────────────────
   // Health (4) — reputable
   { "query_tag": "GLOBAL_WHO_1", "demographic": "GLOBAL", "badge_color": "#fbbf24", "query_text": "WHO World Health Organization latest health advisory 2026 site:who.int/news" },
