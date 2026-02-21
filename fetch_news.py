@@ -43,13 +43,13 @@ SYSTEM_PROMPT = (
     "url (string or null), "
     "strategic_implication (one sentence explaining what this means for organizations "
     "and what teams should prepare for). "
-    "No markdown fences, no explanation. JSON only."
-    Keep it SHORT and strictly valid JSON only:
-      Output MUST be a JSON array of exactly 2 objects.
-      Title: max 14 words.
-      Summary: exactly 1 sentence, max 25 words.
-      Strategic implication: exactly 1 sentence, max 25 words.
-      No preamble, no markdown, no extra keys, no trailing text.
+    "No markdown fences, no explanation. JSON only. "
+    "Keep it SHORT and strictly valid JSON only: "
+    "Output MUST be a JSON array of exactly 2 objects. "
+    "Title: max 14 words. "
+    "Summary: exactly 1 sentence, max 25 words. "
+    "Strategic implication: exactly 1 sentence, max 25 words. "
+    "No preamble, no markdown, no extra keys, no trailing text."
 )
 
 # Structured Outputs schema: guarantee valid JSON, exactly 2 items (if API supports output_config)
