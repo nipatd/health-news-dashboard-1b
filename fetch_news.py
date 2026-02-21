@@ -288,7 +288,14 @@ def fetch_single_query(api_key: str, query_text: str) -> list:
         if not text0.strip():
             raise RuntimeError("Empty text content from Anthropic response")
 
-        parsed = json.loads(text0.strip())
+        s = text0.strip()
+        # Robust extraction: clip to the first JSON array if extra text appears
+        if "[" in s and "]" in s:
+            start = s.find("[")
+            end = s.rfind("]")
+            if start != -1 and end != -1 and end > start:
+                s = s[start:end+1].strip()
+        parsed = json.loads(s)
         if not isinstance(parsed, list):
             raise RuntimeError("Model output JSON is not a list")
         if len(parsed) != 2:
