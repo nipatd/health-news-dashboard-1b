@@ -1,729 +1,650 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#071A2B" />
-  <title>Global Health & Wellness News</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Health & Wellness News | สุขภาพและความเป็นอยู่ที่ดี</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#071A2B;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.08);
-      --stroke:rgba(255,255,255,.12);
-      --text:#F5FBFF;
-      --muted:rgba(245,251,255,.72);
-      --aqua:#2EE6D6;
-      --green:#42F58D;
-      --amber:#FFB020;
-      --lav:#B6A6FF;
-      --pink:#f472b6;
-      --shadow: 0 12px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans Thai", "Noto Sans", sans-serif;
-      background: radial-gradient(1200px 700px at 20% 10%, rgba(46,230,214,.20), transparent 55%),
-                  radial-gradient(900px 600px at 80% 0%, rgba(66,245,141,.14), transparent 60%),
-                  radial-gradient(900px 600px at 50% 100%, rgba(182,166,255,.12), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.35;
-    }
-    a{color:inherit}
-    .wrap{max-width:1120px;margin:0 auto;padding:18px 14px 70px}
-    .topbar{
-      position:sticky;top:0;z-index:10;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(7,26,43,.90), rgba(7,26,43,.55));
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .topbar-inner{max-width:1120px;margin:0 auto;padding:14px 14px}
-    .row{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .brand{
-      display:flex;gap:10px;align-items:center;
-      min-width:260px;
-    }
-    .globe{
-      width:42px;height:42px;border-radius:14px;
-      background: radial-gradient(circle at 30% 30%, rgba(46,230,214,.35), transparent 55%),
-                  radial-gradient(circle at 70% 60%, rgba(66,245,141,.22), transparent 55%),
-                  rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      display:grid;place-items:center;
-    }
-    .globe span{font-size:20px}
-    .title{display:flex;flex-direction:column;gap:2px}
-    .title b{font-size:16px;letter-spacing:.2px}
-    .title small{color:var(--muted)}
-    .actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .btn{
-      appearance:none;border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      border-radius:14px;
-      padding:10px 12px;
-      cursor:pointer;
-      transition: transform .06s ease, background .2s ease, border-color .2s ease;
-      box-shadow: 0 8px 24px rgba(0,0,0,.22);
-      display:flex;gap:8px;align-items:center;
-      user-select:none;
-    }
-    .btn:hover{background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.18)}
-    .btn:active{transform: translateY(1px)}
-    .btn.primary{
-      border-color: rgba(46,230,214,.30);
-      background: linear-gradient(180deg, rgba(46,230,214,.18), rgba(255,255,255,.06));
-    }
-    .pill{
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      color:var(--muted);
-      display:flex;gap:8px;align-items:center;
-      font-size:12px;
-    }
-    .pill b{color:var(--text);font-weight:700}
-    .grid-bg{
-      position:fixed;inset:0;pointer-events:none;opacity:.22;
-      background-image:
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: radial-gradient(circle at 40% 30%, rgba(0,0,0,1), rgba(0,0,0,0) 70%);
-    }
+    /* ═══════ ANIMATIONS ═══════ */
+    @keyframes breathe { 0%,100%{transform:scale(1);opacity:.6} 50%{transform:scale(1.05);opacity:1} }
+    @keyframes dnaHelix { 0%{background-position:0% 0%} 100%{background-position:100% 100%} }
+    @keyframes pulseRing { 0%{transform:scale(.95);opacity:0} 50%{opacity:1} 100%{transform:scale(1.4);opacity:0} }
+    @keyframes fadeSlideUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes cardReveal { from{opacity:0;transform:translateY(24px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+    @keyframes shimmerFlow { 0%{background-position:-300% 0} 100%{background-position:300% 0} }
+    @keyframes heartbeat { 0%,100%{transform:scale(1)} 14%{transform:scale(1.15)} 28%{transform:scale(1)} 42%{transform:scale(1.08)} 56%{transform:scale(1)} }
+    @keyframes floatOrb { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(30px,-20px) scale(1.1)} 50%{transform:translate(-10px,-40px) scale(.95)} 75%{transform:translate(-30px,-10px) scale(1.05)} }
 
-    .hero{
-      padding:22px 0 12px;
-    }
-    .hero h1{
-      margin:8px 0 6px;
-      font-size:26px;
-      letter-spacing:.2px;
-    }
-    .hero p{margin:0;color:var(--muted)}
-    .cards3{
-      display:grid;gap:12px;
-      grid-template-columns: repeat(12, 1fr);
-      margin-top:14px;
-    }
-    .card{
-      border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow: var(--shadow);
-      padding:14px;
-      position:relative;
-      overflow:hidden;
-    }
-    .card:before{
-      content:"";
-      position:absolute;inset:-1px;
-      background: radial-gradient(400px 220px at 20% 0%, rgba(46,230,214,.16), transparent 60%),
-                  radial-gradient(380px 220px at 90% 30%, rgba(66,245,141,.12), transparent 55%);
-      opacity:.9;
-      pointer-events:none;
-    }
-    .card > *{position:relative}
-    .kicker{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
-    .kicker b{font-size:13px}
-    .kicker small{color:var(--muted)}
-    .bullets{margin:0;padding-left:18px;color:var(--muted)}
-    .bullets li{margin:6px 0}
-    .card3-1{grid-column: span 4}
-    .card3-2{grid-column: span 4}
-    .card3-3{grid-column: span 4}
-    @media (max-width: 980px){
-      .card3-1,.card3-2,.card3-3{grid-column: span 12}
-    }
+    /* ═══════ RESET & BASE ═══════ */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;background:#080c0a;font-family:'Outfit',sans-serif;color:#dce8e0;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background:
+      radial-gradient(circle at 15% 20%,rgba(16,185,129,.07) 0%,transparent 40%),
+      radial-gradient(circle at 85% 80%,rgba(139,92,246,.05) 0%,transparent 40%),
+      radial-gradient(circle at 50% 50%,rgba(6,182,212,.04) 0%,transparent 50%);
+      pointer-events:none;z-index:0}
+    body::after{content:'';position:fixed;inset:0;opacity:.025;background-image:
+      repeating-linear-gradient(60deg,transparent,transparent 40px,rgba(16,185,129,.4) 40px,rgba(16,185,129,.4) 41px),
+      repeating-linear-gradient(-60deg,transparent,transparent 40px,rgba(6,182,212,.3) 40px,rgba(6,182,212,.3) 41px);
+      animation:dnaHelix 30s linear infinite;background-size:200% 200%;
+      pointer-events:none;z-index:0}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#080c0a}
+    ::-webkit-scrollbar-thumb{background:#1a3a2a;border-radius:3px}
+    ::-webkit-scrollbar-thumb:hover{background:#10b981}
 
-    .controls{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-      margin:14px 0 8px;
+    .container{position:relative;z-index:1;max-width:1320px;margin:0 auto}
+
+    /* ═══════ ORBS ═══════ */
+    .orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+    .orb-1{width:400px;height:400px;background:rgba(16,185,129,.08);top:-100px;left:-100px;animation:floatOrb 20s ease-in-out infinite}
+    .orb-2{width:300px;height:300px;background:rgba(139,92,246,.06);bottom:-50px;right:-50px;animation:floatOrb 25s ease-in-out infinite reverse}
+    .orb-3{width:250px;height:250px;background:rgba(6,182,212,.05);top:50%;left:60%;animation:floatOrb 18s ease-in-out infinite 5s}
+
+    /* ═══════ TOP BAR ═══════ */
+    .top-bar{height:4px;background:linear-gradient(90deg,#10b981,#06b6d4,#8b5cf6,#f59e0b,#ef4444,#ec4899,#10b981);background-size:300% 100%;animation:shimmerFlow 8s linear infinite}
+
+    /* ═══════ TIMESTAMP BAR ═══════ */
+    .timestamp-bar{text-align:center;padding:14px 20px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#8ba89a;letter-spacing:1px}
+    .timestamp-bar .time-value{color:#06b6d4;font-weight:600}
+    .timestamp-bar .schedule{margin-left:24px;color:#fbbf24}
+
+    /* ═══════ HEADER / HERO ═══════ */
+    header{padding:0 36px}
+    .hero{position:relative;border:1px solid rgba(16,185,129,.15);border-radius:20px;padding:52px 48px 44px;background:
+      linear-gradient(160deg,rgba(16,185,129,.06) 0%,rgba(8,12,10,.95) 35%,rgba(6,182,212,.04) 70%,rgba(139,92,246,.03) 100%);
+      overflow:hidden;animation:fadeSlideUp .8s ease-out}
+    .hero-cell{position:absolute;border-radius:50%;border:1px solid rgba(16,185,129,.08);animation:breathe 6s ease-in-out infinite}
+    .hero-cell-1{width:200px;height:200px;top:-60px;right:-40px}
+    .hero-cell-2{width:140px;height:140px;top:20px;right:80px;animation-delay:2s;border-color:rgba(6,182,212,.08)}
+    .hero-cell-3{width:90px;height:90px;bottom:-20px;right:200px;animation-delay:4s;border-color:rgba(139,92,246,.08)}
+    .hero-badge{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+    .hero-pulse{position:relative;width:10px;height:10px}
+    .hero-pulse-dot{width:10px;height:10px;background:#10b981;border-radius:50%;position:absolute}
+    .hero-pulse-ring{position:absolute;inset:-4px;border:2px solid #10b981;border-radius:50%;animation:pulseRing 2s ease-out infinite}
+    .hero-live-text{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:#10b981;letter-spacing:2px;text-transform:uppercase}
+    .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(32px,5.5vw,58px);font-weight:800;line-height:1.1;margin-bottom:16px;letter-spacing:-.5px}
+    .hero-title .line1{display:block;color:#f0faf4}
+    .hero-title .line2{display:block;background:linear-gradient(135deg,#10b981 0%,#06b6d4 40%,#8b5cf6 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+    .hero-tagline{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#6b8f7b}
+
+    /* ═══════ EXECUTIVE SUMMARY ═══════ */
+    .exec-summary{padding:0 36px;margin-top:28px;animation:fadeSlideUp .9s ease-out}
+    .exec-summary-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#10b981;margin-bottom:18px}
+    .exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .exec-col{background:linear-gradient(160deg,rgba(14,24,18,.95),rgba(8,12,10,.98));border:1px solid rgba(16,185,129,.12);border-radius:14px;padding:22px 20px}
+    .exec-col-title{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;margin-bottom:14px;letter-spacing:.5px}
+    .exec-col:nth-child(1) .exec-col-title{color:#06b6d4}
+    .exec-col:nth-child(2) .exec-col-title{color:#f59e0b}
+    .exec-col:nth-child(3) .exec-col-title{color:#f472b6}
+    .exec-item{font-size:13px;line-height:1.6;color:#b0c8ba;padding:4px 0 4px 14px;position:relative;border-bottom:1px solid rgba(16,185,129,.06)}
+    .exec-item:last-child{border-bottom:none}
+    .exec-item::before{content:'▸';position:absolute;left:0;color:#10b981;font-size:11px}
+
+    /* ═══════ METHODOLOGY ═══════ */
+    .methodology{padding:0 36px;margin-top:24px;animation:fadeSlideUp 1s ease-out}
+    .methodology-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#8b5cf6;font-style:italic;margin-bottom:14px}
+    .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .method-box{background:rgba(14,24,18,.8);border:1px solid rgba(139,92,246,.1);border-radius:12px;padding:18px 16px}
+    .method-icon{font-size:20px;margin-bottom:8px}
+    .method-label{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:#06b6d4;margin-bottom:6px}
+    .method-text{font-size:12px;line-height:1.5;color:#8ba89a}
+
+    /* ═══════ FILTER + CONTROLS BAR ═══════ */
+    .controls-wrap{padding:20px 36px 10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;animation:fadeSlideUp 1.1s ease-out}
+    .filter-btn{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:8px 20px;border-radius:24px;border:1px solid rgba(16,185,129,.2);background:rgba(14,24,18,.6);color:#8ba89a;cursor:pointer;transition:all .3s;letter-spacing:.5px}
+    .filter-btn:hover{border-color:rgba(16,185,129,.5);color:#dce8e0}
+    .filter-btn.active{background:rgba(16,185,129,.15);border-color:#10b981;color:#10b981;box-shadow:0 0 16px rgba(16,185,129,.15)}
+    .filter-btn .count{font-size:11px;opacity:.7;margin-left:4px}
+    .controls-spacer{flex:1}
+
+    .searchbox{
+      display:flex;align-items:center;gap:10px;
+      padding:9px 14px;border-radius:999px;
+      border:1px solid rgba(16,185,129,.14);
+      background:rgba(14,24,18,.55);
+      min-width:240px;flex: 1 1 260px;
     }
-    .search{
-      flex: 1 1 260px;
-      display:flex;gap:10px;align-items:center;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      padding:10px 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    .searchbox .icon{opacity:.7}
+    .searchbox input{
+      width:100%;background:transparent;border:0;outline:0;
+      color:#dce8e0;font-family:'JetBrains Mono',monospace;font-size:12px;
     }
-    .search input{
-      flex:1;
-      background:transparent;border:0;outline:0;color:var(--text);
-      font-size:14px;
-    }
-    .search input::placeholder{color: rgba(245,251,255,.55)}
-    .chips{
-      display:flex;gap:8px;flex-wrap:wrap;
-      flex: 2 1 360px;
-      align-items:center;
-    }
-    .chip{
-      border-radius:999px;
-      padding:9px 12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      color:var(--muted);
-      cursor:pointer;
-      user-select:none;
-      transition: background .2s ease, border-color .2s ease, transform .06s ease;
-      font-size:13px;
-      display:flex;gap:8px;align-items:center;
-    }
-    .chip:active{transform: translateY(1px)}
-    .chip.active{
-      color:var(--text);
-      border-color: rgba(46,230,214,.35);
-      background: linear-gradient(180deg, rgba(46,230,214,.18), rgba(255,255,255,.05));
-      box-shadow: 0 10px 26px rgba(46,230,214,.10);
-    }
-    .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.25)}
-    .dot.global{background: var(--aqua)}
-    .dot.apac{background: var(--green)}
-    .dot.th{background: var(--pink)}
-    .dot.research{background: var(--lav)}
-    .select{
+    .searchbox input::placeholder{color:#5f7f70}
+
+    .sortsel{
       flex: 0 0 auto;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      padding:10px 12px;
+      font-family:'JetBrains Mono',monospace;
+      font-size:12px;color:#dce8e0;
+      padding:10px 12px;border-radius:12px;
+      border:1px solid rgba(16,185,129,.14);
+      background:rgba(14,24,18,.55);
       outline:0;
+      cursor:pointer;
     }
 
-    .news-grid{
-      display:grid;gap:12px;
-      grid-template-columns: repeat(12, 1fr);
-      margin-top:10px;
+    .calls-badge{
+      flex: 0 0 auto;
+      font-family:'JetBrains Mono',monospace;
+      font-size:11px;color:#6b8f7b;
+      padding:6px 14px;border:1px solid rgba(16,185,129,.1);
+      border-radius:20px;background:rgba(14,24,18,.6)
     }
-    .news-card{
-      grid-column: span 6;
-      padding:14px;
-      border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .news-card:before{
-      content:"";
-      position:absolute;inset:-1px;
-      background: radial-gradient(420px 220px at 10% 0%, rgba(46,230,214,.14), transparent 60%),
-                  radial-gradient(420px 240px at 90% 40%, rgba(182,166,255,.10), transparent 60%);
-      opacity:.9;pointer-events:none;
-    }
-    .news-card > *{position:relative}
-    @media (max-width: 980px){ .news-card{grid-column: span 12} }
-    .badge-row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
-    .badge{
-      display:inline-flex;gap:8px;align-items:center;
-      padding:7px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      font-size:12px;color:var(--muted);
-    }
-    .badge strong{color:var(--text)}
-    .mini{
-      font-size:12px;color:var(--muted);
-      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-      max-width:45%;
-    }
-    .h2{
-      margin:0 0 8px;
-      font-size:16px;
-      letter-spacing:.2px;
-    }
-    .summary{
-      margin:0 0 10px;
-      color:rgba(245,251,255,.78);
-      font-size:13px;
-    }
-    .imp{
-      margin:0 0 10px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(66,245,141,.25);
-      background: linear-gradient(180deg, rgba(66,245,141,.12), rgba(255,255,255,.03));
-      color:rgba(245,251,255,.85);
-      font-size:13px;
-    }
-    .card-actions{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
-    }
-    .linkbtn{
-      text-decoration:none;
-      display:inline-flex;gap:8px;align-items:center;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      padding:9px 12px;
-      color:var(--text);
-      font-size:13px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.20);
-    }
-    .linkbtn:hover{background: rgba(255,255,255,.10)}
-    .copybtn{
-      border-radius:14px;
-      border:1px solid rgba(46,230,214,.28);
-      background: linear-gradient(180deg, rgba(46,230,214,.16), rgba(255,255,255,.05));
-      padding:9px 12px;
-      color:var(--text);
-      font-size:13px;
+
+    /* ═══════ PARTIAL BANNER ═══════ */
+    .partial-banner{margin:0 36px 14px;padding:12px 20px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#fbbf24;text-align:center;display:none}
+    .partial-banner.show{display:block}
+
+    /* ═══════ CARDS GRID ═══════ */
+    .cards-grid{padding:0 36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:linear-gradient(160deg,#0e1812,#080c0a);border:1px solid rgba(16,185,129,.08);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:all .35s;animation:cardReveal .6s ease-out both}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10b981,#06b6d4,#8b5cf6);opacity:0;transition:opacity .35s}
+    .card:hover{transform:translateY(-5px);border-color:rgba(16,185,129,.2);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+    .card:hover::before{opacity:1}
+    .card-badge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:6px;margin-bottom:14px}
+    .card-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.35;color:#eaf5ef;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .card-summary{font-size:13px;line-height:1.6;color:#8ba89a;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .card-strategy{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+    .card-strategy-label{font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;color:#8b5cf6;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+    .card-strategy-text{font-size:12px;line-height:1.5;color:#b0a8c8}
+    .card-source{font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b8f7b;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .card-source a{color:#10b981;text-decoration:none;border-bottom:1px dotted rgba(16,185,129,.3)}
+    .card-source a:hover{border-bottom-style:solid}
+
+    .card-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .btn-mini{
+      font-family:'JetBrains Mono',monospace;
+      font-size:11px;
+      padding:8px 10px;border-radius:10px;
+      border:1px solid rgba(16,185,129,.18);
+      background:rgba(14,24,18,.6);
+      color:#dce8e0;
       cursor:pointer;
-      display:inline-flex;gap:8px;align-items:center;
-      box-shadow: 0 10px 26px rgba(46,230,214,.10);
+      transition:all .25s;
+      user-select:none;
     }
+    .btn-mini:hover{border-color:rgba(16,185,129,.45);transform:translateY(-1px)}
+    .btn-mini.copy{border-color:rgba(6,182,212,.25)}
+    .btn-mini.copy:hover{border-color:rgba(6,182,212,.55)}
+    .btn-mini.open{border-color:rgba(16,185,129,.25)}
+    .btn-mini.open:hover{border-color:rgba(16,185,129,.55)}
+
+    /* ═══════ STATES ═══════ */
+    .loading{text-align:center;padding:80px 20px;display:none}
+    .loading.show{display:block}
+    .loading-heart{font-size:48px;animation:heartbeat 1.5s infinite}
+    .loading-text{font-family:'JetBrains Mono',monospace;font-size:13px;color:#6b8f7b;margin-top:16px}
+    .error-state{text-align:center;padding:60px 20px;display:none;color:#ef4444}
+    .error-state.show{display:block}
+
+    /* ═══════ TOAST ═══════ */
     .toast{
       position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
-      background: rgba(0,0,0,.62);
+      background:rgba(0,0,0,.62);
       border:1px solid rgba(255,255,255,.14);
-      color:var(--text);
-      padding:10px 12px;
-      border-radius:999px;
+      color:#dce8e0;
+      padding:10px 14px;border-radius:999px;
       backdrop-filter: blur(10px);
-      box-shadow: 0 16px 40px rgba(0,0,0,.35);
-      font-size:13px;
+      font-family:'JetBrains Mono',monospace;
+      font-size:12px;
       opacity:0;pointer-events:none;
-      transition: opacity .18s ease, transform .18s ease;
+      transition:opacity .18s ease, transform .18s ease;
+      z-index:20;
     }
     .toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
-    .foot{
-      margin-top:18px;
-      color:rgba(245,251,255,.55);
-      font-size:12px;
-      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+
+    /* ═══════ FOOTER ═══════ */
+    footer{padding:48px 36px 32px;text-align:center;border-top:1px solid rgba(16,185,129,.06);margin-top:48px}
+    .footer-curated{font-family:'JetBrains Mono',monospace;font-size:11px;color:#4a6b5a;margin-bottom:6px}
+    .footer-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;background:linear-gradient(135deg,#c9a84c,#f5d280);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .footer-hashtag{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8b5cf6;margin-top:4px;letter-spacing:1px}
+    .footer-sources{font-family:'JetBrains Mono',monospace;font-size:10px;color:#3a5a4a;margin-top:16px;line-height:1.8}
+    .footer-disclaimer{font-size:10px;color:#3a5a4a;margin-top:12px;font-style:italic}
+    .footer-powered{font-family:'JetBrains Mono',monospace;font-size:10px;color:#2a4a3a;margin-top:8px}
+
+    /* ═══════ RESPONSIVE ═══════ */
+    @media(max-width:1024px){
+      .cards-grid,.exec-grid{grid-template-columns:repeat(2,1fr)}
+      .method-grid{grid-template-columns:repeat(2,1fr)}
     }
-    .errbox{
-      margin-top:10px;
-      border-radius:16px;
-      border:1px solid rgba(255,176,32,.25);
-      background: rgba(255,176,32,.08);
-      padding:12px;
-      color: rgba(245,251,255,.85);
-      display:none;
+    @media(max-width:640px){
+      .cards-grid,.exec-grid,.method-grid{grid-template-columns:1fr}
+      header,.exec-summary,.methodology,.controls-wrap,.cards-grid,footer{padding-left:16px;padding-right:16px}
+      .hero{padding:32px 24px 28px}
+      .partial-banner{margin-left:16px;margin-right:16px}
     }
-    .errbox b{color:var(--text)}
   </style>
 </head>
 <body>
-  <div class="grid-bg"></div>
 
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="row">
-        <div class="brand">
-          <div class="globe"><span>🌍</span></div>
-          <div class="title">
-            <b>Global Health & Wellness News</b>
-            <small>ข่าวสุขภาพโลกแบบอ่านจบใน 2 นาที • Daily actionable intel</small>
-          </div>
-        </div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
 
-        <div class="actions">
-          <div class="pill" id="statusPill">
-            <span>อัปเดตล่าสุด</span>
-            <b id="lastUpdated">—</b>
-          </div>
-          <div class="pill">
-            <span>Calls</span>
-            <b id="calls">—</b>
-            <span id="runStatus" style="color:var(--muted)">—</span>
-          </div>
-          <button class="btn primary" id="refreshBtn" title="Refresh">
-            ⚡ <span>Refresh</span>
-          </button>
-        </div>
-      </div>
+  <div class="top-bar"></div>
+
+  <div class="container">
+
+    <div class="timestamp-bar">
+      อัปเดต: <span class="time-value" id="lastUpdated">กำลังโหลด...</span>
+      <span class="schedule" id="scheduleDisplay"></span>
     </div>
-  </div>
 
-  <div class="wrap">
-    <section class="hero">
-      <h1>ศูนย์ข่าวสุขภาพโลก (Global Health & Wellness Dashboard)</h1>
-      <p>ดูเทรนด์ • อ่านผลกระทบ • แล้วรู้ว่า “องค์กรควรทำอะไรต่อ” (Trends → Actions)</p>
+    <header>
+      <div class="hero">
+        <div class="hero-cell hero-cell-1"></div>
+        <div class="hero-cell hero-cell-2"></div>
+        <div class="hero-cell hero-cell-3"></div>
 
-      <div class="cards3">
-        <div class="card card3-1">
-          <div class="kicker">
-            <b>Trend Radar (เทรนด์เด่น)</b>
-            <small>3 bullets</small>
+        <div class="hero-badge">
+          <div class="hero-pulse">
+            <div class="hero-pulse-dot"></div>
+            <div class="hero-pulse-ring"></div>
           </div>
-          <ul class="bullets" id="trendList"></ul>
+          <span class="hero-live-text">Auto-Updated Daily</span>
         </div>
 
-        <div class="card card3-2">
-          <div class="kicker">
-            <b>Strategic Moves (ผลกระทบต่อองค์กร)</b>
-            <small>3 actions</small>
-          </div>
-          <ul class="bullets" id="strategicList"></ul>
-        </div>
-
-        <div class="card card3-3">
-          <div class="kicker">
-            <b>Thailand Pulse (สัญญาณในไทย)</b>
-            <small>local</small>
-          </div>
-          <ul class="bullets" id="localList"></ul>
-        </div>
+        <h1 class="hero-title">
+          <span class="line1">Global</span>
+          <span class="line2">Health &amp; Wellness</span>
+        </h1>
+        <p class="hero-tagline">Mind · Body · Longevity · Beauty · Holistic Living</p>
       </div>
+    </header>
 
-      <div class="errbox" id="errBox">
-        <b>มีบางอย่างผิดพลาด (Partial/Errors):</b>
-        <div id="errText" style="margin-top:6px;color:rgba(245,251,255,.8)"></div>
+    <section class="exec-summary" id="execSummary" style="display:none">
+      <h2 class="exec-summary-title">มุมมองรวม</h2>
+      <div class="exec-grid">
+        <div class="exec-col">
+          <div class="exec-col-title">เทรนด์ที่เห็น</div>
+          <div id="execTrends"></div>
+        </div>
+        <div class="exec-col">
+          <div class="exec-col-title">ความหมายเชิงกลยุทธ์</div>
+          <div id="execStrategic"></div>
+        </div>
+        <div class="exec-col">
+          <div class="exec-col-title">มุมมองท้องถิ่น</div>
+          <div id="execLocal"></div>
+        </div>
       </div>
     </section>
 
-    <section class="controls">
-      <div class="search" title="Search">
-        🔎
+    <section class="methodology">
+      <h3 class="methodology-title">วิธีการคัดสรร &amp; นโยบายการอัปเดต</h3>
+      <div class="method-grid">
+        <div class="method-box">
+          <div class="method-icon">🤖</div>
+          <div class="method-label">อัปเดตอย่างไร</div>
+          <div class="method-text">ทุกวันเช้า 8 นาฬิกา ดึงข่าวจากแหล่งที่คัดสรรแล้ว และสรุปเป็นมุมมองเชิงกลยุทธ์</div>
+        </div>
+        <div class="method-box">
+          <div class="method-icon">🎯</div>
+          <div class="method-label">เลือกจากไหน</div>
+          <div class="method-text">คัดจากแหล่งน่าเชื่อถือระดับโลก + APAC + ไทย และงานวิจัยระดับท็อป</div>
+        </div>
+        <div class="method-box">
+          <div class="method-icon">🌐</div>
+          <div class="method-label">ครอบคลุมอะไร</div>
+          <div class="method-text">ข่าวสุขภาพ • นโยบาย • วิทยาศาสตร์การแพทย์ • เทรนด์ wellness</div>
+        </div>
+        <div class="method-box">
+          <div class="method-icon">💡</div>
+          <div class="method-label">ต่างจากข่าวทั่วไป</div>
+          <div class="method-text">ไม่ใช่แค่ “ข่าวอะไร” แต่คือ “องค์กรควรทำอะไรต่อ”</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls (UI v1 + logic v2 + Search/Sort) -->
+    <div class="controls-wrap">
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All <span class="count" id="countAll"></span></button>
+      <button class="filter-btn" data-filter="global" onclick="setFilter('global')">Global <span class="count" id="countGlobal"></span></button>
+      <button class="filter-btn" data-filter="apac" onclick="setFilter('apac')">APAC <span class="count" id="countApac"></span></button>
+      <button class="filter-btn" data-filter="thailand" onclick="setFilter('thailand')">Thailand <span class="count" id="countThailand"></span></button>
+      <button class="filter-btn" data-filter="research" onclick="setFilter('research')">Research <span class="count" id="countResearch"></span></button>
+
+      <div class="controls-spacer"></div>
+
+      <div class="searchbox" title="Search">
+        <span class="icon">🔎</span>
         <input id="searchInput" type="search" placeholder="ค้นหา / Search (title, summary, source)..." />
       </div>
 
-      <div class="chips" role="tablist" aria-label="Filters">
-        <div class="chip active" data-filter="all" role="tab" aria-selected="true">
-          <span class="dot"></span> All
-        </div>
-        <div class="chip" data-filter="global" role="tab">
-          <span class="dot global"></span> Global
-        </div>
-        <div class="chip" data-filter="apac" role="tab">
-          <span class="dot apac"></span> APAC
-        </div>
-        <div class="chip" data-filter="thailand" role="tab">
-          <span class="dot th"></span> Thailand
-        </div>
-        <div class="chip" data-filter="research" role="tab">
-          <span class="dot research"></span> Research
-        </div>
-      </div>
-
-      <select class="select" id="sortSelect" title="Sort">
+      <select class="sortsel" id="sortSelect" title="Sort">
         <option value="reputable">Sort: Reputable first</option>
         <option value="title">Sort: Title A→Z</option>
         <option value="tag">Sort: Query tag</option>
       </select>
-    </section>
 
-    <section>
-      <div class="news-grid" id="newsGrid"></div>
-      <div class="foot">
-        <div id="footLeft">—</div>
-        <div>แชร์ได้เลยผ่าน LINE • Viewers: no login • Static JSON only</div>
+      <div class="calls-badge" id="callsBadge">—</div>
+    </div>
+
+    <div class="partial-banner" id="partialBanner"></div>
+
+    <div class="loading show" id="loadingState">
+      <div class="loading-heart">🫀</div>
+      <div class="loading-text">กำลังโหลดข้อมูล...</div>
+    </div>
+
+    <div class="error-state" id="errorState">
+      <p>❌ ไม่สามารถโหลดข้อมูลได้</p>
+      <p style="font-size:13px;margin-top:8px;color:#8ba89a">กรุณาลองรีเฟรชหน้าเว็บ</p>
+    </div>
+
+    <div class="cards-grid" id="cardsGrid" style="display:none"></div>
+
+    <footer>
+      <div class="footer-curated">Curated by</div>
+      <div class="footer-name">Dr.Dangjaithawin Anantachai</div>
+      <div class="footer-hashtag">#GlobalHealthIntelligence</div>
+      <div class="footer-sources">
+        Harvard · WHO · Mayo Clinic · NIH · Johns Hopkins · CDC · Lancet · Nature · Stanford · Cleveland Clinic · NEJM · Thai MOPH · DDC · Chulalongkorn · Mahidol
       </div>
-    </section>
+      <div class="footer-disclaimer">
+        ข้อมูลนี้คัดสรรอัตโนมัติจากข่าวสุขภาพสาธารณะ กรุณาปรึกษาแพทย์ผู้เชี่ยวชาญก่อนตัดสินใจทางการแพทย์
+      </div>
+      <div class="footer-powered">Static via GitHub Pages · Automated via GitHub Actions · Solution 1B v2.1</div>
+    </footer>
+
   </div>
 
-  <div class="toast" id="toast">Copied!</div>
+  <div class="toast" id="toast">คัดลอกแล้ว ✅</div>
 
-  <script>
-    // ---- Config ----
-    const DATA_URL = "./data.json";
-    const RESEARCH_TAG_PREFIX = "RESEARCH_"; // adjust if you use different tags
+<script>
+/* STATIC DASHBOARD — Solution 1B
+   Guardrail: this page fetches ONLY ./data.json (no external API calls)
+*/
+const DATA_URL = './data.json';
+const RESEARCH_TAG_PREFIX = 'RESEARCH_';
 
-    // ---- State ----
-    let RAW = null;
-    let ITEMS = [];
-    let FILTER = "all";
-    let SEARCH = "";
-    let SORT = "reputable";
+const LABELS = {
+  global: 'GLOBAL',
+  apac: 'APAC',
+  thailand: 'THAILAND',
+  research: 'RESEARCH'
+};
 
-    // ---- Elements ----
-    const lastUpdatedEl = document.getElementById("lastUpdated");
-    const callsEl = document.getElementById("calls");
-    const runStatusEl = document.getElementById("runStatus");
-    const trendList = document.getElementById("trendList");
-    const strategicList = document.getElementById("strategicList");
-    const localList = document.getElementById("localList");
-    const newsGrid = document.getElementById("newsGrid");
-    const footLeft = document.getElementById("footLeft");
-    const errBox = document.getElementById("errBox");
-    const errText = document.getElementById("errText");
-    const toast = document.getElementById("toast");
+const COLORS = {
+  global:    { bg:'rgba(6,182,212,.14)', border:'#06b6d4', text:'#06b6d4' },
+  apac:      { bg:'rgba(16,185,129,.12)', border:'#10b981', text:'#10b981' },
+  thailand:  { bg:'rgba(244,114,182,.15)', border:'#f472b6', text:'#f472b6' },
+  research:  { bg:'rgba(139,92,246,.15)', border:'#8b5cf6', text:'#8b5cf6' }
+};
 
-    function showToast(msg){
-      toast.textContent = msg;
-      toast.classList.add("show");
-      setTimeout(()=>toast.classList.remove("show"), 1200);
+let allItems = [];
+let currentFilter = 'all';
+let searchTerm = '';
+let sortMode = 'reputable';
+
+const toast = document.getElementById('toast');
+
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'), 1200);
+}
+
+function mapCategory(item){
+  const tag = String(item.query_tag || '');
+  if (tag.startsWith(RESEARCH_TAG_PREFIX)) return 'research';
+
+  const r = String(item.region || '').toLowerCase(); // global/regional/local
+  if (r === 'global') return 'global';
+  if (r === 'regional') return 'apac';
+  if (r === 'local') return 'thailand';
+  return 'global';
+}
+
+function escHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = String(str || '');
+  return d.innerHTML;
+}
+
+function buildLineText(item){
+  const cat = mapCategory(item);
+  const badge = LABELS[cat] || cat.toUpperCase();
+  const tag = item.query_tag || '';
+  const title = item.title || '';
+  const summary = item.summary || '';
+  const source = item.source || '';
+  const imp = item.strategic_implication || '';
+  const url = item.url || '';
+
+  return [
+    `🌍🧬 Global Health & Wellness News`,
+    `🏷️ ${badge} • ${tag}`,
+    ``,
+    `📰 ${title}`,
+    `🧠 สรุป: ${summary}`,
+    `🎯 What it means: ${imp}`,
+    `🔎 Source: ${source}`,
+    url ? `🔗 ${url}` : `🔗 (no link)`,
+  ].join('\n');
+}
+
+function reputableRank(item){
+  const src = String(item.source || '').toLowerCase();
+  const known = ['who','cdc','nih','harvard','lancet','nature','mayo','johns hopkins','stanford','cleveland clinic','bmj','jama','nejm'];
+  return known.some(k => src.includes(k)) ? 0 : 1;
+}
+
+function sortItems(items){
+  const out = [...items];
+  if (sortMode === 'reputable'){
+    out.sort((a,b)=>{
+      const ra = reputableRank(a), rb = reputableRank(b);
+      if (ra !== rb) return ra - rb;
+      return String(a.title||'').localeCompare(String(b.title||''));
+    });
+  } else if (sortMode === 'title'){
+    out.sort((a,b)=>String(a.title||'').localeCompare(String(b.title||'')));
+  } else if (sortMode === 'tag'){
+    out.sort((a,b)=>String(a.query_tag||'').localeCompare(String(b.query_tag||'')));
+  }
+  return out;
+}
+
+async function loadData() {
+  const loading = document.getElementById('loadingState');
+  const errorEl = document.getElementById('errorState');
+  const grid = document.getElementById('cardsGrid');
+
+  try {
+    const resp = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    // Meta
+    document.getElementById('lastUpdated').textContent = data?.meta?.generated_at_local || data?.meta?.generated_at_iso || 'N/A';
+    document.getElementById('scheduleDisplay').textContent = data?.meta?.schedule_local ? `• ${data.meta.schedule_local}` : '';
+    document.getElementById('callsBadge').textContent = (data?.meta?.calls_used != null && data?.meta?.calls_budget != null)
+      ? `Calls ${data.meta.calls_used}/${data.meta.calls_budget} • ${data?.meta?.partial ? 'PARTIAL' : 'OK'}`
+      : '—';
+
+    // Partial banner + error list
+    if (data?.meta?.partial) {
+      const banner = document.getElementById('partialBanner');
+      banner.textContent = data?.meta?.notes ? data.meta.notes : `${data.meta.calls_used}/${data.meta.calls_budget} sources updated — PARTIAL`;
+      banner.classList.add('show');
+    } else {
+      document.getElementById('partialBanner').classList.remove('show');
     }
 
-    function esc(s){
-      return String(s ?? "").replace(/[&<>"']/g, c => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-      }[c]));
+    // Exec summary
+    if (data?.executive_summary) {
+      renderExecSummary(data.executive_summary);
+      document.getElementById('execSummary').style.display = '';
     }
 
-    function safeArr(x){ return Array.isArray(x) ? x : []; }
+    allItems = Array.isArray(data.items) ? data.items : [];
+    updateCounts();
+    renderCards();
 
-    function regionToFilter(region){
-      // data.json uses local/regional/global
-      if(region === "global") return "global";
-      if(region === "regional") return "apac";
-      if(region === "local") return "thailand";
-      return "all";
-    }
+    loading.classList.remove('show');
+    grid.style.display = '';
+  } catch (e) {
+    console.error('Failed to load data:', e);
+    loading.classList.remove('show');
+    errorEl.classList.add('show');
+  }
+}
 
-    function itemMatchesFilter(it){
-      if(FILTER === "all") return true;
+function renderExecSummary(es) {
+  const trendsEl = document.getElementById('execTrends');
+  const stratEl = document.getElementById('execStrategic');
+  const localEl = document.getElementById('execLocal');
 
-      if(FILTER === "research"){
-        const tag = String(it.query_tag || "");
-        return tag.startsWith(RESEARCH_TAG_PREFIX);
-      }
+  trendsEl.innerHTML = (es.trends || []).map(t => `<div class="exec-item">${escHtml(t)}</div>`).join('');
+  stratEl.innerHTML = (es.strategic || []).map(s => `<div class="exec-item">${escHtml(s)}</div>`).join('');
+  localEl.innerHTML = (es.local || []).map(l => `<div class="exec-item">${escHtml(l)}</div>`).join('');
+}
 
-      // global/apac/thailand from region
-      return regionToFilter(it.region) === FILTER;
-    }
+function updateCounts() {
+  const counts = { all: allItems.length, global: 0, apac: 0, thailand: 0, research: 0 };
+  allItems.forEach(it => { const k = mapCategory(it); if (counts[k] != null) counts[k]++; });
 
-    function itemMatchesSearch(it){
-      if(!SEARCH) return true;
-      const hay = [
-        it.title, it.summary, it.source, it.strategic_implication, it.query_tag, it.region
-      ].map(v => String(v||"").toLowerCase()).join(" ");
-      return hay.includes(SEARCH.toLowerCase());
-    }
+  document.getElementById('countAll').textContent = `(${counts.all})`;
+  document.getElementById('countGlobal').textContent = `(${counts.global})`;
+  document.getElementById('countApac').textContent = `(${counts.apac})`;
+  document.getElementById('countThailand').textContent = `(${counts.thailand})`;
+  document.getElementById('countResearch').textContent = `(${counts.research})`;
+}
 
-    function reputableRank(it){
-      // meta sorting already done server-side, but keep a stable client-side option
-      const src = String(it.source||"").toLowerCase();
-      const known = ["who","cdc","nih","harvard","lancet","nature","mayo","johns hopkins","stanford","cleveland clinic","bmj","jama","nejm"];
-      return known.some(k => src.includes(k)) ? 0 : 1;
-    }
+function setFilter(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === filter);
+  });
+  renderCards();
+}
 
-    function sortItems(arr){
-      const out = [...arr];
-      if(SORT === "reputable"){
-        out.sort((a,b)=>{
-          const ra = reputableRank(a), rb = reputableRank(b);
-          if(ra !== rb) return ra - rb;
-          return String(a.title||"").localeCompare(String(b.title||""));
-        });
-      } else if(SORT === "title"){
-        out.sort((a,b)=>String(a.title||"").localeCompare(String(b.title||"")));
-      } else if(SORT === "tag"){
-        out.sort((a,b)=>String(a.query_tag||"").localeCompare(String(b.query_tag||"")));
-      }
-      return out;
-    }
+function applySearch(items){
+  if (!searchTerm) return items;
+  const q = searchTerm.toLowerCase();
+  return items.filter(it=>{
+    const hay = [
+      it.title, it.summary, it.source, it.strategic_implication, it.query_tag, it.region
+    ].map(v=>String(v||'').toLowerCase()).join(' ');
+    return hay.includes(q);
+  });
+}
 
-    function buildLineText(it){
-      const title = it.title || "";
-      const summary = it.summary || "";
-      const source = it.source || "";
-      const url = it.url || "";
-      const imp = it.strategic_implication || "";
-      const tag = it.query_tag || "";
-      const region = it.region || "";
-      const badge = regionToFilter(region).toUpperCase();
+function renderCards() {
+  const grid = document.getElementById('cardsGrid');
 
-      // Friendly, compact for LINE
-      return [
-        `🌍🧬 Global Health & Wellness News`,
-        `🏷️ ${badge} • ${tag}`,
-        ``,
-        `📰 ${title}`,
-        `🧠 สรุป: ${summary}`,
-        `🎯 What it means: ${imp}`,
-        `🔎 Source: ${source}`,
-        url ? `🔗 ${url}` : `🔗 (no link)`,
-      ].join("\n");
-    }
+  let items = currentFilter === 'all'
+    ? allItems
+    : allItems.filter(i => mapCategory(i) === currentFilter);
 
-    function renderSummary(){
-      const meta = RAW?.meta || {};
-      const exec = RAW?.executive_summary || {};
+  items = applySearch(items);
+  items = sortItems(items);
 
-      lastUpdatedEl.textContent = meta.generated_at_local || meta.generated_at_iso || "—";
-      callsEl.textContent = (meta.calls_used != null && meta.calls_budget != null)
-        ? `${meta.calls_used}/${meta.calls_budget}`
-        : "—";
+  if (!items.length){
+    grid.innerHTML = `
+      <div class="card" style="grid-column: 1 / -1;">
+        <span class="card-badge" style="background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)">NO RESULTS</span>
+        <h3 class="card-title">ไม่พบผลลัพธ์</h3>
+        <p class="card-summary">ลองเปลี่ยนหมวด (Filter) หรือคำค้นหา (Search) อีกครั้งนะครับ</p>
+      </div>
+    `;
+    return;
+  }
 
-      const partial = !!meta.partial;
-      runStatusEl.textContent = partial ? "PARTIAL" : "OK";
-      runStatusEl.style.color = partial ? "var(--amber)" : "var(--green)";
+  grid.innerHTML = items.map((item, idx) => {
+    const cat = mapCategory(item);
+    const rc = COLORS[cat] || COLORS.global;
+    const label = LABELS[cat] || cat.toUpperCase();
+    const delay = idx * 0.055;
 
-      // bullets
-      const trends = safeArr(exec.trends);
-      const strategic = safeArr(exec.strategic);
-      const local = safeArr(exec.local);
+    const openLink = item.url
+      ? `<a class="btn-mini open" href="${escHtml(item.url)}" target="_blank" rel="noopener">🔗 Open</a>`
+      : `<span class="btn-mini open" style="opacity:.6;cursor:not-allowed">No link</span>`;
 
-      trendList.innerHTML = trends.length ? trends.map(x=>`<li>${esc(x)}</li>`).join("") : `<li>ยังไม่มีข้อมูลเทรนด์</li>`;
-      strategicList.innerHTML = strategic.length ? strategic.map(x=>`<li>${esc(x)}</li>`).join("") : `<li>ยังไม่มีข้อมูลเชิงกลยุทธ์</li>`;
-      localList.innerHTML = local.length ? local.map(x=>`<li>${esc(x)}</li>`).join("") : `<li>ยังไม่มีข่าวท้องถิ่นในรอบนี้</li>`;
+    return `
+      <div class="card" style="animation-delay:${delay}s">
+        <span class="card-badge" style="background:${rc.bg};color:${rc.text};border:1px solid ${rc.border}">${label}</span>
+        <h3 class="card-title">${escHtml(item.title || '')}</h3>
+        <p class="card-summary">${escHtml(item.summary || '')}</p>
 
-      // errors
-      const errors = safeArr(RAW?.errors);
-      if(errors.length){
-        errBox.style.display = "block";
-        const txt = errors.map(e => `• ${e.query_tag || "?"}: ${e.message || e.error_type || "error"}`).join("<br/>");
-        errText.innerHTML = txt;
-      } else {
-        errBox.style.display = "none";
-        errText.textContent = "";
-      }
-
-      footLeft.textContent = meta.notes || `Loaded ${safeArr(RAW?.items).length} items`;
-    }
-
-    function badgeForItem(it){
-      const f = regionToFilter(it.region);
-      if(f === "global") return {label:"Global", color:"var(--aqua)"};
-      if(f === "apac") return {label:"APAC", color:"var(--green)"};
-      if(f === "thailand") return {label:"Thailand", color:"var(--pink)"};
-      // research tag overrides label
-      const tag = String(it.query_tag||"");
-      if(tag.startsWith(RESEARCH_TAG_PREFIX)) return {label:"Research", color:"var(--lav)"};
-      return {label:"All", color:"rgba(255,255,255,.22)"};
-    }
-
-    function renderGrid(){
-      const filtered = ITEMS
-        .filter(itemMatchesFilter)
-        .filter(itemMatchesSearch);
-
-      const sorted = sortItems(filtered);
-
-      if(!sorted.length){
-        newsGrid.innerHTML = `
-          <div class="news-card" style="grid-column: span 12;">
-            <div class="badge-row">
-              <span class="badge"><strong>ไม่มีผลลัพธ์</strong></span>
-              <span class="mini">No results</span>
-            </div>
-            <p class="summary">ลองเปลี่ยน filter หรือพิมพ์ค้นหาใหม่อีกครั้งนะครับ</p>
+        ${item.strategic_implication ? `
+          <div class="card-strategy">
+            <div class="card-strategy-label">Strategic Implication</div>
+            <div class="card-strategy-text">${escHtml(item.strategic_implication)}</div>
           </div>
-        `;
-        return;
-      }
+        ` : ''}
 
-      newsGrid.innerHTML = sorted.map((it)=>{
-        const b = badgeForItem(it);
-        const url = it.url ? String(it.url) : "";
-        const src = it.source ? String(it.source) : "—";
-        const summary = it.summary ? String(it.summary) : "";
-        const imp = it.strategic_implication ? String(it.strategic_implication) : "";
-        const tag = it.query_tag ? String(it.query_tag) : "—";
+        <div class="card-source">
+          <div>
+            ${item.url
+              ? `<a href="${escHtml(item.url)}" target="_blank" rel="noopener">${escHtml(item.source || 'Source')} →</a>`
+              : escHtml(item.source || 'Source')}
+          </div>
+          <div class="card-actions">
+            ${openLink}
+            <button class="btn-mini copy" data-copy="${idx}">📋 Copy for LINE</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
 
-        return `
-          <article class="news-card">
-            <div class="badge-row">
-              <span class="badge" title="Category">
-                <span class="dot" style="background:${b.color}"></span>
-                <strong>${esc(b.label)}</strong>
-                <span style="opacity:.75">•</span>
-                <span>${esc(tag)}</span>
-              </span>
-              <span class="mini" title="Source">${esc(src)}</span>
-            </div>
+  // Bind copy
+  grid.querySelectorAll('button[data-copy]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const idx = Number(btn.getAttribute('data-copy') || '0');
+      // rebuild the same view list to match indices
+      let view = currentFilter === 'all' ? allItems : allItems.filter(i => mapCategory(i) === currentFilter);
+      view = applySearch(view);
+      view = sortItems(view);
+      const item = view[idx];
+      if (!item) return;
 
-            <h3 class="h2">${esc(it.title || "")}</h3>
-            <p class="summary">${esc(summary)}</p>
-
-            <div class="imp">
-              <b style="color:var(--green)">Strategic Implication:</b>
-              <div style="margin-top:6px">${esc(imp || "—")}</div>
-            </div>
-
-            <div class="card-actions">
-              <a class="linkbtn" href="${url ? esc(url) : "#"}" target="_blank" rel="noopener noreferrer" ${url ? "" : "onclick='return false;'"}>
-                🔗 <span>${url ? "Open ↗" : "No link"}</span>
-              </a>
-              <button class="copybtn" data-copy="1">
-                📋 <span>คัดลอกส่ง LINE</span>
-              </button>
-            </div>
-          </article>
-        `;
-      }).join("");
-
-      // attach copy handlers
-      newsGrid.querySelectorAll("button[data-copy='1']").forEach((btn, idx)=>{
-        btn.addEventListener("click", async ()=>{
-          const visibleItems = sortItems(ITEMS.filter(itemMatchesFilter).filter(itemMatchesSearch));
-          const it = visibleItems[idx];
-          if(!it) return;
-          const text = buildLineText(it);
-          try{
-            await navigator.clipboard.writeText(text);
-            showToast("คัดลอกแล้ว ✅");
-          } catch {
-            // fallback
-            const ta = document.createElement("textarea");
-            ta.value = text;
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand("copy");
-            ta.remove();
-            showToast("คัดลอกแล้ว ✅");
-          }
-        });
-      });
-    }
-
-    async function loadData(){
-      const res = await fetch(DATA_URL, { cache: "no-store" });
-      if(!res.ok) throw new Error("Failed to load data.json");
-      const data = await res.json();
-      RAW = data;
-      ITEMS = safeArr(data.items);
-      renderSummary();
-      renderGrid();
-    }
-
-    // ---- Events ----
-    document.getElementById("refreshBtn").addEventListener("click", ()=>{
-      // simple refresh: reload page (no API calls)
-      location.reload();
-    });
-
-    document.getElementById("searchInput").addEventListener("input", (e)=>{
-      SEARCH = e.target.value || "";
-      renderGrid();
-    });
-
-    document.getElementById("sortSelect").addEventListener("change", (e)=>{
-      SORT = e.target.value || "reputable";
-      renderGrid();
-    });
-
-    document.querySelectorAll(".chip").forEach(ch=>{
-      ch.addEventListener("click", ()=>{
-        document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
-        ch.classList.add("active");
-        FILTER = ch.getAttribute("data-filter") || "all";
-        renderGrid();
-      });
-    });
-
-    // ---- Boot ----
-    (async ()=>{
+      const text = buildLineText(item);
       try{
-        await loadData();
-      } catch (e){
-        lastUpdatedEl.textContent = "โหลดไม่สำเร็จ";
-        runStatusEl.textContent = "ERROR";
-        runStatusEl.style.color = "var(--amber)";
-        errBox.style.display = "block";
-        errText.innerHTML = "• เปิดหน้าได้ แต่หาไฟล์ data.json ไม่เจอ หรือ Pages ยังไม่อัปเดต<br/>• ลองรีเฟรช หรือเช็คว่า data.json อยู่โฟลเดอร์เดียวกับ dashboard.html";
-        newsGrid.innerHTML = `
-          <div class="news-card" style="grid-column: span 12;">
-            <div class="badge-row">
-              <span class="badge"><strong>โหลดข้อมูลไม่สำเร็จ</strong></span>
-              <span class="mini">Cannot load data.json</span>
-            </div>
-            <p class="summary">เช็คว่า <b>data.json</b> อยู่โฟลเดอร์เดียวกับไฟล์นี้ และ GitHub Pages deploy แล้ว</p>
-          </div>
-        `;
+        await navigator.clipboard.writeText(text);
+        showToast('คัดลอกแล้ว ✅');
+      } catch {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast('คัดลอกแล้ว ✅');
       }
-    })();
-  </script>
+    });
+  });
+}
+
+// Search + Sort events
+document.addEventListener('DOMContentLoaded', ()=>{
+  const searchEl = document.getElementById('searchInput');
+  const sortEl = document.getElementById('sortSelect');
+
+  if (searchEl){
+    searchEl.addEventListener('input', (e)=>{
+      searchTerm = String(e.target.value || '');
+      renderCards();
+    });
+  }
+
+  if (sortEl){
+    sortEl.addEventListener('change', (e)=>{
+      sortMode = String(e.target.value || 'reputable');
+      renderCards();
+    });
+  }
+});
+
+// Init
+loadData();
+</script>
 </body>
 </html>
