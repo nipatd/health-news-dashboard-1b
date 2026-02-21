@@ -19,6 +19,7 @@
     @keyframes shimmerFlow { 0%{background-position:-300% 0} 100%{background-position:300% 0} }
     @keyframes heartbeat { 0%,100%{transform:scale(1)} 14%{transform:scale(1.15)} 28%{transform:scale(1)} 42%{transform:scale(1.08)} 56%{transform:scale(1)} }
     @keyframes floatOrb { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(30px,-20px) scale(1.1)} 50%{transform:translate(-10px,-40px) scale(.95)} 75%{transform:translate(-30px,-10px) scale(1.05)} }
+    @keyframes tipPop { 0%{opacity:0;transform:translateX(-50%) translateY(8px) scale(.96)} 100%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)} }
 
     /* ═══════ RESET & BASE ═══════ */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -93,6 +94,50 @@
     .method-icon{font-size:20px;margin-bottom:8px}
     .method-label{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:#06b6d4;margin-bottom:6px}
     .method-text{font-size:12px;line-height:1.5;color:#8ba89a}
+
+    /* ═══════ TOOLTIP (PC hover + Mobile tap) ═══════ */
+    .tip{position:relative;display:inline-flex;align-items:center;justify-content:center}
+    .tip::after{
+      content: attr(data-tip);
+      position:absolute;
+      left:50%;
+      bottom: calc(100% + 12px);
+      transform: translateX(-50%) translateY(8px) scale(.96);
+      background: rgba(0,0,0,.72);
+      border:1px solid rgba(255,255,255,.14);
+      color:#dce8e0;
+      padding:8px 10px;
+      border-radius:12px;
+      font-family:'JetBrains Mono',monospace;
+      font-size:11px;
+      white-space:nowrap;
+      opacity:0;
+      pointer-events:none;
+      backdrop-filter: blur(10px);
+      z-index:30;
+    }
+    .tip::before{
+      content:'';
+      position:absolute;
+      left:50%;
+      bottom: calc(100% + 6px);
+      width:10px;height:10px;
+      background: rgba(0,0,0,.72);
+      border-left:1px solid rgba(255,255,255,.14);
+      border-top:1px solid rgba(255,255,255,.14);
+      transform: translateX(-50%) translateY(8px) rotate(45deg);
+      opacity:0;
+      pointer-events:none;
+      z-index:29;
+    }
+    /* PC hover */
+    .tip:hover::after,.tip:hover::before{opacity:1}
+    .tip:hover::after{animation:tipPop .16s ease-out both}
+    .tip:hover::before{animation:tipPop .16s ease-out both}
+    /* Mobile tap (JS toggles .tip-open) */
+    .tip.tip-open::after,.tip.tip-open::before{opacity:1}
+    .tip.tip-open::after{animation:tipPop .16s ease-out both}
+    .tip.tip-open::before{animation:tipPop .16s ease-out both}
 
     /* ═══════ FILTER + CONTROLS BAR ═══════ */
     .controls-wrap{padding:20px 36px 10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;animation:fadeSlideUp 1.1s ease-out}
@@ -255,6 +300,8 @@
       header,.exec-summary,.methodology,.controls-wrap,.quickbar,.cards-grid,footer{padding-left:16px;padding-right:16px}
       .hero{padding:32px 24px 28px}
       .partial-banner{margin-left:16px;margin-right:16px}
+      /* Tooltips on small screens: allow wrap (avoid off-screen) */
+      .tip::after{white-space:normal;max-width:min(320px, 84vw);text-align:center}
     }
   </style>
 </head>
@@ -341,28 +388,28 @@
 
     <!-- Controls (Sticky) -->
     <div class="controls-wrap sticky">
-      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All <span class="count" id="countAll"></span></button>
-      <button class="filter-btn" data-filter="global" onclick="setFilter('global')">Global <span class="count" id="countGlobal"></span></button>
-      <button class="filter-btn" data-filter="apac" onclick="setFilter('apac')">APAC <span class="count" id="countApac"></span></button>
-      <button class="filter-btn" data-filter="thailand" onclick="setFilter('thailand')">Thailand <span class="count" id="countThailand"></span></button>
-      <button class="filter-btn" data-filter="research" onclick="setFilter('research')">Research <span class="count" id="countResearch"></span></button>
+      <button class="filter-btn active tip" data-tip="รวมทุกหมวดข่าว" data-filter="all" onclick="setFilter('all')">All <span class="count" id="countAll"></span></button>
+      <button class="filter-btn tip" data-tip="ข่าวสุขภาพระดับโลก (Global)" data-filter="global" onclick="setFilter('global')">Global <span class="count" id="countGlobal"></span></button>
+      <button class="filter-btn tip" data-tip="ภาพรวมภูมิภาค (APAC/Regional)" data-filter="apac" onclick="setFilter('apac')">APAC <span class="count" id="countApac"></span></button>
+      <button class="filter-btn tip" data-tip="ข่าวไทย (Local/Thailand)" data-filter="thailand" onclick="setFilter('thailand')">Thailand <span class="count" id="countThailand"></span></button>
+      <button class="filter-btn tip" data-tip="งานวิจัย/Research ที่ถูกแท็กไว้" data-filter="research" onclick="setFilter('research')">Research <span class="count" id="countResearch"></span></button>
 
       <div class="controls-spacer"></div>
 
-      <div class="searchbox" title="Search">
+      <div class="searchbox tip" data-tip="ค้นหาจาก title/summary/source/tag">
         <span class="icon">🔎</span>
         <input id="searchInput" type="search" placeholder="ค้นหา / Search (title, summary, source)..." />
       </div>
 
-      <select class="sortsel" id="sortSelect" title="Sort">
+      <select class="sortsel tip" data-tip="เรียงลำดับการ์ดข่าว" id="sortSelect" title="Sort">
         <option value="reputable">Sort: Reputable first</option>
         <option value="title">Sort: Title A→Z</option>
         <option value="tag">Sort: Query tag</option>
       </select>
 
-      <div class="calls-badge" id="callsBadge">—</div>
+      <div class="calls-badge tip" data-tip="สถานะจำนวน calls ของรอบนี้" id="callsBadge">—</div>
 
-      <div class="status-pill status-ok" id="statusPill" title="System status">
+      <div class="status-pill status-ok tip" data-tip="สถานะระบบ: OK/ PARTIAL/ ERROR" id="statusPill" title="System status">
         <span class="status-dot"></span>
         <span id="statusText">OK</span>
       </div>
@@ -370,12 +417,12 @@
 
     <!-- Quick Toggles + Presets -->
     <div class="quickbar">
-      <button class="filter-btn" id="tgTop">⭐ Top sources only</button>
-      <button class="filter-btn" id="tgUrl">🔗 Has URL only</button>
-      <button class="filter-btn" id="tgDup">🧹 Hide duplicates</button>
-      <button class="filter-btn" id="viewCS">📌 CS Proposal Mode</button>
-      <button class="filter-btn" id="viewBeauty">💅 Wellness/Beauty Mode</button>
-      <button class="filter-btn" id="tgReset">✖ Reset</button>
+      <button class="filter-btn tip" id="tgTop" data-tip="คัดเฉพาะแหล่งน่าเชื่อถือระดับท็อป">⭐ Top sources only</button>
+      <button class="filter-btn tip" id="tgUrl" data-tip="ซ่อนข่าวที่ไม่มีลิงก์ (เหมาะกับแชร์ LINE)">🔗 Has URL only</button>
+      <button class="filter-btn tip" id="tgDup" data-tip="ซ่อนหัวข้อซ้ำ เพื่ออ่านเร็วขึ้น">🧹 Hide duplicates</button>
+      <button class="filter-btn tip" id="viewCS" data-tip="ตั้งค่าอัตโนมัติสำหรับทีม CS/Proposal">📌 CS Proposal Mode</button>
+      <button class="filter-btn tip" id="viewBeauty" data-tip="โหมด Wellness/Beauty + คำค้นอัตโนมัติ">💅 Wellness/Beauty Mode</button>
+      <button class="filter-btn tip" id="tgReset" data-tip="รีเซ็ต filter/search/sort/toggles ทั้งหมด">✖ Reset</button>
     </div>
 
     <div class="partial-banner" id="partialBanner"></div>
@@ -554,6 +601,75 @@ function syncToggleUI(){
   setActive('tgUrl', onlyHasUrl);
   setActive('tgDup', hideDuplicates);
 }
+
+/* ===== Tooltip support (PC hover + Mobile tap) ===== */
+(function enableSmartTooltips(){
+  let openEl = null;
+
+  function closeTip(el){
+    if (!el) return;
+    el.classList.remove('tip-open');
+    el.setAttribute('aria-expanded','false');
+  }
+  function openTip(el){
+    if (!el) return;
+    el.classList.add('tip-open');
+    el.setAttribute('aria-expanded','true');
+    openEl = el;
+  }
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelectorAll('.tip[data-tip]').forEach((el)=>{
+      // do NOT override actual controls; just add accessibility.
+      if (!el.hasAttribute('aria-expanded')) el.setAttribute('aria-expanded','false');
+    });
+
+    // Mobile/Touch: tap toggles tooltip (doesn't block actual click behavior)
+    document.addEventListener('pointerdown', (e)=>{
+      // Only treat touch/pen as "tap tooltip"
+      if (e.pointerType !== 'touch' && e.pointerType !== 'pen') return;
+
+      const tip = e.target.closest('.tip[data-tip]');
+      if (!tip){
+        closeTip(openEl);
+        openEl = null;
+        return;
+      }
+
+      // toggle
+      if (openEl === tip){
+        closeTip(openEl);
+        openEl = null;
+      } else {
+        closeTip(openEl);
+        openTip(tip);
+      }
+    }, { passive: true });
+
+    // Close tooltip on scroll (mobile-friendly)
+    window.addEventListener('scroll', ()=>{
+      closeTip(openEl);
+      openEl = null;
+    }, { passive: true });
+
+    // Close on click outside (desktop too)
+    document.addEventListener('click', (e)=>{
+      const tip = e.target.closest('.tip[data-tip]');
+      if (!tip){
+        closeTip(openEl);
+        openEl = null;
+      }
+    }, { passive: true });
+
+    // Escape closes
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === 'Escape'){
+        closeTip(openEl);
+        openEl = null;
+      }
+    });
+  });
+})();
 
 /* ===== Data load ===== */
 async function loadData() {
@@ -830,7 +946,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     onlyHasUrl = true;
     hideDuplicates = true;
     syncToggleUI();
-    // soft search “beauty mode”
     searchTerm = 'beauty skin derm longevity';
     document.getElementById('searchInput').value = searchTerm;
     renderCards();
