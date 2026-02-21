@@ -1,418 +1,407 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-21T03:19:07.374639+00:00",
-    "generated_at_local": "21 Feb. 2026 10:19 น.",
+    "generated_at_iso": "2026-02-21T04:58:08.026075+00:00",
+    "generated_at_local": "21 Feb. 2026 11:58 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
     "calls_used": 18,
     "calls_attempted": 20,
     "calls_budget": 20,
     "partial": true,
-    "notes": "36 articles from 18 successful calls / 20 attempts (budget 20). 2 errors. PARTIAL: stopped early."
+    "notes": "35 articles from 18 successful calls / 20 attempts (budget 20). 2 errors. PARTIAL: stopped early."
   },
   "executive_summary": {
     "trends": [
-      "Research reveals AI-powered discovery engines that identify druggable nodes for genetic disease treatments.",
-      "Thailand leads ASEAN Vaccine Security and Self-Reliance initiative targeting regional vaccine independence by 2025.",
-      "Latest surveillance shows 87 influenza hospitalizations versus 35 COVID-19 cases in Australian hospitals."
+      "CDC issued health advisory as outbreak moves to Texas border with 1,190 cases.",
+      "WHO assessment shows improved flu vaccines could drastically reduce global influenza burden with broader protection.",
+      "Cumulative hospitalization rate reaches third highest since 2010-11 with 71 pediatric deaths."
     ],
     "strategic": [
-      "Organizations must invest in AI-powered drug discovery platforms to accelerate therapeutic innovation.",
-      "Companies should anticipate reduced vaccine import dependencies and increased regional production partnerships opportunities.",
-      "Organizations should prepare for increased winter sick leave and potential workforce disruptions."
+      "Organizations need cross-border health protocols and livestock-worker protection measures.",
+      "Organizations should prepare for enhanced pandemic preparedness investments and stronger seasonal influenza protection strategies.",
+      "Workplaces require enhanced flu policies and child-care support for employee families."
     ],
     "local": [
-      "ASEAN Vaccine Security Initiative Advances Regional Self-Reliance Strategy",
-      "Chula Faculty Wins Three National Outstanding Researcher Awards 2026",
-      "Chula Launches VELA Batch 4 Executive Health Program with AI-Powered Medicine",
-      "Department Health Workshop on Care Standards for Dependent Elderly",
-      "FDA cracks down on fake pharmacies distributing cough medicine to youth",
-      "FDA Warns Against Fraudulent Weight-Gain Supplements with Prescription Drugs",
-      "Physical Activity Literacy Development for Elderly and Monks Program",
-      "Ramathibodi Constructs 25-Floor Hospital and Stem Cell Factory",
-      "Ramathibodi Opens Congenital Heart Center for Adults",
-      "SCB 10X Partners with Siriraj on Medical AI Research",
-      "Siriraj Receives National Research Award 2026 for Diabetes Research",
-      "Thai FDA raids network selling illegal peptide weight loss injections",
-      "Thailand Issues Nipah Virus Surveillance Guidelines",
-      "Thailand Ministry of Health Partners with Brands for Sweetness Standards",
-      "Thailand National Vaccine Committee Approves Emergency Procurement Regulation",
-      "Thailand Reports 7,234 Influenza Cases in Early 2026",
-      "ศิริราชจัดประชุม SiData+ Conference 2569 ด้าน AI การแพทย์",
-      "สวรส. ประกาศรับข้อเสนอโครงการวิจัย ประจำปี 2569"
+      "WHO Partners with Siriraj to Address Injury Prevention",
+      "Breakthrough CRISPR Tool Combats Antibiotic Resistance Crisis",
+      "Chula Wins National Outstanding Researcher Award 2026",
+      "Disaster Health Management Conference March 2026",
+      "FDA Warns Against Illegal Weight Gain Supplements",
+      "HSRI Health System Research Fund 2569 Announcement",
+      "Pharmacy Network Sells Cough Syrup to Teens",
+      "SCB 10X Partners with Siriraj for Medical AI Research",
+      "SiData Conference Healthcare Data AI Navigation 2569",
+      "Thai FDA Busts Illegal Peptide Injection Network",
+      "Thailand Dialysis Policy Crisis Creates Severe Healthcare Consequences",
+      "Thailand Expands Dengue Vaccine Access with Qdenga Approval",
+      "Thailand Partners with 9 Brands for 50% Sugar Reduction",
+      "Thailand Strengthens National Vaccine Security Strategy Through 2026",
+      "จัดประชุมเชิงปฏิบัติการคู่มือบริการผู้พึ่งพิง",
+      "บัตรทองลดสิทธิทำฟันคลินิกเอกชนเหลือ 2 ครั้งต่อปี",
+      "สปสช. ยืนยันไม่พบข้อมูลหลุดจากระบบ"
     ]
   },
   "items": [
     {
-      "query_tag": "RESEARCH_3",
-      "badge_color": "#60a5fa",
-      "region": "global",
-      "title": "AI-Enabled Genetic Disease Discovery Engine Accelerates Drug Development",
-      "summary": "Research reveals AI-powered discovery engines that identify druggable nodes for genetic disease treatments.",
-      "source": "Nature Medicine",
-      "url": "https://www.nature.com/nm/",
-      "strategic_implication": "Organizations must invest in AI-powered drug discovery platforms to accelerate therapeutic innovation."
-    },
-    {
-      "query_tag": "TH_6",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "ASEAN Vaccine Security Initiative Advances Regional Self-Reliance Strategy",
-      "summary": "Thailand leads ASEAN Vaccine Security and Self-Reliance initiative targeting regional vaccine independence by 2025.",
-      "source": "National Vaccine Institute",
-      "url": "https://nvi.go.th/2023/07/11/thailands-national-vaccine-institute-nvi-ministry-of-public-health-held-a-regional-meeting-titled-asean-consultative-meeting-on-the-asean-vaccine-security-and-self-reliance-avssr-governance/",
-      "strategic_implication": "Companies should anticipate reduced vaccine import dependencies and increased regional production partnerships opportunities."
-    },
-    {
-      "query_tag": "APAC_4",
-      "badge_color": "#34d399",
-      "region": "global",
-      "title": "Australia Reports Rising Influenza Hospitalizations in January 2026",
-      "summary": "Latest surveillance shows 87 influenza hospitalizations versus 35 COVID-19 cases in Australian hospitals.",
-      "source": "Australian Centre for Disease Control",
-      "url": "https://www.cdc.gov.au/sites/default/files/2026-01/australian-respiratory-surveillance-report-29-december-2025-to-25-january-2026.pdf",
-      "strategic_implication": "Organizations should prepare for increased winter sick leave and potential workforce disruptions."
-    },
-    {
-      "query_tag": "TH_9",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Chula Faculty Wins Three National Outstanding Researcher Awards 2026",
-      "summary": "Three Chulalongkorn professors recognized for excellence in pharmaceutical sciences, economics and invention, showcasing research achievements.",
-      "source": "Chulalongkorn University",
-      "url": "https://www.chula.ac.th/news/274615/",
-      "strategic_implication": "Companies should invest in research partnerships with leading institutions to drive innovation and competitive advantage."
-    },
-    {
-      "query_tag": "TH_9",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Chula Launches VELA Batch 4 Executive Health Program with AI-Powered Medicine",
-      "summary": "Chulalongkorn University partners with Department of Health to launch advanced medical leadership program integrating AI and future medicine.",
-      "source": "ThaiPR.NET",
-      "url": "https://www.thaipr.net/education/3694432",
-      "strategic_implication": "Organizations must prepare for AI-driven healthcare transformation and train leaders in longevity medicine strategies."
-    },
-    {
-      "query_tag": "RESEARCH_3",
-      "badge_color": "#60a5fa",
-      "region": "global",
-      "title": "Climate Change Could Add 123 Million Malaria Cases in Africa",
-      "summary": "Study predicts extreme weather events will drive massive increase in malaria by 2050.",
-      "source": "Nature Medicine",
-      "url": "https://www.nature.com/nm/",
-      "strategic_implication": "Companies need climate-resilient health strategies and workforce protection plans for expanding operations."
-    },
-    {
-      "query_tag": "GLOBAL_3",
+      "query_tag": "GLOBAL_2",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "Cognitive Training Prevents Dementia for Decades",
-      "summary": "Simple brain training tasks for weeks may help reduce dementia diagnosis risk by 25% over years.",
-      "source": "National Institutes of Health",
-      "url": "https://www.nih.gov/news-events/news-releases/cognitive-speed-training-over-weeks-may-delay-diagnosis-dementia-over-decades",
-      "strategic_implication": "Organizations should invest in cognitive training programs as preventive wellness measures for aging workforce."
-    },
-    {
-      "query_tag": "TH_3",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Department Health Workshop on Care Standards for Dependent Elderly",
-      "summary": "DOH conducts workshop to develop care service standards for elderly with dependencies.",
-      "source": "สำนักอนามัยผู้สูงอายุ",
-      "url": "https://eh.anamai.moph.go.th/en",
-      "strategic_implication": "Organizations must prepare for standardized elderly dependency care requirements and compliance frameworks."
-    },
-    {
-      "query_tag": "TH_5",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "FDA cracks down on fake pharmacies distributing cough medicine to youth",
-      "summary": "<cite index=\"1-3,1-11\">Authorities arrested 7 fake pharmacists distributing cough medicine to teenagers for recreational use</cite>",
-      "source": "Thai FDA",
-      "url": "https://cemc.fda.moph.go.th/press-release/283",
-      "strategic_implication": "Companies should enhance substance abuse awareness and monitoring programs for young employees."
-    },
-    {
-      "query_tag": "TH_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "FDA Warns Against Fraudulent Weight-Gain Supplements with Prescription Drugs",
-      "summary": "<cite index=\"9-5\">Thailand's FDA warned against fraudulent weight-gain supplements containing dangerous prescription drugs like dexamethasone and cyproheptadine.</cite>",
-      "source": "Thailand Food and Drug Administration",
-      "url": "https://cemc.fda.moph.go.th/press-release/282",
-      "strategic_implication": "Companies should strengthen employee wellness program oversight to prevent unsafe supplement use among workforce."
-    },
-    {
-      "query_tag": "GLOBAL_3",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "First Minimally Invasive Coronary Bypass Surgery Achieved",
-      "summary": "NIH researchers successfully performed coronary bypass surgery without cutting chest wall for first time.",
-      "source": "National Institutes of Health",
-      "url": "https://www.nih.gov/news-events/news-releases/researchers-achieve-first-minimally-invasive-coronary-artery-bypass",
-      "strategic_implication": "Healthcare systems should prepare for adoption of less invasive cardiac procedures reducing recovery costs."
-    },
-    {
-      "query_tag": "RESEARCH_2",
-      "badge_color": "#60a5fa",
-      "region": "global",
-      "title": "High-Dose Flu Vaccines Reduce Hospitalizations by 24%",
-      "summary": "<cite index=\"16-14\">High-dose influenza vaccine showed 23.7% relative effectiveness against hospitalization versus standard dose.</cite>",
-      "source": "New England Journal of Medicine",
-      "url": "https://www.nejm.org/doi/abs/10.1056/NEJMoa2509834",
-      "strategic_implication": "Workplace health programs should prioritize high-dose vaccines for older employees."
-    },
-    {
-      "query_tag": "RESEARCH_1",
-      "badge_color": "#60a5fa",
-      "region": "global",
-      "title": "Intensive Blood-Pressure Control in Patients with Type 2 Diabetes",
-      "summary": "<cite index=\"12-2\">Study shows effective targets for systolic blood-pressure control in patients with type 2 diabetes</cite>",
-      "source": "New England Journal of Medicine",
-      "url": "https://www.nejm.org/doi/abs/10.1056/NEJMoa2412006",
-      "strategic_implication": "Organizations must prepare intensive diabetes-hypertension management protocols and staff training programs"
-    },
-    {
-      "query_tag": "RESEARCH_1",
-      "badge_color": "#60a5fa",
-      "region": "global",
-      "title": "Metabolic Syndrome Trends Among US Adults 2013-2023",
-      "summary": "<cite index=\"4-1\">Cross-sectional study examined changes in metabolic syndrome prevalence among US adults from 2013 to 2023</cite>",
-      "source": "JAMA",
-      "url": "https://jamanetwork.com/journals/jama/fullarticle/2842706",
-      "strategic_implication": "Companies need comprehensive metabolic health programs to address rising workplace disease burden"
-    },
-    {
-      "query_tag": "RESEARCH_2",
-      "badge_color": "#60a5fa",
-      "region": "global",
-      "title": "Modified mRNA Influenza Vaccine Shows Enhanced Efficacy",
-      "summary": "<cite index=\"12-2,12-15\">New mRNA-1283 vaccine demonstrated higher antibody responses with acceptable safety profile.</cite>",
-      "source": "New England Journal of Medicine",
-      "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2416779",
-      "strategic_implication": "Organizations should prepare for next-generation mRNA flu vaccines offering superior protection."
-    },
-    {
-      "query_tag": "APAC_3",
-      "badge_color": "#34d399",
-      "region": "regional",
-      "title": "New IP Rider Requirements Take Effect April 2026 to Control Healthcare Costs",
-      "summary": "New rules for Integrated Shield Plan riders will no longer cover minimum deductibles.",
-      "source": "Ministry of Health Singapore",
-      "url": "https://www.moh.gov.sg/newsroom/new-requirements-for-integrated-shield-plan-riders-to-strengthen-sustainability-of-private-health-insurance-and-address-rising-healthcare-costs/",
-      "strategic_implication": "Companies must review employee health benefit packages and adjust insurance coverage strategies accordingly."
+      "title": "New World Screwworm Outbreak Reaches Northern Mexico",
+      "summary": "CDC issued health advisory as outbreak moves to Texas border with 1,190 cases.",
+      "source": "CDC",
+      "url": "https://www.cdc.gov/han/php/notices/han00526.html",
+      "strategic_implication": "Organizations need cross-border health protocols and livestock-worker protection measures."
     },
     {
       "query_tag": "GLOBAL_1",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "Next-generation influenza vaccines could save millions of lives",
-      "summary": "WHO assessment shows improved influenza vaccines could significantly reduce global disease burden.",
-      "source": "World Health Organization",
+      "title": "Next-Generation Influenza Vaccines Could Save Millions Lives",
+      "summary": "WHO assessment shows improved flu vaccines could drastically reduce global influenza burden with broader protection.",
+      "source": "WHO",
       "url": "https://www.who.int/news/item/18-02-2026-next-generation-influenza-vaccines-could-save-millions-of-lives--finds-who",
-      "strategic_implication": "Organizations should prepare for broader vaccination programs and pandemic preparedness investments."
+      "strategic_implication": "Organizations should prepare for enhanced pandemic preparedness investments and stronger seasonal influenza protection strategies."
+    },
+    {
+      "query_tag": "GLOBAL_2",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "Severe Influenza Season Shows High Pediatric Impact",
+      "summary": "Cumulative hospitalization rate reaches third highest since 2010-11 with 71 pediatric deaths.",
+      "source": "CDC",
+      "url": "https://www.cdc.gov/fluview/surveillance/2026-week-06.html",
+      "strategic_implication": "Workplaces require enhanced flu policies and child-care support for employee families."
+    },
+    {
+      "query_tag": "GLOBAL_1",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "WHO Launches $1 Billion Appeal for Health Emergency Response",
+      "summary": "WHO seeks funding to respond to 36 emergencies worldwide affecting millions in crisis settings.",
+      "source": "WHO",
+      "url": "https://www.who.int/news/item/03-02-2026-who-launches-2026-appeal-to-help-millions-of-people-in-health-emergencies-and-crisis-settings",
+      "strategic_implication": "Organizations must prepare for increased global health security risks and potential disruptions from humanitarian crises."
+    },
+    {
+      "query_tag": "TH_7",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "WHO Partners with Siriraj to Address Injury Prevention",
+      "summary": "WHO signed MoU with Siriraj Hospital to strengthen trauma, injury and fall prevention across Southeast Asia.",
+      "source": "WHO",
+      "url": "https://www.who.int/southeastasia/news/detail/28-01-2025-who-partners-with-siriraj-hospital-mahidol-university-to-address-the-growing-burden-of-injuries-and-falls",
+      "strategic_implication": "Workplace safety programs and employee injury prevention strategies will require enhanced focus given regional health priorities."
+    },
+    {
+      "query_tag": "TH_8",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Breakthrough CRISPR Tool Combats Antibiotic Resistance Crisis",
+      "summary": "New CRISPR system developed to fight superbugs threatening 10 million annual deaths by 2050.",
+      "source": "ScienceDaily",
+      "url": "https://www.sciencedaily.com/news/health_medicine/",
+      "strategic_implication": "Companies should prepare for revolutionary antimicrobial technologies that could transform infection control strategies."
+    },
+    {
+      "query_tag": "RESEARCH_2",
+      "badge_color": "#60a5fa",
+      "region": "global",
+      "title": "Centivax Initiates Phase 1 Universal Flu Vaccine Clinical Trial",
+      "summary": "<cite index=\"14-1\">Centivax dosed first participants in Phase 1A clinical trial evaluating Centi-Flu 01.</cite>",
+      "source": "PR Newswire",
+      "url": "https://www.prnewswire.com/news-releases/centivax-initiates-phase-1-first-in-human-clinical-trial-of-universal-flu-vaccine-302686585.html",
+      "strategic_implication": "<cite index=\"14-6\">Organizations should prepare for potential universal influenza vaccines offering broad strain coverage.</cite>"
+    },
+    {
+      "query_tag": "TH_9",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Chula Wins National Outstanding Researcher Award 2026",
+      "summary": "Three Chulalongkorn faculty members received national excellence awards from NRCT.",
+      "source": "Chulalongkorn University",
+      "url": "https://www.chula.ac.th/news/274615/",
+      "strategic_implication": "Organizations should benchmark research capabilities against recognized academic standards."
+    },
+    {
+      "query_tag": "RESEARCH_3",
+      "badge_color": "#60a5fa",
+      "region": "global",
+      "title": "Climate Change Drives 123 Million Additional Malaria Cases by 2050",
+      "summary": "Extreme weather events will cause dramatic increase in African malaria cases requiring climate-resilient control strategies.",
+      "source": "Nature Medicine",
+      "url": "https://www.nature.com/nm/",
+      "strategic_implication": "Organizations must integrate climate adaptation into global health strategies and workforce travel protocols."
+    },
+    {
+      "query_tag": "GLOBAL_3",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "Cognitive Training Shows 25% Dementia Risk Reduction",
+      "summary": "Simple brain training exercises done for weeks delayed dementia diagnosis.",
+      "source": "National Institutes of Health",
+      "url": "https://www.nih.gov/news-events/news-releases/cognitive-speed-training-over-weeks-may-delay-diagnosis-dementia-over-decades",
+      "strategic_implication": "Organizations need workplace cognitive wellness programs for aging workforce."
+    },
+    {
+      "query_tag": "TH_9",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Disaster Health Management Conference March 2026",
+      "summary": "Nursing Faculty hosts national conference on resilient disaster health management.",
+      "source": "Chulalongkorn University",
+      "url": "https://www.chula.ac.th/news/283183/",
+      "strategic_implication": "Companies must develop robust health crisis management protocols and resilience strategies."
+    },
+    {
+      "query_tag": "TH_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "FDA Warns Against Illegal Weight Gain Supplements",
+      "summary": "Authorities discover prescription drugs illegally marketed as dietary supplements for weight gain.",
+      "source": "Food and Drug Administration",
+      "url": "https://cemc.fda.moph.go.th/press-release/282",
+      "strategic_implication": "Companies must strengthen supplement sourcing verification and employee health product education protocols."
+    },
+    {
+      "query_tag": "GLOBAL_3",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "First Minimally Invasive Coronary Artery Bypass Achieved",
+      "summary": "NIH researchers successfully performed coronary bypass without chest wall surgery.",
+      "source": "National Institutes of Health",
+      "url": "https://www.nih.gov/news-events/news-releases/researchers-achieve-first-minimally-invasive-coronary-artery-bypass",
+      "strategic_implication": "Healthcare systems must prepare for implementing new cardiovascular procedures."
+    },
+    {
+      "query_tag": "TH_10",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "HSRI Health System Research Fund 2569 Announcement",
+      "summary": "Health Systems Research Institute announces research funding for security health systems and genomics programs.",
+      "source": "Mahidol Research Office",
+      "url": "https://op.mahidol.ac.th/ra/en/2025/02/21/20250430_hsri-2569/",
+      "strategic_implication": "Organizations must align research strategies with national health security priorities for funding eligibility."
+    },
+    {
+      "query_tag": "APAC_3",
+      "badge_color": "#34d399",
+      "region": "global",
+      "title": "New Screening Guidelines Released in STRC 2026 Report",
+      "summary": "Updated screening recommendations for multiple cancers, diabetes, obesity, and other conditions.",
+      "source": "Ministry of Health",
+      "url": "https://www.moh.gov.sg/others/resources-and-statistics/strc-2026-volume-1/",
+      "strategic_implication": "Companies should review employee health screening programs against new national guidelines."
     },
     {
       "query_tag": "APAC_4",
       "badge_color": "#34d399",
-      "region": "global",
-      "title": "Nipah Virus Alert Issued for Australian Healthcare Workers",
-      "summary": "Clinician alert warns of Nipah virus transmission requiring strict isolation protocols.",
-      "source": "Western Australia Health",
+      "region": "regional",
+      "title": "Nipah Virus Cases Confirmed in India with Travel Alert",
+      "summary": "Two Nipah virus infections confirmed in West Bengal, India on January 13, 2026 with travel precautions issued.",
+      "source": "WA Health",
       "url": "https://www.health.wa.gov.au/~/media/Corp/Documents/Health-for/Infectious-disease-alerts/2026/Clinician-alert-Nipah-virus-30-January-2026.pdf",
-      "strategic_implication": "Businesses should review pandemic preparedness plans and infection control protocols."
+      "strategic_implication": "Organizations should review travel policies and employee health screening protocols for India business travel."
     },
     {
       "query_tag": "APAC_1",
       "badge_color": "#34d399",
       "region": "regional",
       "title": "Nipah Virus Outbreak Confirmed in West Bengal India",
-      "summary": "Two healthcare workers confirmed with Nipah virus infection in North 24 Parganas district.",
-      "source": "World Health Organization",
+      "summary": "Two healthcare workers confirmed with Nipah virus infection in West Bengal hospital.",
+      "source": "WHO South-East Asia Region",
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies",
-      "strategic_implication": "Organizations must strengthen healthcare worker protection protocols and outbreak containment capabilities."
+      "strategic_implication": "Organizations must strengthen healthcare worker protection protocols and zoonotic disease preparedness."
     },
     {
-      "query_tag": "TH_3",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Physical Activity Literacy Development for Elderly and Monks Program",
-      "summary": "Academic conference develops skills for promoting physical activity knowledge among elderly populations.",
-      "source": "สำนักอนามัยผู้สูงอายุ",
-      "url": "https://eh.anamai.moph.go.th/en",
-      "strategic_implication": "Companies should invest in employee physical wellness programs targeting aging workforce demographics."
-    },
-    {
-      "query_tag": "TH_8",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Ramathibodi Constructs 25-Floor Hospital and Stem Cell Factory",
-      "summary": "New 25-floor hospital construction begins with stem cell manufacturing facility awaiting approval.",
-      "source": "Bangkok Biznews",
-      "url": "https://www.bangkokbiznews.com/health/public-health/1213127",
-      "strategic_implication": "Healthcare teams should anticipate expanded capacity and regenerative medicine service integration."
-    },
-    {
-      "query_tag": "TH_8",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Ramathibodi Opens Congenital Heart Center for Adults",
-      "summary": "Ramathibodi launched new center treating congenital heart disease from birth to adulthood.",
-      "source": "เดลินิวส์",
-      "url": "https://www.dailynews.co.th/articles/5602295/",
-      "strategic_implication": "Organizations should prepare for increasing adult congenital heart disease management capabilities."
-    },
-    {
-      "query_tag": "TH_7",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "SCB 10X Partners with Siriraj on Medical AI Research",
-      "summary": "Partnership develops Typhoon-Si-Med-Thinking-4B AI model for medical reasoning and diagnostics.",
-      "source": "7 Stars News",
-      "url": "https://www.7starsnews.com/2026/01/scb-10x-partners-with-siriraj-to.html",
-      "strategic_implication": "Organizations must prepare for AI-driven medical decision-making systems transforming healthcare operations."
-    },
-    {
-      "query_tag": "APAC_3",
+      "query_tag": "APAC_4",
       "badge_color": "#34d399",
-      "region": "regional",
-      "title": "Singapore Recognizes Eight More Overseas Medical Schools from February 2026",
-      "summary": "MOH and SMC will recognize eight additional overseas medical schools starting February 2026.",
-      "source": "Ministry of Health Singapore",
-      "url": "https://www.moh.gov.sg/newsroom/eight-more-overseas-medical-schools-recognised/",
-      "strategic_implication": "Organizations should prepare for increased healthcare workforce capacity and potential talent acquisition opportunities."
+      "region": "global",
+      "title": "NSW Health Issues Alert for Four New Measles Cases",
+      "summary": "NSW Health confirms four new measles cases across the state with exposure location warnings issued.",
+      "source": "CESPHN",
+      "url": "https://cesphn.org.au/news/immunisation-update-18-february-2026",
+      "strategic_implication": "Businesses should verify employee vaccination status and implement outbreak response plans for contagious diseases."
     },
     {
-      "query_tag": "TH_7",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Siriraj Receives National Research Award 2026 for Diabetes Research",
-      "summary": "Professor Natthachet Plengvidhya wins National Research Award for diabetes and obesity research.",
-      "source": "Faculty of Medicine Siriraj Hospital",
-      "url": "https://www2.si.mahidol.ac.th/en/news-events/national-research-award-2026/",
-      "strategic_implication": "Teams should invest in diabetes prevention programs as breakthrough research advances treatment."
+      "query_tag": "RESEARCH_3",
+      "badge_color": "#60a5fa",
+      "region": "global",
+      "title": "PD-1 Blockade Shows Promise for HIV Reservoir Reduction",
+      "summary": "Cancer immunotherapy reprograms immunity in HIV patients, potentially reducing viral reservoir through interferon responses.",
+      "source": "Nature Medicine",
+      "url": "https://www.nature.com/nm/articles?year=2026",
+      "strategic_implication": "Healthcare teams should prepare for expanded immunotherapy applications and dual HIV-cancer treatment protocols."
     },
     {
       "query_tag": "TH_5",
       "badge_color": "#f472b6",
       "region": "local",
-      "title": "Thai FDA raids network selling illegal peptide weight loss injections",
-      "summary": "<cite index=\"4-3,4-10\">Thai authorities dismantled illegal peptide injection production sites worth over 17 million baht</cite>",
-      "source": "Thai FDA",
-      "url": "https://cemc.fda.moph.go.th/press-release/284",
-      "strategic_implication": "Organizations must strengthen employee wellness program oversight to prevent unsafe weight loss trends."
+      "title": "Pharmacy Network Sells Cough Syrup to Teens",
+      "summary": "<cite index=\"1-3,1-11\">Police arrested 7 fake pharmacists running network distributing cough medicine to teenagers mixing with kratom.</cite>",
+      "source": "FDA Thailand",
+      "url": "https://cemc.fda.moph.go.th/press-release/283",
+      "strategic_implication": "Workplace drug policies need updating to address new synthetic substance abuse among young employees."
     },
     {
-      "query_tag": "TH_2",
+      "query_tag": "TH_7",
       "badge_color": "#f472b6",
       "region": "local",
-      "title": "Thailand Issues Nipah Virus Surveillance Guidelines",
-      "summary": "<cite index=\"4-7,4-8\">Thailand released Nipah virus surveillance guidelines following outbreak in India on January 11, 2026</cite>.",
-      "source": "Department of Disease Control Thailand",
-      "url": "https://ddc.moph.go.th/uploads/ckeditor2//files/%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%99%E0%B8%B4%E0%B8%9B%E0%B8%B2%E0%B8%AB%E0%B9%8C%E0%B9%84%E0%B8%A7%E0%B8%A3%E0%B8%B1%E0%B8%AA_27012025%2011.33_edit.pdf",
-      "strategic_implication": "Teams should implement enhanced health screening and prepare emergency response plans for potential zoonotic disease outbreaks."
+      "title": "SCB 10X Partners with Siriraj for Medical AI Research",
+      "summary": "SCB 10X collaborates with Siriraj Hospital to develop Typhoon-Si-Med-Thinking-4B, an AI model for medical reasoning.",
+      "source": "7 ⭐ NEWS",
+      "url": "https://www.7starsnews.com/2026/01/scb-10x-partners-with-siriraj-to.html",
+      "strategic_implication": "Organizations should prepare for specialized small-scale AI models transforming clinical decision-making with cost-effective accuracy."
     },
     {
-      "query_tag": "TH_1",
+      "query_tag": "TH_10",
       "badge_color": "#f472b6",
       "region": "local",
-      "title": "Thailand Ministry of Health Partners with Brands for Sweetness Standards",
-      "summary": "<cite index=\"5-2\">Thailand's Ministry of Health partnered with major beverage brands to implement 'normal sweet equals 50% sweet' standard.</cite>",
-      "source": "Ministry of Public Health Thailand",
-      "url": "https://multimedia.anamai.moph.go.th/news/1102692/",
-      "strategic_implication": "Organizations must adapt wellness policies as governments actively regulate sugar consumption in workplace beverages and cafeterias."
+      "title": "SiData Conference Healthcare Data AI Navigation 2569",
+      "summary": "Siriraj Data Innovation Center hosts international conference on healthcare data management and AI applications.",
+      "source": "Mahidol Siriraj Hospital",
+      "url": "https://www2.si.mahidol.ac.th/sirirajconference/event/sm/content/3528/TH/34276",
+      "strategic_implication": "Teams need data analytics capabilities and AI integration strategies for competitive healthcare delivery."
     },
     {
-      "query_tag": "TH_6",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Thailand National Vaccine Committee Approves Emergency Procurement Regulation",
-      "summary": "Thailand's National Vaccine Committee approved draft regulation for emergency vaccine procurement in 2024.",
-      "source": "LinkedIn",
-      "url": "https://th.linkedin.com/company/national-vaccine-institute",
-      "strategic_implication": "Organizations must prepare for accelerated emergency vaccine approval processes and supply chain adjustments."
-    },
-    {
-      "query_tag": "TH_2",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Thailand Reports 7,234 Influenza Cases in Early 2026",
-      "summary": "<cite index=\"2-2\">Thailand reports 7,234 influenza cases with 11.14 per 100,000 infection rate from January 1-3, 2026</cite>.",
-      "source": "Department of Disease Control Thailand",
-      "url": "https://ddc.moph.go.th/uploads/ckeditor2//files/DOE_flu_01.2569.pdf",
-      "strategic_implication": "Organizations should prepare influenza outbreak protocols and consider employee vaccination programs for business continuity."
-    },
-    {
-      "query_tag": "GLOBAL_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "WHO launches 2026 appeal for health emergencies funding",
-      "summary": "WHO seeks $1 billion to respond to 36 global emergencies affecting vulnerable populations.",
-      "source": "World Health Organization",
-      "url": "https://www.who.int/news/item/03-02-2026-who-launches-2026-appeal-to-help-millions-of-people-in-health-emergencies-and-crisis-settings",
-      "strategic_implication": "Businesses should anticipate increased humanitarian health needs and supply chain disruptions."
-    },
-    {
-      "query_tag": "APAC_2",
+      "query_tag": "APAC_3",
       "badge_color": "#34d399",
-      "region": "global",
-      "title": "WHO Launches Social Prescribing Series for Western Pacific Community Health",
-      "summary": "<cite index=\"4-1\">WHO and The Lancet released new series highlighting community-based social prescribing approaches</cite>",
-      "source": "WHO Western Pacific",
-      "url": "https://www.who.int/westernpacific/news/item/23-01-2026-who-and-the-lancet-spotlight-social-prescribing-in-new-western-pacific-series",
-      "strategic_implication": "Companies should integrate community wellness programs as evidence supports non-clinical health interventions"
-    },
-    {
-      "query_tag": "APAC_2",
-      "badge_color": "#34d399",
-      "region": "global",
-      "title": "WHO Solomon Islands Strengthens Health Emergency Preparedness Capacity",
-      "summary": "<cite index=\"8-4,8-5\">Solomon Islands completed mandatory health emergency preparedness assessment under International Health Regulations</cite>",
-      "source": "WHO Western Pacific",
-      "url": "https://www.who.int/westernpacific/about/how-we-work/pacific-support/news/detail/20-02-2026-solomon-islands-and-who--working-together-to-strengthen-health-security",
-      "strategic_implication": "Organizations should audit emergency response capabilities as regulatory compliance increasingly mandatory globally"
+      "region": "regional",
+      "title": "Singapore Updates COVID-19 Vaccination Guidelines for 2025/2026",
+      "summary": "JN.1 Novavax vaccine expires May 31, 2026, yearly COVID booster recommended.",
+      "source": "Ministry of Health",
+      "url": "https://www.moh.gov.sg/seeking-healthcare/overview-of-diseases/covid-19-national-vaccination-programme/",
+      "strategic_implication": "Organizations must plan for limited vaccine availability and updated employee health protocols."
     },
     {
       "query_tag": "APAC_1",
       "badge_color": "#34d399",
       "region": "regional",
-      "title": "WHO South-East Asia Triples Health Emergency Fund",
-      "summary": "Regional emergency fund expanded to $3 million for health emergencies starting 2026.",
-      "source": "World Health Organization",
+      "title": "South-East Asia Emergency Health Fund Tripled to $3 Million",
+      "summary": "WHO expands regional health emergency fund corpus to prepare for increased public health emergencies.",
+      "source": "WHO South-East Asia Region",
       "url": "https://www.who.int/southeastasia/news/detail/09-10-2024-south-east-asia-regional-health-emergency-fund-s-corpus-expanded",
-      "strategic_implication": "Companies should prepare for increased regional health emergency coordination and funding requirements."
+      "strategic_implication": "Organizations should increase emergency preparedness budgets and response capacity planning."
     },
     {
-      "query_tag": "TH_10",
+      "query_tag": "TH_5",
       "badge_color": "#f472b6",
       "region": "local",
-      "title": "ศิริราชจัดประชุม SiData+ Conference 2569 ด้าน AI การแพทย์",
-      "summary": "ศูนย์นวัตกรรมข้อมูลศิริราชจัดประชุมวิชาการแลกเปลี่ยนการจัดการข้อมูลทางการแพทย์ด้วย AI",
-      "source": "คณะแพทยศาสตร์ศิริราชพยาบาล",
-      "url": "https://www2.si.mahidol.ac.th/sirirajconference/event/sm/content/3528/TH/34276",
-      "strategic_implication": "ทีมสุขภาพดิจิทัลควรศึกษาแนวทาง Big Data และ AI ในการพัฒนาบริการสุขภาพอัจฉริยะ"
+      "title": "Thai FDA Busts Illegal Peptide Injection Network",
+      "summary": "<cite index=\"4-4,4-7,4-9\">Authorities seized over 100,000 illegal peptide injections worth 17 million baht from three production sites.</cite>",
+      "source": "FDA Thailand",
+      "url": "https://cemc.fda.moph.go.th/press-release/284",
+      "strategic_implication": "Organizations must verify supplier credentials as counterfeit health products infiltrate legitimate supply chains."
     },
     {
-      "query_tag": "TH_10",
+      "query_tag": "TH_8",
       "badge_color": "#f472b6",
       "region": "local",
-      "title": "สวรส. ประกาศรับข้อเสนอโครงการวิจัย ประจำปี 2569",
-      "summary": "สถาบันวิจัยระบบสาธารณสุข เปิดรับข้อเสนอโครงการวิจัยแผนงานสุขภาพยุทธศาสตร์สี่แผนงาน",
-      "source": "กองบริหารงานวิจัย มหาวิทยาลัยมหิดล",
-      "url": "https://op.mahidol.ac.th/ra/en/2025/02/21/20250430_hsri-2569/",
-      "strategic_implication": "องค์กรสุขภาพควรติดตามทุนวิจัยใหม่ เตรียมข้อเสนอนวัตกรรมสุขภาพ ระบบฉุกเฉิน จีโนมิกส์"
+      "title": "Thailand Dialysis Policy Crisis Creates Severe Healthcare Consequences",
+      "summary": "Abrupt policy change allowing patient dialysis choice created unintended consequences for Thai health system.",
+      "source": "Nature Medicine",
+      "url": "https://www.nature.com/articles/s41591-025-04144-1",
+      "strategic_implication": "Organizations must anticipate complex system interactions when implementing healthcare policy changes to prevent disruption."
+    },
+    {
+      "query_tag": "TH_6",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Thailand Expands Dengue Vaccine Access with Qdenga Approval",
+      "summary": "Thailand has approved Qdenga vaccine widely since 2023, offering 80% protection and reducing hospitalizations by 90%.",
+      "source": "Chiang Rai Times",
+      "url": "https://www.chiangraitimes.com/health/dengue-fever-in-thailand-2026/",
+      "strategic_implication": "Organizations must prepare travel health policies as dengue protection becomes more accessible in endemic areas."
+    },
+    {
+      "query_tag": "TH_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Thailand Partners with 9 Brands for 50% Sugar Reduction",
+      "summary": "Ministry launches sweet drinks standard reducing regular sweetness to 50% levels nationwide.",
+      "source": "Ministry of Public Health",
+      "url": "https://multimedia.anamai.moph.go.th/news/1102692/",
+      "strategic_implication": "Organizations should prepare wellness programs addressing sugar reduction and NCDs prevention initiatives."
+    },
+    {
+      "query_tag": "TH_6",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Thailand Strengthens National Vaccine Security Strategy Through 2026",
+      "summary": "National Vaccine Institute implements comprehensive vaccine security plan targeting domestic production and emergency preparedness capabilities.",
+      "source": "Journal of Public Health and Emergency",
+      "url": "https://jphe.amegroups.org/article/view/9500/html",
+      "strategic_implication": "Companies should assess supply chain resilience as Thailand reduces vaccine import dependency from 80% to self-reliance."
+    },
+    {
+      "query_tag": "APAC_2",
+      "badge_color": "#34d399",
+      "region": "global",
+      "title": "WHO and Lancet Release Social Prescribing Series for Western Pacific",
+      "summary": "WHO Western Pacific and The Lancet released new series highlighting community-based social prescribing approaches across the region.",
+      "source": "WHO Western Pacific",
+      "url": "https://www.who.int/westernpacific/news/item/23-01-2026-who-and-the-lancet-spotlight-social-prescribing-in-new-western-pacific-series",
+      "strategic_implication": "Organizations should explore community partnership models and non-clinical wellness interventions to address social determinants of health."
+    },
+    {
+      "query_tag": "RESEARCH_2",
+      "badge_color": "#60a5fa",
+      "region": "regional",
+      "title": "WHO Finds Next-Generation Flu Vaccines Could Save Millions",
+      "summary": "<cite index=\"12-1\">46 next-generation influenza vaccines are currently in clinical development.</cite>",
+      "source": "WHO Philippines",
+      "url": "https://www.who.int/philippines/news/detail-global/18-02-2026-next-generation-influenza-vaccines-could-save-millions-of-lives--finds-who",
+      "strategic_implication": "<cite index=\"12-14\">Organizations should plan for broader flu vaccine options reducing disease burden.</cite>"
+    },
+    {
+      "query_tag": "APAC_2",
+      "badge_color": "#34d399",
+      "region": "global",
+      "title": "WHO Western Pacific 19 Countries Complete Health Information System Assessments",
+      "summary": "WHO Western Pacific achieved milestone with 19 countries completing comprehensive health information system assessments using SCORE technical package.",
+      "source": "WHO Western Pacific",
+      "url": "https://www.who.int/westernpacific/news/item/12-01-2026-western-pacific-region-achieves-milestone--19-countries-complete-comprehensive-health-information-system-assessments",
+      "strategic_implication": "Organizations must prioritize health data infrastructure investments to meet emerging digital health standards and monitoring requirements."
+    },
+    {
+      "query_tag": "TH_3",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "จัดประชุมเชิงปฏิบัติการคู่มือบริการผู้พึ่งพิง",
+      "summary": "กรมอนามัยจัดประชุมเชิงปฏิบัติการจัดทำคู่มือแนวทางปฏิบัติตามมาตรฐานการจัดบริการสาธารณสุขสำหรับผู้ที่มีภาวะพึ่งพิง",
+      "source": "สำนักอนามัยผู้สูงอายุ",
+      "url": "https://eh.anamai.moph.go.th/en",
+      "strategic_implication": "องค์กรต้องเตรียมพร้อมรองรับมาตรฐานใหม่ในการดูแลผู้สูงอายุที่พึ่งพิงผู้อื่น"
+    },
+    {
+      "query_tag": "TH_4",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "บัตรทองลดสิทธิทำฟันคลินิกเอกชนเหลือ 2 ครั้งต่อปี",
+      "summary": "สปสช. ปรับลดสิทธิรักษาทันตกรรมจาก 3 ครั้งเหลือ 2 ครั้งต่อปีพร้อมเพิ่มมาตรการยืนยันตัวตน.",
+      "source": "PSK Dental Center",
+      "url": "https://www.pskdentalcenter.com/slug-nhso-dental-rights-update-2569/",
+      "strategic_implication": "Companies must adapt benefit structures and prepare for increased employee healthcare cost management."
+    },
+    {
+      "query_tag": "TH_4",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "สปสช. ยืนยันไม่พบข้อมูลหลุดจากระบบ",
+      "summary": "สำนักงานหลักประกันสุขภาพแห่งชาติยืนยันไม่มีข้อมูลรั่วไหลหลังพบโพสต์อ้างขาย API NHSO ออนไลน์.",
+      "source": "สำนักข่าวรัฐบาล",
+      "url": "https://gcc.go.th/2026/02/18/%E0%B8%AA%E0%B8%9B%E0%B8%AA%E0%B8%8A-%E0%B8%A2%E0%B8%B7%E0%B8%99%E0%B8%A2%E0%B8%B1%E0%B8%99%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%9E%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%A3/",
+      "strategic_implication": "Organizations must enhance cybersecurity protocols and prepare for data breach communication strategies."
     }
   ],
   "errors": [
     {
-      "query_tag": "TH_4",
+      "query_tag": "TH_2",
       "error_type": "other",
       "message": "Expecting value: line 1 column 1 (char 0)",
       "attempts": 1
     },
     {
-      "query_tag": "GLOBAL_2",
+      "query_tag": "RESEARCH_1",
       "error_type": "other",
       "message": "Expecting value: line 1 column 1 (char 0)",
       "attempts": 1
