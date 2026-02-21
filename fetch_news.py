@@ -23,7 +23,7 @@ from pathlib import Path
 # ─── Configuration ───────────────────────────────────────────────
 API_URL = "https://api.anthropic.com/v1/messages"
 MODEL = "claude-sonnet-4-20250514"
-MAX_TOKENS = 512
+MAX_TOKENS = 1024
 
 CALL_BUDGET = 20
 SLEEP_BETWEEN_CALLS_SECONDS = 65
