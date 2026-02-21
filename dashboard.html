@@ -135,6 +135,41 @@
       border-radius:20px;background:rgba(14,24,18,.6)
     }
 
+    /* Sticky controls */
+    .controls-wrap.sticky{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(8,12,10,.68);
+      border-bottom: 1px solid rgba(16,185,129,.08);
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    /* Status pill */
+    .status-pill{
+      flex: 0 0 auto;
+      font-family:'JetBrains Mono',monospace;
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.35);
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:#dce8e0;
+    }
+    .status-dot{width:8px;height:8px;border-radius:50%}
+    .status-ok .status-dot{background:#10b981}
+    .status-partial .status-dot{background:#f59e0b}
+    .status-err .status-dot{background:#ef4444}
+
+    /* Quickbar */
+    .quickbar{padding:0 36px 10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;animation:fadeSlideUp 1.15s ease-out}
+    .quickbar .filter-btn{padding:8px 16px}
+
     /* ═══════ PARTIAL BANNER ═══════ */
     .partial-banner{margin:0 36px 14px;padding:12px 20px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#fbbf24;text-align:center;display:none}
     .partial-banner.show{display:block}
@@ -166,6 +201,10 @@
       cursor:pointer;
       transition:all .25s;
       user-select:none;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
     }
     .btn-mini:hover{border-color:rgba(16,185,129,.45);transform:translateY(-1px)}
     .btn-mini.copy{border-color:rgba(6,182,212,.25)}
@@ -213,7 +252,7 @@
     }
     @media(max-width:640px){
       .cards-grid,.exec-grid,.method-grid{grid-template-columns:1fr}
-      header,.exec-summary,.methodology,.controls-wrap,.cards-grid,footer{padding-left:16px;padding-right:16px}
+      header,.exec-summary,.methodology,.controls-wrap,.quickbar,.cards-grid,footer{padding-left:16px;padding-right:16px}
       .hero{padding:32px 24px 28px}
       .partial-banner{margin-left:16px;margin-right:16px}
     }
@@ -300,8 +339,8 @@
       </div>
     </section>
 
-    <!-- Controls (UI v1 + logic v2 + Search/Sort) -->
-    <div class="controls-wrap">
+    <!-- Controls (Sticky) -->
+    <div class="controls-wrap sticky">
       <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All <span class="count" id="countAll"></span></button>
       <button class="filter-btn" data-filter="global" onclick="setFilter('global')">Global <span class="count" id="countGlobal"></span></button>
       <button class="filter-btn" data-filter="apac" onclick="setFilter('apac')">APAC <span class="count" id="countApac"></span></button>
@@ -322,9 +361,25 @@
       </select>
 
       <div class="calls-badge" id="callsBadge">—</div>
+
+      <div class="status-pill status-ok" id="statusPill" title="System status">
+        <span class="status-dot"></span>
+        <span id="statusText">OK</span>
+      </div>
+    </div>
+
+    <!-- Quick Toggles + Presets -->
+    <div class="quickbar">
+      <button class="filter-btn" id="tgTop">⭐ Top sources only</button>
+      <button class="filter-btn" id="tgUrl">🔗 Has URL only</button>
+      <button class="filter-btn" id="tgDup">🧹 Hide duplicates</button>
+      <button class="filter-btn" id="viewCS">📌 CS Proposal Mode</button>
+      <button class="filter-btn" id="viewBeauty">💅 Wellness/Beauty Mode</button>
+      <button class="filter-btn" id="tgReset">✖ Reset</button>
     </div>
 
     <div class="partial-banner" id="partialBanner"></div>
+    <div class="partial-banner" id="errorPanel" style="display:none"></div>
 
     <div class="loading show" id="loadingState">
       <div class="loading-heart">🫀</div>
@@ -380,6 +435,11 @@ let allItems = [];
 let currentFilter = 'all';
 let searchTerm = '';
 let sortMode = 'reputable';
+
+// Toggles (UI-only)
+let onlyTopSources = false;
+let onlyHasUrl = false;
+let hideDuplicates = false;
 
 const toast = document.getElementById('toast');
 
@@ -450,6 +510,52 @@ function sortItems(items){
   return out;
 }
 
+/* ===== Toggles helpers (UI-only, safe) ===== */
+function isTopSource(item){
+  const src = String(item.source || '').toLowerCase();
+  const known = ['who','cdc','nih','harvard','lancet','nature','mayo','johns hopkins','stanford','cleveland clinic','bmj','jama','nejm','nhs'];
+  return known.some(k => src.includes(k));
+}
+
+function normTitleKey(t){
+  return String(t||'')
+    .toLowerCase()
+    .replace(/\s+/g,' ')
+    .replace(/[^\p{L}\p{N}\s]/gu,'')
+    .trim();
+}
+
+function applyToggles(items){
+  let out = items;
+
+  if (onlyTopSources) out = out.filter(isTopSource);
+  if (onlyHasUrl) out = out.filter(it => !!String(it.url||'').trim());
+
+  if (hideDuplicates){
+    const seen = new Set();
+    out = out.filter(it=>{
+      const k = normTitleKey(it.title);
+      if (!k) return true;
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+  }
+  return out;
+}
+
+function syncToggleUI(){
+  const setActive = (id, on)=>{
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle('active', !!on);
+  };
+  setActive('tgTop', onlyTopSources);
+  setActive('tgUrl', onlyHasUrl);
+  setActive('tgDup', hideDuplicates);
+}
+
+/* ===== Data load ===== */
 async function loadData() {
   const loading = document.getElementById('loadingState');
   const errorEl = document.getElementById('errorState');
@@ -467,13 +573,42 @@ async function loadData() {
       ? `Calls ${data.meta.calls_used}/${data.meta.calls_budget} • ${data?.meta?.partial ? 'PARTIAL' : 'OK'}`
       : '—';
 
-    // Partial banner + error list
+    // Status Pill
+    const pill = document.getElementById('statusPill');
+    const st = document.getElementById('statusText');
+    const isPartial = !!data?.meta?.partial;
+    if (pill && st){
+      pill.classList.remove('status-ok','status-partial','status-err');
+      if (isPartial){
+        pill.classList.add('status-partial');
+        st.textContent = 'PARTIAL';
+      } else {
+        pill.classList.add('status-ok');
+        st.textContent = 'OK';
+      }
+    }
+
+    // Partial banner
     if (data?.meta?.partial) {
       const banner = document.getElementById('partialBanner');
       banner.textContent = data?.meta?.notes ? data.meta.notes : `${data.meta.calls_used}/${data.meta.calls_budget} sources updated — PARTIAL`;
       banner.classList.add('show');
     } else {
       document.getElementById('partialBanner').classList.remove('show');
+    }
+
+    // Error panel (optional meta.errors)
+    const ep = document.getElementById('errorPanel');
+    const errs = Array.isArray(data?.meta?.errors) ? data.meta.errors : [];
+    if (ep){
+      if (errs.length){
+        ep.style.display = 'block';
+        ep.classList.add('show');
+        ep.textContent = `⚠️ Errors: ${errs.map(e=>String(e.tag||e)).join(', ')}`;
+      } else {
+        ep.style.display = 'none';
+        ep.classList.remove('show');
+      }
     }
 
     // Exec summary
@@ -484,6 +619,7 @@ async function loadData() {
 
     allItems = Array.isArray(data.items) ? data.items : [];
     updateCounts();
+    syncToggleUI();
     renderCards();
 
     loading.classList.remove('show');
@@ -492,6 +628,14 @@ async function loadData() {
     console.error('Failed to load data:', e);
     loading.classList.remove('show');
     errorEl.classList.add('show');
+
+    const pill = document.getElementById('statusPill');
+    const st = document.getElementById('statusText');
+    if (pill && st){
+      pill.classList.remove('status-ok','status-partial','status-err');
+      pill.classList.add('status-err');
+      st.textContent = 'ERROR';
+    }
   }
 }
 
@@ -519,6 +663,7 @@ function updateCounts() {
 function setFilter(filter) {
   currentFilter = filter;
   document.querySelectorAll('.filter-btn').forEach(btn => {
+    if (!btn.dataset.filter) return;
     btn.classList.toggle('active', btn.dataset.filter === filter);
   });
   renderCards();
@@ -543,6 +688,7 @@ function renderCards() {
     : allItems.filter(i => mapCategory(i) === currentFilter);
 
   items = applySearch(items);
+  items = applyToggles(items);
   items = sortItems(items);
 
   if (!items.length){
@@ -587,7 +733,9 @@ function renderCards() {
           </div>
           <div class="card-actions">
             ${openLink}
-            <button class="btn-mini copy" data-copy="${idx}">📋 Copy for LINE</button>
+            <button class="btn-mini copy" data-copy="${idx}" data-copytype="line">📋 LINE</button>
+            <button class="btn-mini copy" data-copy="${idx}" data-copytype="summary">✂️ Summary</button>
+            <button class="btn-mini copy" data-copy="${idx}" data-copytype="exec">🧠 Exec</button>
           </div>
         </div>
       </div>
@@ -598,14 +746,25 @@ function renderCards() {
   grid.querySelectorAll('button[data-copy]').forEach(btn=>{
     btn.addEventListener('click', async ()=>{
       const idx = Number(btn.getAttribute('data-copy') || '0');
-      // rebuild the same view list to match indices
+      const typ = String(btn.getAttribute('data-copytype') || 'line');
+
       let view = currentFilter === 'all' ? allItems : allItems.filter(i => mapCategory(i) === currentFilter);
       view = applySearch(view);
+      view = applyToggles(view);
       view = sortItems(view);
+
       const item = view[idx];
       if (!item) return;
 
-      const text = buildLineText(item);
+      let text = '';
+      if (typ === 'summary'){
+        text = `📰 ${item.title || ''}\n🧠 ${item.summary || ''}\n${item.url ? `🔗 ${item.url}` : ''}`.trim();
+      } else if (typ === 'exec'){
+        text = `📰 ${item.title || ''}\n🎯 ${item.strategic_implication || ''}\n${item.url ? `🔗 ${item.url}` : ''}`.trim();
+      } else {
+        text = buildLineText(item);
+      }
+
       try{
         await navigator.clipboard.writeText(text);
         showToast('คัดลอกแล้ว ✅');
@@ -623,7 +782,7 @@ function renderCards() {
   });
 }
 
-// Search + Sort events
+/* ===== UI Events ===== */
 document.addEventListener('DOMContentLoaded', ()=>{
   const searchEl = document.getElementById('searchInput');
   const sortEl = document.getElementById('sortSelect');
@@ -641,6 +800,61 @@ document.addEventListener('DOMContentLoaded', ()=>{
       renderCards();
     });
   }
+
+  const bind = (id, fn)=>{
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', fn);
+  };
+
+  bind('tgTop', ()=>{ onlyTopSources = !onlyTopSources; syncToggleUI(); renderCards(); });
+  bind('tgUrl', ()=>{ onlyHasUrl = !onlyHasUrl; syncToggleUI(); renderCards(); });
+  bind('tgDup', ()=>{ hideDuplicates = !hideDuplicates; syncToggleUI(); renderCards(); });
+
+  bind('viewCS', ()=>{
+    setFilter('thailand');
+    sortMode = 'reputable';
+    document.getElementById('sortSelect').value = 'reputable';
+    onlyTopSources = true;
+    onlyHasUrl = true;
+    hideDuplicates = true;
+    syncToggleUI();
+    renderCards();
+    showToast('CS Proposal Mode ✅');
+  });
+
+  bind('viewBeauty', ()=>{
+    setFilter('all');
+    sortMode = 'reputable';
+    document.getElementById('sortSelect').value = 'reputable';
+    onlyTopSources = false;
+    onlyHasUrl = true;
+    hideDuplicates = true;
+    syncToggleUI();
+    // soft search “beauty mode”
+    searchTerm = 'beauty skin derm longevity';
+    document.getElementById('searchInput').value = searchTerm;
+    renderCards();
+    showToast('Wellness/Beauty Mode ✅');
+  });
+
+  bind('tgReset', ()=>{
+    currentFilter = 'all';
+    searchTerm = '';
+    sortMode = 'reputable';
+    onlyTopSources = false;
+    onlyHasUrl = false;
+    hideDuplicates = false;
+
+    const si = document.getElementById('searchInput');
+    const so = document.getElementById('sortSelect');
+    if (si) si.value = '';
+    if (so) so.value = 'reputable';
+
+    setFilter('all');
+    syncToggleUI();
+    renderCards();
+    showToast('รีเซ็ตแล้ว ✅');
+  });
 });
 
 // Init
