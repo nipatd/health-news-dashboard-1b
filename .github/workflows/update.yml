@@ -2,16 +2,13 @@ name: Update Health News
 
 on:
   workflow_dispatch:
-  schedule:
-    # 08:00 Asia/Bangkok = 01:00 UTC
-    - cron: "0 1 * * *"
 
 permissions:
   contents: write
 
 concurrency:
   group: health-news-update
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   fetch-news:
