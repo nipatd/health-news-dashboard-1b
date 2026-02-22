@@ -466,8 +466,12 @@ def main():
         "meta": {
             "version": "1B-v2.1",
             "generated_at_iso": now_utc.isoformat(),
+            "generated_at_th_iso": now_th.isoformat(),
             "generated_at_local": now_th.strftime("%d %b. %Y %H:%M น."),
             "schedule_local": "ทุกวัน: 8:00 น.",
+            "expected_schedule_local": "08:00 Asia/Bangkok",
+            "run_event": run_event,
+            "run_id": run_id,          
             "calls_used": calls_used,
             "calls_attempted": calls_attempted,
             "calls_budget": CALL_BUDGET,
