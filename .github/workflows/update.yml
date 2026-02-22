@@ -39,6 +39,8 @@ jobs:
       - name: Run news fetcher
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RUN_EVENT: ${{ github.event_name }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           python fetch_news.py
 
