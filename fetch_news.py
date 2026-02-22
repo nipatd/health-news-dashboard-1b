@@ -350,6 +350,8 @@ def main():
 
     now_utc = datetime.now(timezone.utc)
     now_th = now_utc.astimezone(THAILAND_TZ)
+    run_event = os.environ.get("RUN_EVENT", "unknown")
+    run_id = os.environ.get("RUN_ID", "unknown")
 
     all_items = []
     errors = []
