@@ -8,7 +8,7 @@ permissions:
 
 concurrency:
   group: health-news-update
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   fetch-news:
