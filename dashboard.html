@@ -395,7 +395,7 @@
     <div class="timestamp-bar">
       <span>LAST UPDATE:</span>
       <span id="lastUpdated" class="time-value">—</span>
-      <span class="schedule">SCHEDULE: 08:00</span>
+      <span id="schedule-text" class="Schedule">SCHEDULE: 08:00</span>
     </div>
 
     <header>
@@ -860,6 +860,14 @@
 
         // Meta
         if (data && data.meta){
+          // ===== UPDATE HEADER (LAST UPDATE + SCHEDULE) =====
+          const lastEl = document.getElementById("lastUpdated");
+          const schedEl = document.getElementById("schedule-text");
+          
+          if (lastEl && data.meta.generated_at_local){lastEl.textContent = data.meta.generated_at_local;
+          }
+          if (schedEl && data.meta.schedule_local){schedEl.textContent = data.meta.schedule_local;
+          }
           const callsMeta = document.getElementById('callsMeta');
           if (callsMeta){
             if (data.meta.calls_used != null && data.meta.calls_budget != null){
@@ -868,11 +876,6 @@
               callsMeta.textContent = '—';
             }
           }
-          const lastUpdated = document.getElementById('lastUpdated');
-          if (lastUpdated){
-            lastUpdated.textContent = data.meta.generated_at || data.meta.updated_at || '—';
-          }
-
           const pill = document.getElementById('statusPill');
           const st = document.getElementById('statusText');
           if (pill && st){
