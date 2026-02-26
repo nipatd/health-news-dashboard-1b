@@ -1,13 +1,13 @@
 {
   "meta": {
     "version": "1B-v2.1",
-    "generated_at_iso": "2026-02-25T01:00:18.945861+00:00",
-    "generated_at_th_iso": "2026-02-25T08:00:18.945861+07:00",
-    "generated_at_local": "25 Feb. 2026 08:00 น.",
+    "generated_at_iso": "2026-02-26T01:00:20.413720+00:00",
+    "generated_at_th_iso": "2026-02-26T08:00:20.413720+07:00",
+    "generated_at_local": "26 Feb. 2026 08:00 น.",
     "schedule_local": "ทุกวัน: 8:00 น.",
     "expected_schedule_local": "08:00 Asia/Bangkok",
     "run_event": "workflow_dispatch",
-    "run_id": "22377192491",
+    "run_id": "22423120004",
     "calls_used": 20,
     "calls_attempted": 20,
     "calls_budget": 20,
@@ -16,442 +16,442 @@
   },
   "executive_summary": {
     "trends": [
-      "Simple brain training tasks for weeks may delay dementia diagnosis by years.",
-      "NIH researchers performed the world's first coronary bypass without cutting the chest wall.",
-      "WHO assessment shows improved vaccines could significantly reduce annual billion influenza cases and deaths."
+      "Stanford Medicine created first AI model predicting over 100 health conditions from one night's sleep recordings.",
+      "Skincare industry shifts decisively toward biotech-driven efficacy with advanced peptides, exosomes, and growth factors becoming mainstream.",
+      "Drug-resistant fungus spreads rapidly in healthcare facilities with high mortality rates."
     ],
     "strategic": [
-      "Companies should integrate affordable cognitive training into employee wellness programs for aging workforce.",
-      "Organizations should prepare for reduced hospital stays and surgical costs transforming cardiac care.",
-      "Organizations must prepare for enhanced workplace vaccination programs and pandemic preparedness protocols."
+      "Organizations must prepare for predictive health screening revolutionizing employee wellness programs and insurance risk assessment.",
+      "Organizations must prepare for science-backed product requirements and regulatory clarity for biotech ingredients.",
+      "Healthcare organizations must strengthen infection control protocols and prepare for increased operational costs."
     ],
     "local": [
-      "Academic Conference on Physical Activity Literacy for Elderly",
-      "Active Ingredients เด่นเพื่อผิวแข็งแรง 2026",
-      "Chula Develops AnthoRice Complex Hair-Root Science Breakthrough",
-      "Chula Silk Protein Medical Products for Pain Relief",
-      "Chulalongkorn Hospital Dermatology Clinic Expansion to Floor 14",
-      "Dengue Vaccine Qdenga Now Widely Available in Thailand 2026",
-      "Golden Card Benefits Clarification to Prevent Overcharging",
-      "Health Ministry Opens 48 Civil Service Positions",
-      "High-Power Laser Treatment Technology Integration at Chulalongkorn",
-      "MedPark Becomes First Asian Hospital with 3D Imaging System",
-      "MedPark Expands Comprehensive Physical Medicine and Rehabilitation Services",
-      "NHSO Expands Health Benefits Coverage for All Thai Citizens",
-      "Nipah Virus Surveillance Guidelines Released Following West Bengal Outbreak",
-      "Siriraj Advances CAR-T Cell Therapy for Cancer Treatment",
-      "Siriraj Hospital Integrates AI Across Multiple Medical Specialties",
-      "Thai FDA Discovers Fake Weight Gain Supplements with Prescription Drugs",
-      "Thai FDA Raids Smuggled Health Products Worth 11 Million Baht",
-      "Thailand Achieves Vaccine Self-Sufficiency Through National Strategic Plan",
-      "Thailand Launches Standard 50% Sweet Normal for Beverages",
-      "Thailand Reports 7,234 Influenza Cases in Early 2026",
-      "Training Workshop on Care Standards for Dependent Elderly",
-      "กรมอนามัยแนะ 10 วิธีช่วยผู้สูงอายุนอนหลับดี",
-      "วิจัยปัจจัยทำนายภาวะพึ่งพิงในผู้สูงอายุไทย",
-      "เทรนด์สารสกัด 2026 เปลี่ยนเกมส์ตลาดบิวตี้"
+      "Chula Faculty Wins National Research Excellence Awards 2025",
+      "Chula Sleep Center Hosts World Sleep Day 2026",
+      "Emergency Health Risk Assessment Framework 2025",
+      "Fake weight-gain supplements contain dangerous prescription drugs found",
+      "Lead Hazard Alert for Health Safety Products",
+      "Major Cosmetics Smuggling Ring Busted by Thai Health Ministry",
+      "MedPark Expands Physical Medicine with Comprehensive Rehabilitation Services",
+      "MedPark Introduces Advanced 3D X-ray Imaging System in Hybrid OR",
+      "NHSO Expands Health Benefits and Prevention Services",
+      "Nipah Virus Disease Surveillance Guidelines Thailand 2569",
+      "Physical Activity and Sleep Health Conference for Elderly",
+      "SCB 10X Partners with Siriraj for Medical AI Research",
+      "Siriraj Launches Smart Sleep Surgery Program with AI Integration",
+      "Smart Aging กิจกรรมทางกายสำหรับผู้สูงอายุ",
+      "Thai Board Approves Universal Coverage Fund Management 2025",
+      "Thai FDA raids illegal cosmetics and supplements warehouse seizures",
+      "Thailand Dengue Vaccine Rollout Shows 80% Protection Rates",
+      "Thailand FDA Warns Against Weight-Gain Supplement Fraud",
+      "Thailand Influenza Situation Report Early 2569",
+      "WHO Review Highlights Thailand's Immunization System Gaps",
+      "Workshop on Care Standards for Dependent Elderly",
+      "หัตถการกลุ่มเลเซอร์ที่ได้ไปต่อในปี 2026",
+      "เทรนด์เครื่องมือแพทย์ความงาม 2026 Smart Tech",
+      "โภชนาการสำหรับทุกช่วงวัย วัยทำงานกำลังหลัก"
     ]
   },
   "items": [
     {
-      "query_tag": "GLOBAL_NIH_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Cognitive Training Reduces Dementia Risk by 25% Over Decades",
-      "summary": "Simple brain training tasks for weeks may delay dementia diagnosis by years.",
-      "source": "NIH",
-      "url": "https://www.nih.gov/news-events/news-releases/cognitive-speed-training-over-weeks-may-delay-diagnosis-dementia-over-decades",
-      "strategic_implication": "Companies should integrate affordable cognitive training into employee wellness programs for aging workforce."
-    },
-    {
-      "query_tag": "GLOBAL_NIH_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "First Minimally Invasive Coronary Artery Bypass Surgery Achieved",
-      "summary": "NIH researchers performed the world's first coronary bypass without cutting the chest wall.",
-      "source": "NIH",
-      "url": "https://www.nih.gov/news-events/news-releases/researchers-achieve-first-minimally-invasive-coronary-artery-bypass",
-      "strategic_implication": "Organizations should prepare for reduced hospital stays and surgical costs transforming cardiac care."
-    },
-    {
-      "query_tag": "GLOBAL_WHO_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Next-generation influenza vaccines could save millions of lives globally",
-      "summary": "WHO assessment shows improved vaccines could significantly reduce annual billion influenza cases and deaths.",
-      "source": "WHO",
-      "url": "https://www.who.int/news/item/18-02-2026-next-generation-influenza-vaccines-could-save-millions-of-lives--finds-who",
-      "strategic_implication": "Organizations must prepare for enhanced workplace vaccination programs and pandemic preparedness protocols."
-    },
-    {
-      "query_tag": "APAC_WHO_SEARO_1",
-      "badge_color": "#34d399",
-      "region": "regional",
-      "title": "Nipah Virus Outbreak in West Bengal India Two Confirmed Cases",
-      "summary": "Two healthcare workers in India were confirmed with Nipah virus infection in January 2026.",
-      "source": "WHO",
-      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON593",
-      "strategic_implication": "Organizations must strengthen healthcare worker protection and zoonotic disease surveillance capabilities."
-    },
-    {
-      "query_tag": "GLOBAL_WHO_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "WHO launches $1 billion appeal for 2026 humanitarian health emergencies",
-      "summary": "Appeal targets 36 global emergencies affecting millions needing health care in crisis settings.",
-      "source": "WHO",
-      "url": "https://www.who.int/news/item/03-02-2026-who-launches-2026-appeal-to-help-millions-of-people-in-health-emergencies-and-crisis-settings",
-      "strategic_implication": "Teams should evaluate business continuity plans for operating in unstable global health environments."
-    },
-    {
-      "query_tag": "APAC_WHO_SEARO_1",
-      "badge_color": "#34d399",
-      "region": "regional",
-      "title": "WHO South East Asia Develops Respiratory Pathogen Pandemic Roadmap",
-      "summary": "Regional roadmap for pandemic preparedness focusing on influenza, COVID-19 and respiratory threats for 2026-2031.",
-      "source": "WHO",
-      "url": "https://www.who.int/news-room/feature-stories/detail/consultation-sets-south-east-asia-region-on-course-for-stronger-pandemic-preparedness",
-      "strategic_implication": "Businesses should align pandemic preparedness plans with new regional respiratory pathogen guidelines."
-    },
-    {
-      "query_tag": "TH_HEALTH_ANAMAI_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Academic Conference on Physical Activity Literacy for Elderly",
-      "summary": "Conference focused on developing skills for promoting elderly physical activity and sleep health.",
-      "source": "สำนักอนามัยผู้สูงอายุ",
-      "url": "https://eh.anamai.moph.go.th/en",
-      "strategic_implication": "Employee wellness programs need elderly-focused physical activity and sleep initiatives."
-    },
-    {
-      "query_tag": "TH_WELLNESS_PROP_BEAUTY_1",
-      "badge_color": "#22c55e",
-      "region": "local",
-      "title": "Active Ingredients เด่นเพื่อผิวแข็งแรง 2026",
-      "summary": "<cite index=\"14-2,14-3\">เซราไมด์กลายเป็นส่วนผสมสำคัญสำหรับเสริมเกราะผิวต้านมลภาวะ PM 2.5</cite>",
-      "source": "Lab-society",
-      "url": "https://www.lab-society.com/labsociety-intrend/",
-      "strategic_implication": "<cite index=\"14-5\">ทีมต้องเน้นพัฒนาสูตรที่แข็งแรงและยั่งยืนมากกว่าผลลัพธ์ระยะสั้น</cite>"
-    },
-    {
       "query_tag": "GLOBAL_U_TOP_1",
       "badge_color": "#a78bfa",
       "region": "global",
-      "title": "AI Model Predicts 100+ Health Conditions From Single Sleep Session",
-      "summary": "Stanford scientists created SleepFM AI model predicting over 100 health conditions from one night's sleep data.",
+      "title": "AI Model Predicts 100+ Health Conditions from Sleep Data",
+      "summary": "Stanford Medicine created first AI model predicting over 100 health conditions from one night's sleep recordings.",
       "source": "Stanford Medicine",
       "url": "https://med.stanford.edu/news/all-news/2026/01/ai-sleep-disease.html",
-      "strategic_implication": "Companies must evaluate sleep monitoring technology integration for employee health risk assessment and management."
+      "strategic_implication": "Organizations must prepare for predictive health screening revolutionizing employee wellness programs and insurance risk assessment."
     },
     {
       "query_tag": "WELLNESS_PROP_BEAUTY_1",
       "badge_color": "#22c55e",
       "region": "global",
-      "title": "Blockchain Beauty Market Reaches $1.2 Billion by 2030",
-      "summary": "Beauty industry adopts blockchain technology for supply chain transparency verification.",
-      "source": "Market Xcel",
-      "url": "https://www.market-xcel.com/us/blogs/top-10-beauty-industry-trends-usa",
-      "strategic_implication": "Companies should invest in blockchain systems for authenticity verification capabilities."
+      "title": "Biotech-Driven Skincare Emerges as 2026 Dominant Force",
+      "summary": "Skincare industry shifts decisively toward biotech-driven efficacy with advanced peptides, exosomes, and growth factors becoming mainstream.",
+      "source": "Beauty Independent",
+      "url": "https://www.beautyindependent.com/top-skincare-trends-2026-those-losing-sizzle/",
+      "strategic_implication": "Organizations must prepare for science-backed product requirements and regulatory clarity for biotech ingredients."
     },
     {
       "query_tag": "GLOBAL_CDC_HAN_1",
       "badge_color": "#fbbf24",
       "region": "global",
-      "title": "CDC Issues Health Advisory for New World Screwworm Outbreak",
-      "summary": "CDC alerts about screwworm cases moving into northern Mexico with over 1,190 human cases reported.",
-      "source": "CDC Health Alert Network",
-      "url": "https://www.cdc.gov/han/php/notices/han00526.html",
-      "strategic_implication": "Organizations must prepare cross-border health monitoring protocols and livestock protection measures."
+      "title": "Candida auris Superbug Infections Surge to 7,000 US Cases",
+      "summary": "Drug-resistant fungus spreads rapidly in healthcare facilities with high mortality rates.",
+      "source": "CDC Health Reports",
+      "url": null,
+      "strategic_implication": "Healthcare organizations must strengthen infection control protocols and prepare for increased operational costs."
     },
     {
       "query_tag": "TH_U_TOP_1",
       "badge_color": "#a78bfa",
       "region": "local",
-      "title": "Chula Develops AnthoRice Complex Hair-Root Science Breakthrough",
-      "summary": "<cite index=\"15-4,15-5\">AnthoRice Complex represents first integrated collaboration between Thai universities developing rice-based cosmeceuticals for clinical trials.</cite>",
-      "source": "The Manila Times",
-      "url": "https://www.manilatimes.net/2026/02/18/tmt-newswire/pr-newswire/chulalongkorn-university-unveils-anthorice-complex-a-breakthrough-in-hair-root-science/2280017",
-      "strategic_implication": "<cite index=\"15-3,15-5\">Organizations should prepare for integrated agricultural-pharmaceutical supply chains supporting sustainable wellness products.</cite>"
+      "title": "Chula Faculty Wins National Research Excellence Awards 2025",
+      "summary": "Three Chula researchers received National Outstanding Researcher Awards for pharmaceutical and social science work.",
+      "source": "Chulalongkorn University",
+      "url": "https://www.chula.ac.th/news/287032/",
+      "strategic_implication": "Companies should invest in pharmaceutical research partnerships for competitive innovation advantages."
     },
     {
       "query_tag": "TH_U_TOP_1",
       "badge_color": "#a78bfa",
       "region": "local",
-      "title": "Chula Silk Protein Medical Products for Pain Relief",
-      "summary": "<cite index=\"11-1\">Researchers develop silk protein into novel medical products including pain-relief patches and artificial tissues.</cite>",
-      "source": "Newswise",
-      "url": "https://www.newswise.com/institutions/newsroom/Chulalongkorn-University-23070",
-      "strategic_implication": "<cite index=\"11-1\">Teams must adapt to biomaterial innovations transforming traditional medical device manufacturing approaches.</cite>"
-    },
-    {
-      "query_tag": "TH_DERM_BEAUTY_HOSP_1",
-      "badge_color": "#a78bfa",
-      "region": "local",
-      "title": "Chulalongkorn Hospital Dermatology Clinic Expansion to Floor 14",
-      "summary": "Major dermatology clinic relocated to building floor 14 with expanded specialized services.",
-      "source": "Chulalongkorn Hospital",
-      "url": "https://chulalongkornhospital.go.th/kcmh/dept/%E0%B8%AB%E0%B8%99%E0%B9%88%E0%B8%A7%E0%B8%A2%E0%B8%9C%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%95%E0%B8%88%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2",
-      "strategic_implication": "Organizations must prepare for increased dermatology service capacity and specialized care accessibility."
-    },
-    {
-      "query_tag": "TH_HEALTH_VACCINE_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Dengue Vaccine Qdenga Now Widely Available in Thailand 2026",
-      "summary": "Thailand now offers Qdenga vaccine providing 80% protection against dengue serotypes.",
-      "source": "Chiang Rai Times",
-      "url": "https://www.chiangraitimes.com/health/dengue-fever-in-thailand-2026/",
-      "strategic_implication": "Organizations must prepare dengue prevention protocols for business travelers."
-    },
-    {
-      "query_tag": "WELLNESS_PROP_BEAUTY_1",
-      "badge_color": "#22c55e",
-      "region": "global",
-      "title": "EU Bans D5 Silicones in Beauty Products",
-      "summary": "European Union restricts D5 silicones in cosmetics requiring biodegradable alternatives.",
-      "source": "Twelve Beauty",
-      "url": "https://www.twelvebeauty.com/the-top-10-2026-skincare-ingredient-trends/",
-      "strategic_implication": "Organizations must urgently reformulate products and source compliant ingredients across markets."
-    },
-    {
-      "query_tag": "WELLNESS_PROP_LONGEVITY_1",
-      "badge_color": "#22c55e",
-      "region": "global",
-      "title": "GLP-1 Medications Redefine Metabolic Medicine and Corporate Health Programs",
-      "summary": "<cite index=\"5-14\">GLP-1s are redefining metabolic medicine and 92% of doctors surveyed use them.</cite>",
-      "source": "Hone Health",
-      "url": "https://honehealth.com/edge/longevity-trends/",
-      "strategic_implication": "<cite index=\"5-11,5-12\">Organizations should prepare for increased employee demand for metabolic health interventions.</cite>"
-    },
-    {
-      "query_tag": "TH_HEALTH_NHSO_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Golden Card Benefits Clarification to Prevent Overcharging",
-      "summary": "Thai health board clarifies covered and non-covered services to eliminate unauthorized service charges.",
-      "source": "สำนักงานหลักประกันสุขภาพแห่งชาติ",
-      "url": "https://www.nhso.go.th/news/3352",
-      "strategic_implication": "Companies must review healthcare billing practices and ensure compliance with updated benefit guidelines."
-    },
-    {
-      "query_tag": "TH_HEALTH_MOPH_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Health Ministry Opens 48 Civil Service Positions",
-      "summary": "Ministry recruiting staff across various health specializations through February 2026.",
-      "source": "Ministry of Public Health",
-      "url": "https://moph.jobthaigov.com/",
-      "strategic_implication": "Health sector expansion signals increased government focus on healthcare workforce."
-    },
-    {
-      "query_tag": "TH_DERM_BEAUTY_HOSP_1",
-      "badge_color": "#a78bfa",
-      "region": "local",
-      "title": "High-Power Laser Treatment Technology Integration at Chulalongkorn",
-      "summary": "Advanced laser equipment enhances muscle, bone and nerve injury treatment effectiveness.",
-      "source": "Chulalongkorn Hospital",
-      "url": "https://chulalongkornhospital.go.th/kcmh/%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%81%E0%B8%B3%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B9%E0%B8%87",
-      "strategic_implication": "Teams should invest in laser technology training and equipment for competitive treatment offerings."
-    },
-    {
-      "query_tag": "WELLNESS_PROP_LONGEVITY_1",
-      "badge_color": "#22c55e",
-      "region": "global",
-      "title": "Longevity Shifts From Elite Biohacking to Evidence-Based Mainstream Practice",
-      "summary": "<cite index=\"2-1,5-5\">Longevity is becoming less about chasing superhuman status and more about evidence-based habits.</cite>",
-      "source": "Hone Health",
-      "url": "https://honehealth.com/edge/longevity-trends/",
-      "strategic_implication": "<cite index=\"1-6,6-17\">Workplace wellness expands as organizations recognize employee well-being impacts corporate performance.</cite>"
-    },
-    {
-      "query_tag": "TH_CLINIC_TOP_1",
-      "badge_color": "#a78bfa",
-      "region": "local",
-      "title": "MedPark Becomes First Asian Hospital with 3D Imaging System",
-      "summary": "MedPark Hospital introduces advanced Biplane Imaging System for safer surgical procedures.",
-      "source": "MedPark Hospital",
-      "url": "https://www.medparkhospital.com/en-US/center-and-specialty/surgical-clinic",
-      "strategic_implication": "Healthcare organizations must invest in cutting-edge imaging technology to maintain competitive advantage."
-    },
-    {
-      "query_tag": "TH_CLINIC_TOP_1",
-      "badge_color": "#a78bfa",
-      "region": "local",
-      "title": "MedPark Expands Comprehensive Physical Medicine and Rehabilitation Services",
-      "summary": "New integrated rehabilitation center offers prehabilitation, recovery, and wellness services for seniors.",
-      "source": "MedPark Hospital",
-      "url": "https://www.medparkhospital.com/en-US/center-and-specialty/physical-therapy-and-rehabilitation",
-      "strategic_implication": "Organizations should prepare for aging workforce demands through preventive healthcare partnerships."
-    },
-    {
-      "query_tag": "RESEARCH_TOP_1",
-      "badge_color": "#60a5fa",
-      "region": "global",
-      "title": "Metabolic disturbances central to multimorbidity development in aging",
-      "summary": "Research identifies metabolic pathways as key targets for preventing multiple chronic diseases.",
-      "source": "Nature Medicine",
-      "url": "https://www.nature.com/nm/articles?type=research-briefing&year=2026",
-      "strategic_implication": "Companies need metabolic-focused wellness strategies to reduce healthcare costs from aging workforce."
-    },
-    {
-      "query_tag": "TH_HEALTH_NHSO_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "NHSO Expands Health Benefits Coverage for All Thai Citizens",
-      "summary": "Thailand's National Health Security Office extends preventive health services to all 67 million citizens.",
-      "source": "สำนักงานหลักประกันสุขภาพแห่งชาติ",
-      "url": "https://www.nhso.go.th/news/4406",
-      "strategic_implication": "Organizations should prepare for enhanced employee health screening demands and preventive healthcare access."
-    },
-    {
-      "query_tag": "TH_HEALTH_DDC_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Nipah Virus Surveillance Guidelines Released Following West Bengal Outbreak",
-      "summary": "Thai health authorities issue surveillance protocols after Nipah virus cluster outbreak in India on January 11, 2026.",
-      "source": "กรมควบคุมโรค",
-      "url": "https://ddc.moph.go.th/uploads/ckeditor2//files/%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%99%E0%B8%B4%E0%B8%9B%E0%B8%B2%E0%B8%AB%E0%B9%8C%E0%B9%84%E0%B8%A7%E0%B8%A3%E0%B8%B1%E0%B8%AA_27012025%2011.33_edit.pdf",
-      "strategic_implication": "Businesses with regional operations should implement enhanced screening protocols and review pandemic preparedness plans immediately."
-    },
-    {
-      "query_tag": "RESEARCH_TOP_1",
-      "badge_color": "#60a5fa",
-      "region": "global",
-      "title": "Single-cell analysis reveals comprehensive model of inflammation",
-      "summary": "Profiling over 6.5 million blood cells from 1,047 patients identified disease-driving inflammatory mechanisms.",
-      "source": "Nature Medicine",
-      "url": "https://www.nature.com/nm/articles?type=&year=2026",
-      "strategic_implication": "Organizations should prepare for precision inflammation diagnostics revolutionizing employee health screening programs."
-    },
-    {
-      "query_tag": "TH_HOSP_TOP_1",
-      "badge_color": "#a78bfa",
-      "region": "local",
-      "title": "Siriraj Advances CAR-T Cell Therapy for Cancer Treatment",
-      "summary": "<cite index=\"2-4\">Hospital made breakthroughs in CAR-T therapy for lymphoblastic leukemia and myeloma</cite>",
-      "source": "PR Newswire",
-      "url": "https://www.prnewswire.com/apac/news-releases/siriraj-hospital-expands-services-to-provide-advanced-medical-care-highlights-state-of-the-art-technology-for-cancer-treatment-302069701.html",
-      "strategic_implication": "Teams should prepare for personalized immunotherapy becoming mainstream treatment option."
-    },
-    {
-      "query_tag": "TH_HOSP_TOP_1",
-      "badge_color": "#a78bfa",
-      "region": "local",
-      "title": "Siriraj Hospital Integrates AI Across Multiple Medical Specialties",
-      "summary": "<cite index=\"3-8\">Hospital's AI-powered imaging diagnostics achieved 91.35% accuracy rate</cite>",
-      "source": "PR Newswire",
-      "url": "https://www.prnewswire.com/apac/news-releases/siriraj-enhances-diagnostic-capabilities-a-crucial-factor-for-medical-care-302267467.html",
-      "strategic_implication": "Organizations must invest in AI diagnostic tools to match healthcare accuracy standards."
-    },
-    {
-      "query_tag": "GLOBAL_U_TOP_1",
-      "badge_color": "#a78bfa",
-      "region": "global",
-      "title": "Stanford Creates First Universal Respiratory Vaccine Against Multiple Pathogens",
-      "summary": "Stanford researchers developed a vaccine protecting mice from respiratory viruses, bacteria, and allergens.",
-      "source": "Stanford Medicine",
-      "url": "https://med.stanford.edu/news/all-news/2026/02/universal-vaccine.html",
-      "strategic_implication": "Organizations should prepare for potential vaccine cost reduction and employee absenteeism prevention strategies."
-    },
-    {
-      "query_tag": "TH_HEALTH_FDA_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Thai FDA Discovers Fake Weight Gain Supplements with Prescription Drugs",
-      "summary": "Products contained dexamethasone and cyproheptadine illegally sold as weight gain supplements.",
-      "source": "Thai FDA",
-      "url": "https://cemc.fda.moph.go.th/press-release/282",
-      "strategic_implication": "Organizations must strengthen supply chain verification to prevent counterfeit supplements entering workplace programs."
-    },
-    {
-      "query_tag": "TH_HEALTH_FDA_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Thai FDA Raids Smuggled Health Products Worth 11 Million Baht",
-      "summary": "Authorities seized 114,000 illegal health products including contact lenses and cosmetics in Samut Prakan.",
-      "source": "Thai FDA",
-      "url": "https://www.fda.moph.go.th/news/111111/",
-      "strategic_implication": "Companies should audit vendor compliance for Thai labeling requirements to avoid legal risks."
-    },
-    {
-      "query_tag": "TH_HEALTH_VACCINE_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Thailand Achieves Vaccine Self-Sufficiency Through National Strategic Plan",
-      "summary": "Thailand established comprehensive vaccine security strategy ensuring domestic production capabilities.",
-      "source": "Journal of Public Health and Emergency",
-      "url": "https://jphe.amegroups.org/article/view/9500/html",
-      "strategic_implication": "Businesses can expect stable vaccine supply chains for operations."
-    },
-    {
-      "query_tag": "TH_HEALTH_MOPH_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Thailand Launches Standard 50% Sweet Normal for Beverages",
-      "summary": "Ministry launches new sweetness standard reducing sugar in drinks by 50%.",
-      "source": "Ministry of Public Health",
-      "url": "https://multimedia.anamai.moph.go.th/news/1102692/",
-      "strategic_implication": "Organizations must adapt beverage offerings to meet reduced sugar standards."
-    },
-    {
-      "query_tag": "TH_HEALTH_DDC_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Thailand Reports 7,234 Influenza Cases in Early 2026",
-      "summary": "Thailand Department Disease Control reports 7,234 influenza cases from January 1-3, 2026 with 11.14 per 100,000 infection rate.",
-      "source": "กรมควบคุมโรค",
-      "url": "https://ddc.moph.go.th/uploads/ckeditor2//files/DOE_flu_01.2569.pdf",
-      "strategic_implication": "Organizations should enhance employee health monitoring and prepare flexible work arrangements for potential influenza surge."
-    },
-    {
-      "query_tag": "TH_HEALTH_ANAMAI_1",
-      "badge_color": "#f472b6",
-      "region": "local",
-      "title": "Training Workshop on Care Standards for Dependent Elderly",
-      "summary": "Department organized workshop developing care service standards for dependent elderly populations.",
-      "source": "สำนักอนามัยผู้สูงอายุ",
-      "url": "https://eh.anamai.moph.go.th/en",
-      "strategic_implication": "Organizations must prepare care protocols for aging workforce dependencies."
-    },
-    {
-      "query_tag": "GLOBAL_CDC_HAN_1",
-      "badge_color": "#fbbf24",
-      "region": "global",
-      "title": "Tuberculosis Testing Guidelines Updated During Supply Shortages",
-      "summary": "CDC advises prioritizing TB testing allocation and deferring routine serial testing during shortages.",
-      "source": "CDC Health Alert Network",
-      "url": "https://emergency.cdc.gov/han/HAN00420.asp",
-      "strategic_implication": "Workplace health programs need alternative screening strategies and supply chain contingency plans."
-    },
-    {
-      "query_tag": "TH_WELLNESS_PROP_LONGEVITY_1",
-      "badge_color": "#22c55e",
-      "region": "local",
-      "title": "กรมอนามัยแนะ 10 วิธีช่วยผู้สูงอายุนอนหลับดี",
-      "summary": "กรมอนามัยแนะนำ 10 แนวทางสำหรับผู้สูงอายุเพื่อการนอนหลับที่ดีและมีสุขภาพแข็งแรง",
-      "source": "กรมอนามัย",
-      "url": "https://multimedia.anamai.moph.go.th/news/100366/",
-      "strategic_implication": "องค์กรควรปรับโปรแกรมสวัสดิการให้เน้นสุขภาพการนอนหลับของพนักงานวัยสูงอายุ"
-    },
-    {
-      "query_tag": "TH_WELLNESS_PROP_LONGEVITY_1",
-      "badge_color": "#22c55e",
-      "region": "local",
-      "title": "วิจัยปัจจัยทำนายภาวะพึ่งพิงในผู้สูงอายุไทย",
-      "summary": "การศึกษาเผยปัจจัยสำคัญที่ส่งผลต่อการพึ่งพิงในผู้สูงอายุและการคาดประมาณแนวโน้ม 20 ปี",
-      "source": "กรมอนามัย",
-      "url": "https://hfd.anamai.moph.go.th/th/news-anamai-3/229198",
-      "strategic_implication": "ธุรกิจต้องเตรียมแผนดูแลพนักงานสูงอายุและปรับนโยบายการจ้างงานในระยะยาว"
+      "title": "Chula Sleep Center Hosts World Sleep Day 2026",
+      "summary": "Chulalongkorn Hospital Sleep Center organized World Sleep Day event 'Sleep Well, Live Better'.",
+      "source": "Chulalongkorn University",
+      "url": "https://www.chula.ac.th/news/268915/",
+      "strategic_implication": "Organizations should prioritize employee sleep health initiatives for better workplace productivity."
     },
     {
       "query_tag": "TH_WELLNESS_PROP_BEAUTY_1",
       "badge_color": "#22c55e",
       "region": "local",
-      "title": "เทรนด์สารสกัด 2026 เปลี่ยนเกมส์ตลาดบิวตี้",
-      "summary": "<cite index=\"13-4,13-5\">ปี 2026 ผู้บริโภคหันสู่สกินแคร์น้อยขั้นตอนและสารสกัดจากเทคโนโลยีชีวภาพ</cite>",
-      "source": "วธูธร",
-      "url": "https://wathoothorn.com/skincare-active-trends-2026/",
-      "strategic_implication": "<cite index=\"13-2\">องค์กรต้องเตรียมปรับพอร์ตโฟลิโอสู่ผลิตภัณฑ์ที่ตอบโจทย์คุณภาพและความยั่งยืน</cite>"
+      "title": "Emergency Health Risk Assessment Framework 2025",
+      "summary": "<cite index=\"13-3\">New risk analysis processes established for health emergency preparedness</cite>",
+      "source": "Department of Disease Control",
+      "url": "https://ddc.moph.go.th/uploads/ckeditor2/ddce/files/THIRA%20Report%20DDC%202025.pdf",
+      "strategic_implication": "Businesses should develop comprehensive emergency response plans incorporating standardized risk assessment protocols."
+    },
+    {
+      "query_tag": "WELLNESS_PROP_BEAUTY_1",
+      "badge_color": "#22c55e",
+      "region": "global",
+      "title": "EU Silicone Restrictions Drive Sustainable Alternative Innovation",
+      "summary": "Recent EU restrictions on D5 silicones force brands toward biodegradable alternatives like Dicaprylyl Ether.",
+      "source": "Twelve Beauty",
+      "url": "https://www.twelvebeauty.com/the-top-10-2026-skincare-ingredient-trends/",
+      "strategic_implication": "Teams must source sustainable emollient alternatives and prepare for expanding global silicone regulations."
+    },
+    {
+      "query_tag": "WELLNESS_PROP_LONGEVITY_1",
+      "badge_color": "#22c55e",
+      "region": "global",
+      "title": "Evidence-Based Longevity Shifts from Elite Biohacking to Mainstream",
+      "summary": "Over 200 physicians report longevity becoming accessible through evidence-based habits versus expensive biohacking experiments.",
+      "source": "Hone Health",
+      "url": "https://honehealth.com/edge/longevity-trends/",
+      "strategic_implication": "Companies should develop scalable wellness programs using proven methods rather than costly tech solutions."
+    },
+    {
+      "query_tag": "TH_HEALTH_FDA_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Fake weight-gain supplements contain dangerous prescription drugs found",
+      "summary": "Products contained dexamethasone and cyproheptadine disguised as dietary supplements.",
+      "source": "FDA Thailand",
+      "url": "https://cemc.fda.moph.go.th/press-release/282",
+      "strategic_implication": "Teams should strengthen product authenticity checks in procurement processes."
+    },
+    {
+      "query_tag": "GLOBAL_NIH_1",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "First Minimally Invasive Coronary Bypass Surgery Achieved",
+      "summary": "Researchers performed world's first coronary bypass without open-heart surgery procedures.",
+      "source": "National Institutes of Health",
+      "url": "https://www.nih.gov/news-events/news-releases/researchers-achieve-first-minimally-invasive-coronary-artery-bypass",
+      "strategic_implication": "Healthcare systems should prepare for revolutionary cardiac care technologies requiring specialized training."
+    },
+    {
+      "query_tag": "RESEARCH_TOP_1",
+      "badge_color": "#60a5fa",
+      "region": "global",
+      "title": "HIF-2 pathway breakthrough targets cancer cachexia metabolism syndrome",
+      "summary": "<cite index=\"5-1,5-2\">Studies establish HIF-2 mechanism as pharmacologically treatable condition for cancer cachexia</cite>",
+      "source": "Nature Medicine",
+      "url": "https://www.nature.com/nm/articles?type=news-and-views&year=2026",
+      "strategic_implication": "<cite index=\"5-2\">Organizations must prepare for new metabolic syndrome treatments changing cancer care</cite>"
+    },
+    {
+      "query_tag": "TH_WELLNESS_PROP_BEAUTY_1",
+      "badge_color": "#22c55e",
+      "region": "local",
+      "title": "Lead Hazard Alert for Health Safety Products",
+      "summary": "<cite index=\"11-1\">Health warning issued about lead contamination risks from water heating devices</cite>",
+      "source": "Department of Disease Control",
+      "url": "https://www.ddc.moph.go.th/odpc4/infographic.php",
+      "strategic_implication": "Organizations must enhance product safety protocols and implement stricter quality control measures."
+    },
+    {
+      "query_tag": "TH_HEALTH_MOPH_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Major Cosmetics Smuggling Ring Busted by Thai Health Ministry",
+      "summary": "Authorities seized illegal cosmetics from Chinese distributors operating unauthorized online business.",
+      "source": "FDA Thailand",
+      "url": "https://cemc.fda.moph.go.th/press-release/285",
+      "strategic_implication": "Companies should verify supplier authenticity to avoid regulatory violations and employee safety risks."
+    },
+    {
+      "query_tag": "TH_CLINIC_TOP_1",
+      "badge_color": "#a78bfa",
+      "region": "local",
+      "title": "MedPark Expands Physical Medicine with Comprehensive Rehabilitation Services",
+      "summary": "Center offers prehabilitation, rehabilitation, and wellness services with multidisciplinary approach.",
+      "source": "MedPark Hospital",
+      "url": "https://www.medparkhospital.com/en-US/center-and-specialty/physical-therapy-and-rehabilitation",
+      "strategic_implication": "Teams must integrate preventive care models and multidisciplinary wellness programs."
+    },
+    {
+      "query_tag": "TH_CLINIC_TOP_1",
+      "badge_color": "#a78bfa",
+      "region": "local",
+      "title": "MedPark Introduces Advanced 3D X-ray Imaging System in Hybrid OR",
+      "summary": "MedPark Hospital becomes first Asian hospital with Biplane 3D imaging system.",
+      "source": "MedPark Hospital",
+      "url": "https://www.medparkhospital.com/en-US/center-and-specialty/surgical-clinic",
+      "strategic_implication": "Organizations should prepare for advanced surgical technologies requiring specialized training investments."
+    },
+    {
+      "query_tag": "RESEARCH_TOP_1",
+      "badge_color": "#60a5fa",
+      "region": "global",
+      "title": "Metabolic disturbances identified as central driver of chronic disease multimorbidity",
+      "summary": "<cite index=\"4-2\">Metabolic disturbances play central role in multimorbidity among older adults</cite>",
+      "source": "Nature Medicine",
+      "url": "https://www.nature.com/nm/articles?type=research-briefing&year=2026",
+      "strategic_implication": "<cite index=\"4-2\">Teams should target metabolic interventions to reduce multimorbidity burden costs</cite>"
+    },
+    {
+      "query_tag": "GLOBAL_CDC_HAN_1",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "New World Screwworm Outbreak Moves into Northern Mexico",
+      "summary": "CDC issues health alert for border region outbreak with 1,190 human cases reported.",
+      "source": "CDC Health Alert Network",
+      "url": "https://www.cdc.gov/han/php/notices/han00526.html",
+      "strategic_implication": "Organizations near Mexico border must prepare outbreak response protocols and employee health monitoring."
+    },
+    {
+      "query_tag": "GLOBAL_WHO_1",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "Next-Generation Flu Vaccines Could Save Millions of Lives",
+      "summary": "WHO assessment shows improved influenza vaccines could significantly reduce global disease burden.",
+      "source": "World Health Organization",
+      "url": "https://www.who.int/news/item/18-02-2026-next-generation-influenza-vaccines-could-save-millions-of-lives--finds-who",
+      "strategic_implication": "Business continuity planning should anticipate workforce protection advances from universal flu vaccines."
+    },
+    {
+      "query_tag": "TH_HEALTH_NHSO_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "NHSO Expands Health Benefits and Prevention Services",
+      "summary": "Cancer screening and vaccination benefits expanded for all Thai citizens.",
+      "source": "NHSO",
+      "url": "https://www.nhso.go.th/news/4406",
+      "strategic_implication": "Companies should integrate preventive health programs to reduce employee healthcare expenses."
+    },
+    {
+      "query_tag": "GLOBAL_NIH_1",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "NIH Study Reduces HIV Incidence 70% in Rural Communities",
+      "summary": "Strategic HIV testing and prevention intervention achieved 70% reduction in virus transmission.",
+      "source": "National Institutes of Health",
+      "url": "https://www.nih.gov/news-events/news-releases/nih-supported-trial-reduces-hiv-incidence-70-rural-populations",
+      "strategic_implication": "Organizations should invest in comprehensive community health strategies for infectious disease prevention."
+    },
+    {
+      "query_tag": "TH_HEALTH_DDC_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Nipah Virus Disease Surveillance Guidelines Thailand 2569",
+      "summary": "<cite index=\"5-7,5-8\">Recent outbreak cluster in West Bengal India January 11, 2569 WHO prioritizes disease surveillance</cite>",
+      "source": "กรมควบคุมโรค",
+      "url": "https://ddc.moph.go.th/uploads/ckeditor2//files/%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%99%E0%B8%B4%E0%B8%9B%E0%B8%B2%E0%B8%AB%E0%B9%8C%E0%B9%84%E0%B8%A7%E0%B8%A3%E0%B8%B1%E0%B8%AA_27012025%2011.33_edit.pdf",
+      "strategic_implication": "Organizations must enhance zoonotic disease preparedness and cross-border health monitoring capabilities"
+    },
+    {
+      "query_tag": "TH_HEALTH_ANAMAI_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Physical Activity and Sleep Health Conference for Elderly",
+      "summary": "Academic conference focused on physical activity skills and sleep health for elderly.",
+      "source": "สำนักอนามัยผู้สูงอายุ",
+      "url": "https://eh.anamai.moph.go.th/en",
+      "strategic_implication": "Companies should integrate physical activity and sleep wellness programs for aging workforce."
+    },
+    {
+      "query_tag": "TH_HOSP_TOP_1",
+      "badge_color": "#a78bfa",
+      "region": "local",
+      "title": "SCB 10X Partners with Siriraj for Medical AI Research",
+      "summary": "<cite index=\"2-9,2-10\">SCB 10X announced partnership with Siriraj Hospital to advance medical AI through collaboration.</cite>",
+      "source": "7 Stars News",
+      "url": "https://www.7starsnews.com/2026/01/scb-10x-partners-with-siriraj-to.html",
+      "strategic_implication": "Organizations must prepare for AI-driven diagnostic tools that require specialized partnerships and clinical validation."
+    },
+    {
+      "query_tag": "TH_HOSP_TOP_1",
+      "badge_color": "#a78bfa",
+      "region": "local",
+      "title": "Siriraj Launches Smart Sleep Surgery Program with AI Integration",
+      "summary": "<cite index=\"6-1,6-2\">Siriraj transforms sleep apnea care through AI, digital health, and robotic-assisted surgery integration.</cite>",
+      "source": "Faculty of Medicine Siriraj Hospital",
+      "url": "https://www2.si.mahidol.ac.th/en/",
+      "strategic_implication": "Healthcare teams should invest in multidisciplinary AI programs for specialized surgical care delivery."
+    },
+    {
+      "query_tag": "TH_WELLNESS_PROP_LONGEVITY_1",
+      "badge_color": "#22c55e",
+      "region": "local",
+      "title": "Smart Aging กิจกรรมทางกายสำหรับผู้สูงอายุ",
+      "summary": "การออกกำลังกายในน้ำและการเดิน 6,000-8,000 ก้าวต่อวัน ป้องกันโรคเรื้อรัง",
+      "source": "อนامัยมีเดีย",
+      "url": "https://multimedia.anamai.moph.go.th/ebooks/hp-ebook_08_mini/",
+      "strategic_implication": "องค์กรต้องเตรียมโปรแกรมกิจกรรมทางกายสำหรับพนักงานวัยใกล้เกษียณ"
+    },
+    {
+      "query_tag": "APAC_WHO_SEARO_1",
+      "badge_color": "#34d399",
+      "region": "regional",
+      "title": "South-East Asia Advances Pandemic Preparedness Framework for 2026-2031",
+      "summary": "WHO develops comprehensive roadmap for respiratory pathogen pandemic planning across SEAR countries.",
+      "source": "WHO South-East Asia Regional Office",
+      "url": "https://www.who.int/southeastasia/news/detail/23-02-2026-pret-for-impact25",
+      "strategic_implication": "Companies must align business continuity plans with emerging regional pandemic preparedness frameworks."
+    },
+    {
+      "query_tag": "TH_HEALTH_NHSO_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Thai Board Approves Universal Coverage Fund Management 2025",
+      "summary": "NHSO Board approved 2025 budget guidelines for golden card benefits.",
+      "source": "NHSO",
+      "url": "https://www.nhso.go.th/news/4502",
+      "strategic_implication": "Organizations must prepare for expanded healthcare coverage affecting employee healthcare costs."
+    },
+    {
+      "query_tag": "TH_HEALTH_FDA_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Thai FDA raids illegal cosmetics and supplements warehouse seizures",
+      "summary": "FDA raids illegal warehouses seizing 1.2 million pieces worth 20 million baht.",
+      "source": "FDA Thailand",
+      "url": "https://cemc.fda.moph.go.th/press-release/285",
+      "strategic_implication": "Organizations must verify supplier compliance and product registrations immediately."
+    },
+    {
+      "query_tag": "TH_HEALTH_VACCINE_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Thailand Dengue Vaccine Rollout Shows 80% Protection Rates",
+      "summary": "Qdenga vaccine shows 80% protection across four serotypes with 90.4% reduction in hospitalization.",
+      "source": "Chiang Rai Times",
+      "url": "https://www.chiangraitimes.com/health/dengue-fever-in-thailand-2026/",
+      "strategic_implication": "Organizations must prepare dengue prevention protocols for employees traveling to endemic regions."
+    },
+    {
+      "query_tag": "TH_HEALTH_MOPH_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Thailand FDA Warns Against Weight-Gain Supplement Fraud",
+      "summary": "Thai FDA found illegal drugs in weight-gain supplements sold as food products.",
+      "source": "FDA Thailand",
+      "url": "https://cemc.fda.moph.go.th/press-release/282",
+      "strategic_implication": "Organizations must strengthen supplement quality verification to protect employee health programs."
+    },
+    {
+      "query_tag": "TH_HEALTH_DDC_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Thailand Influenza Situation Report Early 2569",
+      "summary": "<cite index=\"2-2\">7,234 cases reported January 1-3 2569 with 11.14 per 100,000 rate</cite>",
+      "source": "กรมควบคุมโรค",
+      "url": "https://ddc.moph.go.th/uploads/ckeditor2//files/DOE_flu_01.2569.pdf",
+      "strategic_implication": "Workplace health teams should strengthen influenza prevention protocols and staff vaccination programs"
+    },
+    {
+      "query_tag": "GLOBAL_U_TOP_1",
+      "badge_color": "#a78bfa",
+      "region": "global",
+      "title": "Universal Vaccine Protects Against Multiple Respiratory Threats",
+      "summary": "Stanford researchers developed vaccine protecting mice against viruses, bacteria and allergens - closest to universal vaccine yet.",
+      "source": "Stanford Medicine",
+      "url": "https://med.stanford.edu/news/all-news/2026/02/universal-vaccine.html",
+      "strategic_implication": "Teams should anticipate reduced workplace illness burden and transformed occupational health policies with broad-spectrum immunization."
+    },
+    {
+      "query_tag": "GLOBAL_WHO_1",
+      "badge_color": "#fbbf24",
+      "region": "global",
+      "title": "WHO Launches $1 Billion Crisis Healthcare Appeal for 2026",
+      "summary": "WHO seeks nearly $1 billion to respond to 36 global health emergencies affecting millions.",
+      "source": "World Health Organization",
+      "url": "https://www.who.int/news/item/03-02-2026-who-launches-2026-appeal-to-help-millions-of-people-in-health-emergencies-and-crisis-settings",
+      "strategic_implication": "Organizations must prepare for increased health volatility in crisis-affected supply chains and markets."
+    },
+    {
+      "query_tag": "APAC_WHO_SEARO_1",
+      "badge_color": "#34d399",
+      "region": "regional",
+      "title": "WHO Reports Two Confirmed Nipah Virus Cases in India",
+      "summary": "Two nurses in West Bengal developed severe Nipah infection in early January 2026.",
+      "source": "WHO Disease Outbreak News",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON593",
+      "strategic_implication": "Organizations should enhance infectious disease preparedness and healthcare worker safety protocols."
+    },
+    {
+      "query_tag": "TH_HEALTH_VACCINE_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "WHO Review Highlights Thailand's Immunization System Gaps",
+      "summary": "External review reveals surveillance gaps and cross-border disease importation risks despite high coverage.",
+      "source": "World Health Organization",
+      "url": "https://www.who.int/publications/i/item/9789290222286",
+      "strategic_implication": "Companies should implement enhanced health screening for employees returning from Thailand business travel."
+    },
+    {
+      "query_tag": "WELLNESS_PROP_LONGEVITY_1",
+      "badge_color": "#22c55e",
+      "region": "global",
+      "title": "Workplace Wellness Evolving as CEO Peak Performance Priority",
+      "summary": "Corporate leaders prioritizing self-care as necessity for leadership effectiveness, investing in sleep and mindfulness.",
+      "source": "Six Senses",
+      "url": "https://themodems.com/health/six-senses-tech-trends-transform-wellness-in-2026/",
+      "strategic_implication": "Organizations must expand wellness programs for executive teams and implement leadership health protocols."
+    },
+    {
+      "query_tag": "TH_HEALTH_ANAMAI_1",
+      "badge_color": "#f472b6",
+      "region": "local",
+      "title": "Workshop on Care Standards for Dependent Elderly",
+      "summary": "Department of Health organized workshop to develop care guidelines for dependent elderly persons.",
+      "source": "สำนักอนามัยผู้สูงอายุ",
+      "url": "https://eh.anamai.moph.go.th/en",
+      "strategic_implication": "Organizations must prepare care standards and training for dependent elderly populations."
+    },
+    {
+      "query_tag": "TH_DERM_BEAUTY_HOSP_1",
+      "badge_color": "#a78bfa",
+      "region": "local",
+      "title": "หัตถการกลุ่มเลเซอร์ที่ได้ไปต่อในปี 2026",
+      "summary": "เดอะ พรีม่า คลินิก รวบรวม 3 โปรแกรมเลเซอร์ยอดนิยมที่จะครองใจคนไข้ในปี 2026",
+      "source": "The Prima Clinic",
+      "url": "https://www.theprimaclinic.com/best-laser-2026/",
+      "strategic_implication": "องค์กรต้องเตรียมรองรับความต้องการเลเซอร์รักษาความงามที่เพิ่มขึ้นใน workplace wellness programs"
+    },
+    {
+      "query_tag": "TH_DERM_BEAUTY_HOSP_1",
+      "badge_color": "#a78bfa",
+      "region": "local",
+      "title": "เทรนด์เครื่องมือแพทย์ความงาม 2026 Smart Tech",
+      "summary": "เทคโนโลยี Picosecond Laser และ Microneedling RF ได้รับความนิยมเพราะเหมาะกับผิวเอเชีย",
+      "source": "VayoWellness",
+      "url": "https://wellness.vayo.co.th/blog/2026-beauty-medical-device-trends/",
+      "strategic_implication": "HR ควรวางแผนนโยบาย wellness benefits ครอบคลุมเทคโนโลยีรักษาความงามขั้นสูงสำหรับพนักงาน"
+    },
+    {
+      "query_tag": "TH_WELLNESS_PROP_LONGEVITY_1",
+      "badge_color": "#22c55e",
+      "region": "local",
+      "title": "โภชนาการสำหรับทุกช่วงวัย วัยทำงานกำลังหลัก",
+      "summary": "วัยทำงานเป็นกำลังสำคัญในการส่งเสริมสุขภาพและสร้างความรอบรู้สุขภาพ",
+      "source": "อนามัยมีเดีย",
+      "url": "https://multimedia.anamai.moph.go.th/associates/hp-ebook_02/",
+      "strategic_implication": "องค์กรต้องลงทุนพัฒนาความรอบรู้สุขภาพพนักงานวัยทำงานเป็นหลัก"
     }
   ],
   "errors": []
